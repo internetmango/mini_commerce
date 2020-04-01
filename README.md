@@ -4,7 +4,7 @@ Mini Shop is a basic e-commerce solution built with Ruby on Rails 6.0
 
 ## Demo
 
-You can view the demo deployed to heroku at [https://mini-shop-rails.herokuapp.com](https://mini-shop-rails.herokuapp.com).
+You can view the demo deployed to heroku at [https://minishopdemo.herokuapp.com](https://minishopdemo.herokuapp.com).
 
 #### Admin Credentials
 
