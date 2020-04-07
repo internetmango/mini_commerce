@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: 'auth',
+                     path_names: { sign_in: 'login', sign_out: 'logout',
+                                   registration: 'register', sign_up: 'signup' }
   root to: 'mockups#index'
   resources :mockups, only: :index do
     collection do
@@ -7,5 +11,8 @@ Rails.application.routes.draw do
       get :category
       get :cart
     end
+  end
+  namespace :admin do
+    resource :dashboard, only: [:show]
   end
 end
