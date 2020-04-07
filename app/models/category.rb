@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Category class
 class Category < ApplicationRecord
   has_many :products, dependent: :destroy
   validates :title, presence: true,

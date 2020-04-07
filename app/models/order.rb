@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Order class
 class Order < ApplicationRecord
   has_many :items, class_name: 'OrderItem'
 
