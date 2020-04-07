@@ -1,0 +1,99 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: 'utf-8'}/
+    %meta{content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport'}/
+    %meta{content: '', name: 'description'}/
+    %meta{content: '', name: 'author'}/
+    %title #{t('Mini Shop')}
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-dark.fixed-top.bg-danger.p-0.shadow
+      = link_to t('Mini shop'), root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
+      %button.d-sm-none.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+
+      - if current_user
+        .d-sm-none.collapse.navbar-collapse.sidebar-navbar#navbarCollapse
+          %ul.nav.flex-column
+            %li.nav-item
+              = link_to root_path, class: 'nav-link' do
+                %span{'data-feather' => 'users'}
+                Users
+            - if current_user.admin?
+              %li.nav-item
+                %a.nav-link{href: '#'}
+                  %span{'data-feather' => 'droplet'}
+                  Link 2
+              %li.nav-item
+                %a.nav-link{href: '#'}
+                  %span{'data-feather' => 'user'}
+                  User
+        %ul.navbar-nav.px-3.d-xs-none
+          %li.nav-item.text-nowrap
+            %span.navbar-text
+              Logged in as #{current_user.email}.
+              = link_to 'Sign Out', destroy_user_session_path
+    .container-fluid
+      .row
+        - if current_user.nil?
+          %main.col-md-12.ml-auto.px-4.py-5
+            .well.text-center
+              Not valid roles!
+              %br
+              Please contact
+              %b #{t('Mini Shop')}
+              admin at
+              = link_to t('pages.support_email'), "mailto:#{t('pages.support_email')}"
+        - else
+          %nav.col-md-3.col-lg-2.d-none.d-md-block.bg-dark.sidebar
+            .sidebar-sticky
+              - if current_user
+                %ul.nav.flex-column
+                  %li.nav-item
+                    = link_to root_path, class: 'nav-link' do
+                      %span{'data-feather' => 'users'}
+                      Orders
+                  %li.nav-item
+                    = link_to root_path, class: 'nav-link' do
+                      %span{'data-feather' => 'users'}
+                      Products
+                  %li.nav-item
+                    = link_to root_path, class: 'nav-link' do
+                      %span{'data-feather' => 'file'}
+                      Users
+                  - if current_user
+                    %li.nav-item
+                      = link_to root_path, class: 'nav-link' do
+                        %span{'data-feather' => 'settings'}
+                        Settings
+                %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+                  %span Reports
+                %ul.nav.flex-column.mb-2
+                  %li.nav-item
+                    = link_to root_path, class: 'nav-link' do
+                      %span{'data-feather' => 'file-text'}
+                      Link 4
+              - if current_user.admin?
+                .sidebar-section.bg-danger
+                  %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+                    %span Admin
+                  %ul.nav.flex-column.mb-2
+                    %li.nav-item
+                      %a.nav-link{href: '#'}
+                        %span{'data-feather' => 'droplet'}
+                        Products
+                    %li.nav-item
+                      %a.nav-link{href: '#'}
+                        %span{'data-feather' => 'user'}
+                        Users
+          %main.col-md-9.ml-sm-auto.col-lg-10.px-4{:role => 'main'}
+            = yield
+
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
+    %script{:src => "https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"}
+    %script{src: 'https://unpkg.com/feather-icons/dist/feather.min.js'}
+    :javascript
+      feather.replace()
