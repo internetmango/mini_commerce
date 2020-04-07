@@ -16,7 +16,7 @@ class Product < ApplicationRecord
       product['category_id'] = category_id
       product.delete('category')
 
-      Product.create! product
+      Product.create!(product)
     end
   end
 
