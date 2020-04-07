@@ -1,0 +1,35 @@
+!!!
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}/
+    %meta{content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport'}/
+    %meta{content: '', name: 'description'}/
+    %meta{content: '', name: 'author'}/
+    %title #{t('Mini shop')}
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-dark.fixed-top.bg-danger.flex-md-nowrap.p-0.text-light
+      #navbarsExampleDefault.collapse.navbar-collapse.d-flex.justify-content-center
+        %a.navbar-brand.px-3{href: "#{root_path}"} #{t('Mini shop')}
+        - if current_user
+          %ul.navbar-nav.px-3
+            %li.nav-item.text-nowrap
+              %span.navbar-text
+                Logged in as #{current_user.email}.
+                = link_to 'Sign Out', destroy_user_session_path
+
+    .container-fluid
+      .row
+        .col-md-6.col.col-sm-8.col-xs-12.mx-auto.mt-5
+          %div.pt-4.text-center
+            - flash.each do |name, msg|
+              = content_tag :div, msg, class: "#{flash_class(name)}"
+      = yield
+
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
+    %script{:src => "https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"}
+    %script{src: 'https://unpkg.com/feather-icons/dist/feather.min.js'}
+    :javascript
+      feather.replace()
