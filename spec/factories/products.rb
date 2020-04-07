@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :product do
     category_id { 1 }
-    name { 'real me' }
+    name { 'Realme X1' }
     price { 10_000 }
     description { 'Helio P70 AI Processor' }
   end

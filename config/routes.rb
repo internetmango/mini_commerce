@@ -5,6 +5,7 @@ Rails.application.routes.draw do
                      path_names: { sign_in: 'login', sign_out: 'logout',
                                    registration: 'register', sign_up: 'signup' }
   root to: 'pages#index'
+
   resources :mockups, only: :index do
     collection do
       get :search
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       get :cart
     end
   end
+
   namespace :admin do
     resource :dashboard, only: [:show]
   end

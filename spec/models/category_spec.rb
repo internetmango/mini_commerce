@@ -3,14 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  # tests go here
   subject { Category.new(title: 'Furniture') }
 
   before { subject.save }
 
   it 'title should be present' do
     subject.title = nil
-
     expect(subject).to_not be_valid
   end
 
@@ -21,15 +19,17 @@ RSpec.describe Category, type: :model do
 
   it 'should have a unique name' do
     Category.create!(title: 'Foo')
-    foo = Category.new(title: 'Foo')
-    expect(foo).to_not be_valid
-    expect(foo.errors[:title]).to include('has already been taken')
+    another_foo = Category.new(title: 'Foo')
+
+    expect(another_foo).to_not be_valid
+    expect(another_foo.errors[:title]).to include('has already been taken')
   end
 
   it 'should have many products' do
     category = Category.reflect_on_association(:products)
     expect(category.macro).to eq(:has_many)
   end
+
   it 'should have many teams' do
     category = Category.reflect_on_association(:products)
     expect(category.macro).to eq(:has_many)

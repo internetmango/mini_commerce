@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# custom class
 class ShopingCart
   delegate :sub_total, to: :order
   def initialize(token:)

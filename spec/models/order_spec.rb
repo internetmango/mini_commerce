@@ -6,12 +6,12 @@ RSpec.describe Order, type: :model do
   subject { Order.new }
   before { subject.save }
 
-  it 'should have  many items' do
+  it 'should have many items' do
     order = Order.reflect_on_association(:items)
     expect(order.macro).to eq(:has_many)
   end
 
-  it 'group by day' do
+  it 'should group by day' do
     create(:order)
     orders = Order.all
     chart_data = Order.group_by_day(orders)

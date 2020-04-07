@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Order class
 class Order < ApplicationRecord
   has_many :items, class_name: 'OrderItem'
 
@@ -8,6 +7,7 @@ class Order < ApplicationRecord
     data = orders.group_by do |order|
       order.created_at.to_date.strftime('%Y-%m-%d')
     end
+
     chart_data = {}
 
     data.each do |date, order|
