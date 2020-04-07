@@ -5,13 +5,13 @@
     %meta{content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport'}/
     %meta{content: '', name: 'description'}/
     %meta{content: '', name: 'author'}/
-    %title #{t('Mini shop')}
+    %title Mini Shop
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
     %nav.navbar.navbar-dark.fixed-top.bg-danger.flex-md-nowrap.p-0.text-light
       #navbarsExampleDefault.collapse.navbar-collapse.d-flex.justify-content-center
-        %a.navbar-brand.px-3{href: "#{root_path}"} #{t('Mini shop')}
+        %a.navbar-brand.px-3{href: "#{root_path}"} Mini Shop
         - if current_user
           %ul.navbar-nav.px-3
             %li.nav-item.text-nowrap
