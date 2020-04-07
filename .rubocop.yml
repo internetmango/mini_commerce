@@ -5,7 +5,9 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
-    - 'bin/{rails,rake}'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - '{Gemfile,Rakefile,config.ru}'
 
 Style/Documentation:
   Enabled: false
