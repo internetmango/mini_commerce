@@ -1,0 +1,38 @@
+AllCops:
+  TargetRubyVersion: 2.6.5
+  EnabledByDefault: true
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake}'
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 100
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MissingElse:
+  Enabled: false
