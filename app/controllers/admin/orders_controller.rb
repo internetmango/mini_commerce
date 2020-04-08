@@ -2,6 +2,8 @@
 
 module Admin
   class OrdersController < AdminController
+    include Pagy::Backend
+
     before_action :set_order, except: %i[index]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 

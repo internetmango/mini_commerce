@@ -1,10 +1,8 @@
 @import 'bootstrap/scss/bootstrap';
 
-
 main {
   min-height: 100vh;
 }
-
 
 body {
   font-size: .875rem;
@@ -20,13 +18,14 @@ body {
   margin-left: 15px;
   color: rgba(255,255,255,1);
 }
+
 .nav-text{
   color: rgba(255,255,255,1);
 }
 
-/*
+/*********************************************************************
  * Sidebar
- */
+ **/
 
 .sidebar {
   position: fixed;
@@ -93,14 +92,16 @@ body {
 
 .bg-danger .sidebar-heading.text-muted span {
   color: #ECECEC;
-  }
-/*
+}
+
+/*********************************************************************
  * Content
  */
 
 [role="main"] {
   padding-top: 20px; /* Space for fixed navbar */
 }
+
 @media (max-width: '768px') {
   [role="main"] {
     padding-top: 55px; /* Space for fixed navbar */
@@ -110,15 +111,21 @@ body {
 .page-top-pitch{
   padding-top: 30px;
 }
-/*
+
+/*********************************************************************
  * Navbar
  */
 
 .navbar-brand {
   padding-top: .75rem;
   padding-bottom: .75rem;
-  background-color: rgba(0, 0, 0, .25);
+
+  :hover {
+    background-color: inherit;
+  }
 }
+
+
 
 .navbar .form-control {
   padding: .75rem 1rem;
@@ -141,33 +148,27 @@ body {
   font-size: .875rem;
 }
 
-/*
+/*********************************************************************
  * Utilities
  */
 
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
-
 body{
   margin-top: 3.5em;
 }
+
 body.app{
   margin-top: 5em;
 }
+
 .pitchbg{
   background-color: #e1e6e9;
 }
 
-
 .box{
   background-color: #fefefe;
-}
-
-.card.next-donation{
-  background-color: #603e59;
-  padding: 10px;
-  color: white;
 }
 
 footer a, footer a:hover{
@@ -175,6 +176,7 @@ footer a, footer a:hover{
   border-bottom: 1px solid #EEE;
   text-decoration: none
 }
+
 .action-bar {
   padding: 1em;
   border-radius: 4px;

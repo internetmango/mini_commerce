@@ -50,43 +50,33 @@
         - else
           %nav.col-md-3.col-lg-2.d-none.d-md-block.bg-dark.sidebar
             .sidebar-sticky
-              - if current_user
-                %ul.nav.flex-column
+              - if current_user && current_user.admin?
+                %ul.nav.flex-column.pt-4
                   %li.nav-item
-                    = link_to root_path, class: 'nav-link' do
-                      %span{'data-feather' => 'users'}
+                    = link_to admin_orders_path, class: 'nav-link' do
+                      %span{'data-feather' => 'shopping-cart'}
                       Orders
                   %li.nav-item
-                    = link_to root_path, class: 'nav-link' do
-                      %span{'data-feather' => 'users'}
+                    = link_to '#', class: 'nav-link' do
+                      %span{'data-feather' => 'box'}
                       Products
                   %li.nav-item
-                    = link_to root_path, class: 'nav-link' do
-                      %span{'data-feather' => 'file'}
+                    = link_to admin_users_path, class: 'nav-link' do
+                      %span{'data-feather' => 'users'}
                       Users
                   - if current_user
                     %li.nav-item
-                      = link_to root_path, class: 'nav-link' do
+                      = link_to '#', class: 'nav-link' do
                         %span{'data-feather' => 'settings'}
                         Settings
                 %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
                   %span Reports
                 %ul.nav.flex-column.mb-2
                   %li.nav-item
-                    = link_to root_path, class: 'nav-link' do
+                    = link_to '#', class: 'nav-link' do
                       %span{'data-feather' => 'file-text'}
-                      Link 4
-              - if current_user.admin?
-                .sidebar-section.bg-danger
-                  %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-                    %span Admin
-                  %ul.nav.flex-column.mb-2
-                    %li.nav-item
-                      = link_to admin_users_path, class: 'nav-link' do
-                        %span{'data-feather' => 'users'}
-                    %li.nav-item
-                      = link_to admin_orders_path, class: 'nav-link' do
-                        %span{'data-feather' => 'package'}
+                      Daily Orders
+
           %main.col-md-9.ml-sm-auto.col-lg-10.px-4{:role => 'main'}
             = yield
 
