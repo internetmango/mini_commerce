@@ -8,6 +8,7 @@
     %title Mini Shop
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application'
   %body
     %nav.navbar.navbar-dark.fixed-top.bg-danger.p-0.shadow
       = link_to 'Mini Shop', root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
@@ -80,15 +81,6 @@
                   %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
                   %a.nav-link{href: 'admin/dashboard'}
                     %span Admin
-                  %ul.nav.flex-column.mb-2
-                    %li.nav-item
-                      %a.nav-link{href: '#'}
-                        %span{'data-feather' => 'droplet'}
-                        Products
-                    %li.nav-item
-                      %a.nav-link{href: '#'}
-                        %span{'data-feather' => 'user'}
-                        Users
           %main.col-md-9.ml-sm-auto.col-lg-10.px-4{:role => 'main'}
             = yield
 

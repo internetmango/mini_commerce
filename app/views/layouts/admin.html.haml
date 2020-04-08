@@ -8,6 +8,8 @@
     %title Mini Shop
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application'
+
   %body
     %nav.navbar.navbar-dark.fixed-top.bg-danger.p-0.shadow
       = link_to 'Mini Shop', root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
@@ -20,7 +22,6 @@
             %li.nav-item
               = link_to root_path, class: 'nav-link' do
                 %span{'data-feather' => 'users'}
-                Users
             - if current_user.admin?
               %li.nav-item
                 %a.nav-link{href: '#'}
@@ -81,13 +82,11 @@
                     %span Admin
                   %ul.nav.flex-column.mb-2
                     %li.nav-item
-                      %a.nav-link{href: '#'}
-                        %span{'data-feather' => 'droplet'}
-                        Products
+                      = link_to admin_users_path, class: 'nav-link' do
+                        %span{'data-feather' => 'users'}
                     %li.nav-item
-                      %a.nav-link{href: '#'}
-                        %span{'data-feather' => 'user'}
-                        Users
+                      = link_to admin_orders_path, class: 'nav-link' do
+                        %span{'data-feather' => 'package'}
           %main.col-md-9.ml-sm-auto.col-lg-10.px-4{:role => 'main'}
             = yield
 

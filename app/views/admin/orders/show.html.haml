@@ -1,0 +1,21 @@
+.row
+  .col-12
+    .action-bar
+      = link_to admin_order_path(@order), method: :delete, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'trash'}
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Order/#{@order.order_number}
+      %hr
+        %p#notice= notice
+        %p
+          %strong Order Number:
+          = @order.order_number
+        %p
+          %strong Subtotal:
+          = @order.sub_total
+        %p
+          %strong Status:
+          = @order.status
+      .py-2

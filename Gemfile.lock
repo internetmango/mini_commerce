@@ -176,6 +176,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pagy (3.7.4)
     pg (1.2.3)
     pg_search (2.3.2)
       activerecord (>= 5.2)
@@ -327,6 +328,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   listen (>= 3.0.5, < 3.2)
+  pagy
   pg (>= 0.18, < 2.0)
   pg_search (~> 2.2)
   pry-rails
@@ -348,4 +350,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
