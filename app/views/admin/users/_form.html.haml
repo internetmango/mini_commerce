@@ -3,7 +3,7 @@
     .card.p-3
       %h6.text-center Sign up for Mini Shop
       %hr
-      = form_for(resource, as: resource_name, url: user_registration_path) do |f|
+      = form_for(@user, url: admin_users_path(:id => @user.id)) do |f|
         .form-group
           = f.label :name
           = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'
@@ -17,14 +17,9 @@
         .form-group
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-
-        - if devise_mapping.rememberable?
-          .form-check
-            = f.check_box :remember_me, class: 'form-check-input'
-            = f.label :remember_me
+        .form-check
+          = f.check_box :admin, class: 'form-check-input'
+          = f.label :admin
         .actions
-          = f.submit "Log in", class: 'btn btn-danger btn-block'
+          = f.submit "Submit", class: 'btn btn-danger btn-block'
       .py-2
-
-        - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-          = link_to "Forgot your password?", new_password_path(resource_name)

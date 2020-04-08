@@ -15,6 +15,17 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resource :dashboard, only: [:show]
+    resource :dashboard, only: :show
+    resource :users do
+      collection do
+        get 'all'
+        get 'reset_password'
+      end
+    end
+    resource :orders , only: [:show,:edit,:update] do
+      collection do
+        get 'all'
+      end
+    end
   end
 end
