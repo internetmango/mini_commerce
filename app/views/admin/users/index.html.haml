@@ -30,11 +30,11 @@
             - @users.each do |user|
               %tr
                 %td
-                  = link_to user.name, admin_user_path(:id => user.id)
+                  = link_to user.name, admin_user_path(user)
                 %td= user.email
                 %td= user.admin
                 %td
                   %span>
-                    = link_to edit_admin_user_path(:id => user.id), class: 'nav-link' do
+                    = link_to edit_admin_user_path(user), class: 'nav-link' do
                       %span{'data-feather' => 'edit'}
       = pagy_bootstrap_nav(@pagy).html_safe      

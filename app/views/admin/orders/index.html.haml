@@ -20,11 +20,11 @@
             - @orders.each do |order|
               %tr
                 %td
-                  = link_to order.order_number,admin_order_path(id: order.id)
+                  = link_to order.order_number,admin_order_path(order)
                 %td= order.status
                 %td= order.sub_total
                 %td
                   %span>
-                    = link_to edit_admin_order_path(id: order.id), class: 'nav-link' do
+                    = link_to edit_admin_order_path(order), class: 'nav-link' do
                       %span{'data-feather' => 'edit'}
       = pagy_bootstrap_nav(@pagy).html_safe

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         get 'reset_password'
       end
     end
-    resources :orders , only: [:index,:show,:edit,:update] do
+    resources :orders , only: [:index,:show,:edit,:update,:destroy] do
     end
   end
 end

@@ -3,7 +3,7 @@
 module Admin
   class UsersController < AdminController
     before_action :authenticate_admin
-    before_action :set_user, except: %i[index]
+    before_action :set_user, except: %i[index new create]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
