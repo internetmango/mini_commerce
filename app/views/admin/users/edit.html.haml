@@ -1,7 +1,7 @@
 .row
   .col-12
     .action-bar
-      = link_to reset_password_admin_user_path(:id => @user.id), class: 'btn btn-danger btn-sm' do
+      = link_to reset_password_admin_user_path(@user), class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'tool'}
         Reset password
 .row
@@ -12,13 +12,13 @@
       = form_for(@user, url: admin_user_path(@user)) do |f|
         .form-group
           = f.label :name
-          = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'
+          = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
         .form-group
           = f.label :email
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+          = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
         .form-check
           = f.check_box :admin, class: 'form-check-input'
           = f.label :admin
         .actions
-          = f.submit "Submit", class: 'btn btn-danger btn-block'
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
       .py-2

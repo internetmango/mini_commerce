@@ -2,6 +2,7 @@
 
 class ShopingCart
   delegate :sub_total, to: :order
+
   def initialize(token:)
     @token = token
   end

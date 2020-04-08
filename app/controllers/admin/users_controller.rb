@@ -2,8 +2,9 @@
 
 module Admin
   class UsersController < AdminController
-    before_action :authenticate_admin
-    before_action :set_user, except: %i[index new create]
+    include Pagy::Backend
+
+    before_action :set_user, only: %i[show edit update reset_password destroy]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
@@ -22,10 +23,10 @@ module Admin
 
     def update
       if @user.update(user_params)
-        redirect_to admin_user_path(id: @user.id), notice: 'Successfully updated profile.'
+        redirect_to admin_user_path(@user), notice: 'Successfully updated user.'
       else
         Rails.logger.info(@user.errors.messages.inspect)
-        render 'edit'
+        render :edit
       end
     end
 

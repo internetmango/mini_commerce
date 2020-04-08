@@ -1,12 +1,12 @@
 .row
   .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
     .card.p-3
-      %h6.text-center Edit user
+      %h6.text-center Edit User
       %hr
       = form_for(order, url: admin_order_path(order)) do |f|
         .form-group
           = f.label :subtotal
-          = f.text_field :sub_total, autofocus: true, autocomplete: "name", class: 'form-control'
+          = f.text_field :sub_total, autofocus: true, autocomplete: 'name', class: 'form-control'
         .actions
-          = f.submit "Submit", class: 'btn btn-danger btn-block'
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
       .py-2

@@ -2,7 +2,6 @@
 
 module Admin
   class OrdersController < AdminController
-    before_action :authenticate_admin
     before_action :set_order, except: %i[index]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
@@ -16,7 +15,7 @@ module Admin
 
     def update
       if @order.update(order_params)
-        redirect_to admin_order_path(id: @order.id),
+        redirect_to admin_order_path(@order),
                     notice: 'Order was successfully updated.'
       else
         render :edit

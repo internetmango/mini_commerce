@@ -18,10 +18,10 @@ Rails.application.routes.draw do
     resource :dashboard, only: :show
     resources :users do
       member do
-        get 'reset_password'
+        get :reset_password
       end
     end
-    resources :orders , only: [:index,:show,:edit,:update,:destroy] do
-    end
+
+    resources :orders , only: [:index, :show, :edit, :update, :destroy]
   end
 end
