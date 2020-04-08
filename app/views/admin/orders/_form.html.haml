@@ -3,7 +3,7 @@
     .card.p-3
       %h6.text-center Edit user
       %hr
-      = form_for(order, url: admin_orders_path(:id => order.id)) do |f|
+      = form_for(@order, url: admin_order_path(order)) do |f|
         .form-group
           = f.label :subtotal
           = f.text_field :sub_total, autofocus: true, autocomplete: "name", class: 'form-control'

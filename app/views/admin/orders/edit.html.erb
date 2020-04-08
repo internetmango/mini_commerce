@@ -1,4 +1,4 @@
 <h1>Edit Order</h1>
 <%= render 'form', order: @order %>
-<%= link_to 'Show', admin_orders_path(:id => @order.id) %> |
-<%= link_to 'Back', all_admin_orders_path %>
+<%= link_to 'Show', admin_order_path(@order) %> |
+<%= link_to 'Back', admin_orders_path %>

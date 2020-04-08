@@ -3,11 +3,11 @@
 module Admin
   class OrdersController < AdminController
     before_action :authenticate_admin
-    before_action :set_order, only: %i[show edit update destroy]
+    before_action :set_order, except: %i[index]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
-    def all
-      @orders = Order.all
+    def index
+      @pagy, @orders = pagy(Order.all, items: 4)
     end
 
     def show; end
@@ -15,8 +15,8 @@ module Admin
     def edit; end
 
     def update
-      if set_order.update(order_params)
-        redirect_to admin_orders_path(id: set_order.id),
+      if @order.update(order_params)
+        redirect_to admin_order_path(id: @order.id),
                     notice: 'Order was successfully updated.'
       else
         render :edit
@@ -25,7 +25,7 @@ module Admin
 
     def destroy
       @order.destroy
-      redirect_to all_admin_orders_path,
+      redirect_to admin_order_path,
                   notice: 'Order was successfully destroyed.'
     end
 
