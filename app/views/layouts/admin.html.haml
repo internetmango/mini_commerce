@@ -82,10 +82,10 @@
                     %span Admin
                   %ul.nav.flex-column.mb-2
                     %li.nav-item
-                      = link_to all_admin_users_path, class: 'nav-link' do
+                      = link_to admin_users_path, class: 'nav-link' do
                         %span{'data-feather' => 'users'}
                     %li.nav-item
-                      = link_to all_admin_orders_path, class: 'nav-link' do
+                      = link_to admin_orders_path, class: 'nav-link' do
                         %span{'data-feather' => 'package'}
           %main.col-md-9.ml-sm-auto.col-lg-10.px-4{:role => 'main'}
             = yield
