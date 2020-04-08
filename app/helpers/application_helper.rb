@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  include Pagy::Frontend
   def flash_class(level)
     case level.to_sym
     when :notice then 'alert alert-info'

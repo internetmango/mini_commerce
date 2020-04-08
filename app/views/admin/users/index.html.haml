@@ -37,3 +37,4 @@
                   %span>
                     = link_to edit_admin_user_path(:id => user.id), class: 'nav-link' do
                       %span{'data-feather' => 'edit'}
+      = pagy_bootstrap_nav(@pagy).html_safe      

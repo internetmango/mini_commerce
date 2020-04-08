@@ -3,12 +3,11 @@
 module Admin
   class UsersController < AdminController
     before_action :authenticate_admin
-    before_action :set_user, only: %i[show edit update reset_password destroy]
+    before_action :set_user, except: %i[index]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
-      @users = User.order(admin: :desc)
-      @admin_users = @users.where(admin: true)
+      @pagy, @users = pagy(User.order(admin: :desc), items: 4)
     end
 
     def new
@@ -35,7 +34,7 @@ module Admin
     def destroy
       @user.destroy
       redirect_to admin_users_path,
-                  notice: 'Order was successfully destroyed.'
+                  notice: 'User was successfully destroyed.'
     end
 
     def reset_password
