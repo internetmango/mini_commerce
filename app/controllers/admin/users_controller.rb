@@ -6,7 +6,7 @@ module Admin
     before_action :set_user, only: %i[show edit update reset_password destroy]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
-    def all
+    def index
       @users = User.order(admin: :desc)
       @admin_users = @users.where(admin: true)
     end
@@ -17,13 +17,13 @@ module Admin
 
     def create
       User.create!(user_params)
-      redirect_to all_admin_users_path,
+      redirect_to admin_users_path,
                   notice: 'User was successfully created.'
     end
 
     def update
       if @user.update(user_params)
-        redirect_to all_admin_users_path, notice: 'Successfully updated profile.'
+        redirect_to admin_user_path(id: @user.id), notice: 'Successfully updated profile.'
       else
         Rails.logger.info(@user.errors.messages.inspect)
         render 'edit'
@@ -34,13 +34,13 @@ module Admin
 
     def destroy
       @user.destroy
-      redirect_to all_admin_users_path,
+      redirect_to admin_users_path,
                   notice: 'Order was successfully destroyed.'
     end
 
     def reset_password
       @user.send_reset_password_instructions
-      redirect_to all_admin_users_path,
+      redirect_to admin_users_path,
                   notice: 'Password reset link has been sent.'
     end
 

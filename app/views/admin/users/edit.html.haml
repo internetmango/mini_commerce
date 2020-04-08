@@ -1,7 +1,7 @@
 .row
   .col-12
     .action-bar
-      = link_to reset_password_admin_users_path(:id => @user.id), class: 'btn btn-danger btn-sm' do
+      = link_to reset_password_admin_user_path(:id => @user.id), class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'tool'}
         Reset password
 .row
@@ -9,7 +9,7 @@
     .card.p-3
       %h6.text-center Sign up for Mini Shop
       %hr
-      = form_for(@user, url: admin_users_path(:id => @user.id)) do |f|
+      = form_for(@user, url: admin_user_path(:id => @user.id)) do |f|
         .form-group
           = f.label :name
           = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'

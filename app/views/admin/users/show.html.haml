@@ -4,11 +4,11 @@
 .row
   .col-12
     .action-bar
-      = link_to edit_admin_users_path(:id => @user.id), class: 'btn btn-danger btn-sm' do
+      = link_to edit_admin_user_path(:id => @user.id), class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'edit'}
       = link_to admin_users_url(:id => @user.id), method: :delete, class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'trash'}
-      = link_to reset_password_admin_users_path(:id => @user.id), class: 'btn btn-danger btn-sm' do
+      = link_to reset_password_admin_user_path(:id => @user.id), class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'tool'}
         Reset password
 .row

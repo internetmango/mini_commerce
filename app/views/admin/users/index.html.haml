@@ -4,7 +4,7 @@
 .row
   .col-12
     .action-bar
-      = link_to new_admin_users_path, class: 'btn btn-danger btn-sm' do
+      = link_to new_admin_user_path, class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'user-plus'}
 
 .row
@@ -30,10 +30,10 @@
             - @users.each do |user|
               %tr
                 %td
-                  = link_to user.name, admin_users_path(:id => user.id)
+                  = link_to user.name, admin_user_path(:id => user.id)
                 %td= user.email
                 %td= user.admin
                 %td
                   %span>
-                    = link_to edit_admin_users_path, class: 'nav-link' do
+                    = link_to edit_admin_user_path(:id => user.id), class: 'nav-link' do
                       %span{'data-feather' => 'edit'}
