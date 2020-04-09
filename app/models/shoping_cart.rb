@@ -14,7 +14,7 @@ class ShopingCart
   end
 
   def add_item(product_id:, quantity:)
-    product =  Product.find(product_id)
+    product = Product.find(product_id)
     order_item = order.items.find_or_initialize_by(product_id: product_id)
     order_item.price = product.price
     order_item.quantity = quantity

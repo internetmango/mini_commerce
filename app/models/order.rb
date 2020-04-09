@@ -2,6 +2,8 @@
 
 class Order < ApplicationRecord
   has_many :items, class_name: 'OrderItem'
+  belongs_to :billing_address, optional: true, class_name: 'Address'
+  belongs_to :shipping_address, optional: true, class_name: 'Address'
 
   def self.group_by_day(orders)
     data = orders.group_by do |order|

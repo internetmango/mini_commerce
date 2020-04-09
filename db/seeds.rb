@@ -4,12 +4,12 @@ User.create!(name: 'Admin User', email: 'admin@example.com', password: 'mangoint
 User.create!(name: 'John Doe', email: 'user@example.com', password: 'mangointernet')
 User.create!(name: 'Jane Roe', email: 'jane@example.com', password: 'mangointernet')
 
-category = Category.create(title: 'Phone')
+category = Category.create!(name: 'Phone')
 products = Product.create!(
   [
-    { category_id: category.id, description: '', name: 'Realme 3', price: 10_000 },
-    { category_id: category.id, description: '', name: 'Realme 4', price: 10_000 },
-    { category_id: category.id, description: '', name: 'Realme 5', price: 10_000 }
+    { category_id: 1, description: '', name: 'Realme 3', price: 10_000 },
+    { category_id: 1, description: '', name: 'Realme 4', price: 10_000 },
+    { category_id: 1, description: '', name: 'Realme 5', price: 10_000 }
   ]
 )
 
