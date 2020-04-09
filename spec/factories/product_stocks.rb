@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :product_stock do
-    product_id { 1 }
+    association :product, factory: :product
     current_stock { 1 }
   end
 end

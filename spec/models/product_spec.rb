@@ -6,8 +6,7 @@ RSpec.describe Product, type: :model do
   let(:csv_file) { File.new(fixture_path + '/products.csv') }
 
   before :all do
-    create(:category) unless Category
-    @product = create(:product)
+    @product = build(:product)
   end
 
   it 'should have a title' do

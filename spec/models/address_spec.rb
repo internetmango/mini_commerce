@@ -4,8 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Address, type: :model do
   before :all do
-    create(:order) unless Order
-    @address = create(:address)
+    @address = build(:address)
   end
 
   it 'should have an address line 1' do

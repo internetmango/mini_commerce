@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_180144) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "order_id", null: false
     t.string "address_line1"
     t.string "address_line2"
     t.string "city"
@@ -45,11 +44,10 @@ ActiveRecord::Schema.define(version: 2020_04_08_180144) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_addresses_on_order_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -66,6 +64,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_180144) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer "shipping_address_id"
+    t.integer "billing_address_id"
     t.decimal "sub_total", precision: 2
     t.string "token"
     t.string "status", default: "cart"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_180144) do
 
   create_table "product_images", force: :cascade do |t|
     t.integer "product_id"
-    t.boolean "main"
+    t.boolean "main", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_180144) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "addresses", "orders"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "products", "categories"

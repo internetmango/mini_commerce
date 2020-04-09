@@ -2,14 +2,13 @@
 
 FactoryBot.define do
   factory :address do
-    address_line1 { 'MyString' }
-    address_line2 { 'MyString' }
-    city { 'MyString' }
-    zipcode { 'MyString' }
-    state { 'MyString' }
-    country { 'MyString' }
-    phone { 'MyString' }
-    user_id { 1 }
-    order_id { 1 }
+    association :user, factory: :user
+    address_line1 { 'line 1' }
+    address_line2 { 'line 2' }
+    city { 'city' }
+    zipcode { 'zipcode' }
+    state { 'state' }
+    country { 'country' }
+    phone { 'mobile' }
   end
 end

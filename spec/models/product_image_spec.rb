@@ -5,9 +5,7 @@ require 'rails_helper'
 RSpec.describe ProductImage, type: :model do
   let(:img) { File.new(fixture_path + '/mobile.jpeg') }
 
-  before :each do
-    create(:category) unless Category
-    create(:product) unless Product
+  before :all do
     @product_image = build(:product_image)
   end
 

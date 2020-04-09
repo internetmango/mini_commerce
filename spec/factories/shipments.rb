@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :shipment do
-    tracking_url { 'MyString' }
+    tracking_url { 'tracking url' }
     number { 1 }
-    order_id { 1 }
-    address_id { 1 }
-    status { 'MyString' }
+    association :order, factory: :order
+    association :address, factory: :address
+    status { 'pending' }
   end
 end

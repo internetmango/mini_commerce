@@ -3,26 +3,26 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  subject { Category.new(title: 'Furniture') }
-
-  before { subject.save }
-
-  it 'title should be present' do
-    subject.title = nil
-    expect(subject).to_not be_valid
+  before :all do
+    @category = build(:category)
   end
 
-  it 'title should not be too long' do
-    subject.title = 'a' * 20
-    expect(subject).to_not be_valid
+  it 'name should be present' do
+    @category.name = nil
+    expect(@category).to_not be_valid
+  end
+
+  it 'name should not be too long' do
+    @category.name = 'a' * 20
+    expect(@category).to_not be_valid
   end
 
   it 'should have a unique name' do
-    Category.create!(title: 'Foo')
-    another_foo = Category.new(title: 'Foo')
+    Category.create!(name: 'Tv')
+    another_category = Category.new(name: 'Tv')
 
-    expect(another_foo).to_not be_valid
-    expect(another_foo.errors[:title]).to include('has already been taken')
+    expect(another_category).to_not be_valid
+    expect(another_category.errors[:name]).to include('has already been taken')
   end
 
   it 'should have many products' do

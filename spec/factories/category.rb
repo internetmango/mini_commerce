@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :category do
-    title { 'Phone' }
+    name { 'Phone' }
   end
 end

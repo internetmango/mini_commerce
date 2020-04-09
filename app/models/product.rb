@@ -10,8 +10,8 @@ class Product < ApplicationRecord
       product = row.to_hash.symbolize_keys
 
       category_name = product[:category].capitalize
-      category = Category.find_by(title: category_name)
-      category ||= Category.create!(title: category_name)
+      category = Category.find_by(name: category_name)
+      category ||= Category.create!(name: category_name)
 
       Product.create!(product.except(:category).merge(category_id: category.id))
     end
