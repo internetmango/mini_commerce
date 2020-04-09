@@ -23,5 +23,6 @@ Rails.application.routes.draw do
     end
 
     resources :orders , only: [:index, :show, :edit, :update, :destroy]
+    resources :products
   end
 end
