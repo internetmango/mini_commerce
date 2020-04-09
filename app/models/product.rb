@@ -3,6 +3,7 @@
 class Product < ApplicationRecord
   validates :name, presence: true
   belongs_to :category
+  has_many :product_images
 
   def self.import(file_path)
     CSV.foreach(file_path, headers: true) do |row|

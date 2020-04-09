@@ -5,19 +5,24 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   let(:csv_file) { File.new(fixture_path + '/products.csv') }
 
-  before :each do
-    create(:category)
+  before :all do
+    create(:category) unless Category
     @product = create(:product)
   end
 
   it 'should have a title' do
     @product.name = nil
-    expect(subject).to_not be_valid
+    expect(@product).to_not be_valid
   end
 
-  it 'should have  many items' do
+  it 'should belongs to a categry' do
     product = Product.reflect_on_association(:category)
     expect(product.macro).to eq(:belongs_to)
+  end
+
+  it 'should has many  product images' do
+    product = Product.reflect_on_association(:product_images)
+    expect(product.macro).to eq(:has_many)
   end
 
   it 'should import csv file and create products' do
@@ -26,7 +31,7 @@ RSpec.describe Product, type: :model do
   end
 
   it 'should generate CSV' do
-    csv_file = Product.generate_csv
-    expect(csv_file).to include 'brand,model'
+    csv = Product.generate_csv
+    expect(csv).to include 'brand,model'
   end
 end

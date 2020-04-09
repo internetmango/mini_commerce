@@ -5,8 +5,8 @@ RSpec.describe ShopingCart, type: :model do
   before :each do
     @cart_token = SecureRandom.hex(8)
     @current_cart ||= ShopingCart.new(token: @cart_token)
-    create(:category)
-    create(:product)
+    create(:category) unless Category
+    create(:product) unless Product
     @current_cart.add_item(product_id: 1, quantity: 5)
   end
 

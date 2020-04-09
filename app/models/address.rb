@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+
+class Address < ApplicationRecord
+  belongs_to :order
+  validates :address_line1, presence: true,
+                            length: { maximum: 25 }
+  validates :city, presence: true
+  validates :zipcode, presence: true
+  validates :country, presence: true
+  validates :user_id, presence: true
+end
