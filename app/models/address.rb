@@ -3,7 +3,7 @@
 class Address < ApplicationRecord
   belongs_to :order
   validates :address_line1, presence: true,
-                            length: { maximum: 25 }
+                            length: { maximum: 100 }
   validates :city, presence: true
   validates :zipcode, presence: true
   validates :country, presence: true
