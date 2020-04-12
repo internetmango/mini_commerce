@@ -26,4 +26,20 @@ Rails.application.routes.draw do
     resources :orders , only: [:index, :show, :edit, :update, :destroy]
     resources :products
   end
+
+  # Api
+  namespace :api do
+      namespace :v1 do
+        resources :products,except: [:new]
+        resources :users, except: [:new, :edit] do
+          member do
+            get :reset_password
+          end
+        end
+        resources :orders, only: [:index, :show, :update]
+        resources :categories, except: [:new, :edit]
+        resources :product_stocks, only: [:index, :show, :update]
+        resources :product_images, except: [:new, :edit]
+      end
+  end
 end
