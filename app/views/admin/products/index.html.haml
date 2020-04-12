@@ -1,12 +1,11 @@
 .row
-  .col-8
-    %h3 Products List
+  .col-12
+    %h3.text-center Products
 .row
   .col-12
     .action-bar
       = link_to new_admin_product_path, class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'plus'}
-
 .row
   .col-12
     .py-3
@@ -25,7 +24,6 @@
               %th Name
               %th Category
               %th Description
-              %th Slug
               %th Price
               %th Actions
 
@@ -36,7 +34,6 @@
                   = link_to product.name, admin_product_path(product)
                 %td= product.category.name
                 %td= product.description
-                %td= product.slug
                 %td= product.price
                 %td
                   %span>

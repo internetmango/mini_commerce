@@ -1,33 +1,66 @@
+
 = link_to admin_products_path(@product), class: 'btn btn-danger btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center Products Info
 %br/
 %br/
 .row
-  .col-12
-    .action-bar
-      = link_to edit_admin_product_path(@product), class: 'btn btn-danger btn-sm mr-1' do
-        %span{'data-feather' => 'edit'}
-      = link_to admin_product_path(@product), method: :delete, class: 'btn btn-danger btn-sm mr-1' do
-        %span{'data-feather' => 'trash'}
-.row
-  .col-md-4.mt-5.col.col-sm-6.col-xs-12
+  - product_images = @product.product_images
+  - image_count = product_images.count
+  - if product_images && product_images.count >= 1
+    - images = product_images.group_by.with_index{|_,i| i % image_count}.values
+    .col-md-3.mt-5.col.col-lg-6.col-xs-12
+      .container.text-center.my-3
+        #recipeCarousel.carousel.slide.w-100{'data-ride' => 'carousel'}
+          %ul.carousel-indicators
+            - for image in 1..image_count do
+              %li.active{'data-slide-to' => image, 'data-target' => '#recipeCarousel'}
+          .carousel-inner.w-100{:role => 'listbox'}
+            .carousel-item.row.no-gutters.active
+              - images[0].each do |image|
+                .col-20.float-left
+                  = image_tag image.image_url ,class: 'img-fluid'
+            - images[1..-1].each do |image|
+              .carousel-item.row.no-gutters
+                - image.each do |image|
+                  .col-20.float-left
+                    = image_tag image.image_url ,class: 'img-fluid'
+      %a.carousel-control-prev{'data-slide' => 'prev', :href => '#recipeCarousel', :role => 'button'}
+        %span.carousel-control-prev-icon{'aria-hidden' => 'true'}
+        %span.sr-only Previous
+      %a.carousel-control-next{'data-slide' => 'next', :href => '#recipeCarousel', :role => 'button'}
+        %span.carousel-control-next-icon{'aria-hidden' => 'true'}
+        %span.sr-only Next
+  - else
+    .col-md-3.mt-5.col.col-sm-7.col-xs-0
+      .card.p-3
+        %span{'data-feather' => 'image'}
+        %b No images
+  .col-md-5.mt-5.col.col-sm-7.col-xs-0
     .card.p-3
-      %h6.text-center Product Info
+      .row
+        .col-12
+          %h3.text-center Product
+          = link_to edit_admin_product_path(@product), class: 'btn btn-danger btn-sm mr-1' do
+            %span{'data-feather' => 'edit'}
+          = link_to admin_product_path(@product), method: :delete, class: 'btn btn-danger btn-sm mr-1' do
+            %span{'data-feather' => 'trash'}
       %hr
         %p#notice= notice
-        %p
-          %strong Name:
-          = @product.name
-        %p
-          %strong Category:
-          = @product.category.name
-        %p
-          %strong Description:
-          = @product.description
-        %p
-          %strong Slug:
-          = @product.slug
-        %p
-          %strong Price:
-          = @product.price
+        %dl.row
+          %dt.col-sm-4 Name:
+          %dd.col-sm-8
+            = @product.name
+          %dt.col-sm-4 Category:
+          %dd.col-sm-8
+            = @product.category.name
+          %dt.col-sm-4 Description:
+          %dd.col-sm-8
+            = @product.description
+          %dt.col-sm-4 Price:
+          %dd.col-sm-8
+            = @product.price
+          %dt.col-sm-4 Stock:
+          %dd.col-sm-8
+            = @product.product_stock.current_stock
       .py-2

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe ProductStock, type: :model do
   before :all do
-    @product_stock = build(:product_stock)
+    @product_stock = build_stubbed(:product_stock)
   end
   it 'should have a product id' do
     @product_stock.product_id = nil

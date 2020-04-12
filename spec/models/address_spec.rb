@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
-  before :all do
-    @address = build(:address)
+  before :each do
+    @address = build_stubbed(:address)
   end
 
   it 'should have an address line 1' do

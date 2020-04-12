@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   let(:csv_file) { File.new(fixture_path + '/products.csv') }
 
-  before :all do
-    @product = build(:product)
+  before :each do
+    @product = create(:product)
   end
 
   it 'should have a title' do
@@ -24,6 +24,12 @@ RSpec.describe Product, type: :model do
     expect(product.macro).to eq(:has_many)
   end
 
+  it 'should destroy product images on destroying product' do
+    product_image_id = @product.product_images.create(main: true).id
+    @product.destroy
+    expect { ProductImage.find(product_image_id) }.to raise_error(ActiveRecord::RecordNotFound)
+  end
+
   it 'should import csv file and create products' do
     Product.import(csv_file)
     expect(Product.all).not_to be_empty
@@ -32,5 +38,15 @@ RSpec.describe Product, type: :model do
   it 'should generate CSV' do
     csv = Product.generate_csv
     expect(csv).to include 'brand,model'
+  end
+
+  it 'should create a product stock' do
+    expect(@product.product_stock.product_id).to eq(@product.id)
+  end
+
+  it 'should destroy product stock on destroying product' do
+    product_stock_id = @product.product_stock.id
+    @product.destroy
+    expect { ProductStock.find(product_stock_id) }.to raise_error(ActiveRecord::RecordNotFound)
   end
 end

@@ -1,4 +1,7 @@
-%h1 New Product
+
+= link_to admin_products_path(@product), class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center New Product
 
 = render 'form', product: @product
 = link_to 'Back', admin_products_path

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
+  # Admin
   namespace :admin do
     resource :dashboard, only: :show
     resources :users do

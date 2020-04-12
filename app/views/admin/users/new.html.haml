@@ -1,4 +1,7 @@
-%h1 New User
-
+= link_to admin_users_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center New User
+%br/
+%br/
 = render 'form', user: @user
 = link_to 'Back', admin_users_path

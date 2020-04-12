@@ -2,11 +2,10 @@
 
 require 'rails_helper'
 RSpec.describe ShopingCart, type: :model do
-  before :all do
+  before :each do
     @cart_token = SecureRandom.hex(8)
     @current_cart ||= ShopingCart.new(token: @cart_token)
-    product = build(:product)
-    product.id = 1
+    product = create(:product)
     @current_cart.add_item(product_id: product.id, quantity: 5)
   end
 

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Shipment, type: :model do
   before :each do
-    @shipment = build(:shipment)
+    @shipment = build_stubbed(:shipment)
   end
   it 'should have a number' do
     @shipment.number = nil

@@ -19,6 +19,7 @@ RSpec.describe Order, type: :model do
   end
 
   it 'should group by day' do
+    create(:order)
     orders = Order.all
     chart_data = Order.group_by_day(orders)
     expect(chart_data).not_to be_empty

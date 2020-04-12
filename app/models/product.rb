@@ -3,7 +3,10 @@
 class Product < ApplicationRecord
   validates :name, presence: true
   belongs_to :category
-  has_many :product_images
+  has_many :product_images, dependent: :destroy
+  has_one :product_stock, dependent: :destroy
+  after_create :build_product_stock
+  accepts_nested_attributes_for :product_images, allow_destroy: true
 
   def self.import(file_path)
     CSV.foreach(file_path, headers: true) do |row|
@@ -22,5 +25,9 @@ class Product < ApplicationRecord
     CSV.generate do |csv|
       csv << attributes
     end
+  end
+
+  def build_product_stock
+    ProductStock.create(product_id: id)
   end
 end
