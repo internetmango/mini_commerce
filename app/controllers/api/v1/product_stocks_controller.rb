@@ -7,7 +7,7 @@ module Api::V1
     before_action :authenticate_user_with_api_token
     skip_before_action :authenticate_user!
     before_action :set_product_stock, only: %i[show update destroy]
-    respond_to :html, :js, :json
+    respond_to :json
 
     def index
       @product_stocks = ProductStock.order(updated_at: :desc)

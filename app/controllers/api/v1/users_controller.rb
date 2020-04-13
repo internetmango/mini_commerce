@@ -8,7 +8,7 @@ module Api::V1
     before_action :authenticate_user_with_api_token
     before_action :authenticate_admin
     before_action :set_user, except: %i[index new create]
-    respond_to :html, :js, :json
+    respond_to :json
 
     def index
       users = User.order(admin: :desc)

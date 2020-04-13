@@ -8,9 +8,10 @@ module Api::V1
     skip_before_action :authenticate_user!
     before_action :authenticate_user_with_api_token
     before_action :authenticate_admin, only: %i[index]
-    before_action :autherize_product
     before_action :set_product, only: %i[show update destroy]
-    respond_to :html, :js, :json
+    before_action :autherize_product, only: %i[show update destroy]
+    before_action :autherize_products, except: %i[show update destroy]
+    respond_to :json
 
     def index
       @products = Product.order(updated_at: :desc)
@@ -57,7 +58,10 @@ module Api::V1
     end
 
     def autherize_product
-      p "=============="
+      authorize @product
+    end
+
+    def autherize_products
       authorize Product
     end
   end
