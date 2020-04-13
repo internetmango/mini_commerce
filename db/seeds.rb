@@ -17,7 +17,7 @@ cart1 = ShopingCart.new(token: SecureRandom.hex(8))
 cart1.add_item(product_id: products[1].id, quantity: 2)
 
 uploader = ImageUploader.new(:store)
-image_path = "app/assets/images/seed/"
+image_path = "db/assets/images/seed/"
 images = ["#{image_path}vivo 1.jpg","#{image_path}vivo 2.jpg","#{image_path}vivo 3.jpg"]
 for image in images
   file = File.new(Rails.root.join(image))

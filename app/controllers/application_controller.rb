@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   protect_from_forgery
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -26,5 +28,11 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer
       .permit(:account_update, keys: %i[name email password current_password])
+  end
+
+  def user_not_authorized(exception)
+    policy_name = exception.policy
+    flash[:warning] = 'Sorry this page is only accessible by admin'
+    redirect_to(request.referrer || root_path)
   end
 end

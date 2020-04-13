@@ -78,6 +78,9 @@
                       Daily Orders
 
           %main.col-md-9.ml-sm-auto.col-lg-10.px-4{:role => 'main'}
+            #flash
+              - flash.each do |key, value|
+                %div{class: "alert alert-#{key}"}= value
             = yield
 
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
