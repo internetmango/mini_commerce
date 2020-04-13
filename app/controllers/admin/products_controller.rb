@@ -5,9 +5,8 @@ module Admin
     include Pagy::Backend
     skip_before_action :verify_authenticity_token, only: [:destroy]
     before_action :set_product, only: %i[show update destroy]
-    before_action :autherize_product, only: %i[show update destroy]
-    before_action :autherize_products, except: %i[show update destroy]
-    
+    before_action :authorize_product, only: %i[show update destroy]
+    before_action :authorize_products, except: %i[show update destroy]
 
     def index
       @pagy, @products = pagy(Product.order(updated_at: :desc), items: 4)
@@ -58,11 +57,11 @@ module Admin
       @product = Product.find(params[:id])
     end
 
-    def autherize_product
+    def authorize_product
       authorize @product
     end
 
-    def autherize_products
+    def authorize_products
       authorize Product
     end
   end

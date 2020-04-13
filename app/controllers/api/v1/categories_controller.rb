@@ -6,10 +6,9 @@ module Api::V1
     skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
     before_action :authenticate_user_with_api_token
-    before_action :authenticate_admin, only: %i[index]
     before_action :set_category, only: %i[show update destroy]
-    before_action :autherize_category, only: %i[show update destroy]
-    before_action :autherize_categories, except: %i[show update destroy]
+    before_action :authorize_category, only: %i[show update destroy]
+    before_action :authorize_categories, except: %i[show update destroy]
     respond_to :json
 
     def index
@@ -50,11 +49,11 @@ module Api::V1
       @category = Category.find(params[:id])
     end
 
-    def autherize_category
+    def authorize_category
       authorize @category
     end
 
-    def autherize_categories
+    def authorize_categories
       authorize Category
     end
 

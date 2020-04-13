@@ -6,7 +6,6 @@ module Api::V1
     skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
     before_action :authenticate_user_with_api_token
-    before_action :authenticate_admin
     before_action :set_product_image, only: %i[show update destroy]
     respond_to :json
 
