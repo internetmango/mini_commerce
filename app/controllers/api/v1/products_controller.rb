@@ -3,10 +3,12 @@
 module Api::V1
   # Products controller
   class ProductsController < AdminController
+    
     skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
     before_action :authenticate_user_with_api_token
-    before_action :authenticate_admin
+    before_action :authenticate_admin, only: %i[index]
+    before_action :autherize_product
     before_action :set_product, only: %i[show update destroy]
     respond_to :html, :js, :json
 
@@ -17,7 +19,7 @@ module Api::V1
 
     def create
       Product.create!(product_params)
-      render json: 'Product was successfully created.'
+      render json: 'Product was successfully created.'  
     end
 
     def show
@@ -52,6 +54,11 @@ module Api::V1
 
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def autherize_product
+      p "=============="
+      authorize Product
     end
   end
 end

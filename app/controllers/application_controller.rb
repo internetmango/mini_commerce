@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 
     user = email && User.find_by(email: email)
     if user && ActiveSupport::SecurityUtils.secure_compare(user.authentication_token, token)
+      p "----------                                                                                                                       #{current_user}"
       @current_user = user
     else
       render status: 403,
