@@ -30,8 +30,7 @@ class ApplicationController < ActionController::Base
       .permit(:account_update, keys: %i[name email password current_password])
   end
 
-  def user_not_authorized(exception)
-    policy_name = exception.policy
+  def user_not_authorized(_exception)
     flash[:warning] = 'Sorry this page is only accessible by admin'
     redirect_to(request.referrer || root_path)
   end

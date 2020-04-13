@@ -20,6 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'pagy', '~> 3.7.4'
 gem 'shrine', '~> 3.2.1'
+gem 'pundit', '~> 2.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -42,6 +43,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'database_cleaner'
+end
+
+group :production do
+  gem "aws-sdk-s3"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
