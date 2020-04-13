@@ -1,7 +1,7 @@
 .row
   .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
     .card.p-3
-      %h6.text-center Login To #{t('pages.title')}
+      %h6.text-center Login To #{t('title')}
       %hr
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
@@ -17,9 +17,9 @@
             = f.check_box :remember_me, class: 'form-check-input'
             = f.label :remember_me
         .actions
-          = f.submit "Log in", class: 'btn btn-danger btn-block'
-          = link_to "Sign up", new_user_registration_path
+          = f.submit "#{t('login')}", class: 'btn btn-danger btn-block'
+          = link_to "#{t('signup')}", new_user_registration_path
       .py-2
 
         - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-          = link_to "Forgot your password?", new_password_path(resource_name)
+          = link_to "#{t('forgot_password')}", new_password_path(resource_name)

@@ -29,9 +29,11 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  title: 'Mini Shop'
-  forgot_password: 'Forgot your password?'
-  login: 'Log in'
-  logout: 'Log out'
-  signup: 'Sign up'
+ml_IN:
+  hello: "Hello world"
+  welcome: "ショッピングモールへようこそ"
+  Categories: "カテゴリー"
+  Products: "製品"
+  Shoppy_bee: "ショッピービー"
+  Home: "ホーム"
+  Uploads: "アップロード"

@@ -15,4 +15,4 @@
       .py-2
         - if controller_name != 'sessions'
           Or
-          = link_to "Log in to your account", new_session_path(resource_name)
+          = link_to "#{t('login')}", new_session_path(resource_name)

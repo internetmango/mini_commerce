@@ -5,13 +5,13 @@
     %meta{content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport'}/
     %meta{content: '', name: 'description'}/
     %meta{content: '', name: 'author'}/
-    %title Mini Shop
+    %title #{t('title')}
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application'
   %body
     %nav.navbar.navbar-dark.fixed-top.bg-danger.p-0.shadow
-      = link_to 'Mini Shop', root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
+      = link_to "#{t('title')}", root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
       %button.d-sm-none.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
         %span.navbar-toggler-icon
 
@@ -44,7 +44,7 @@
               Not valid roles!
               %br
               Please contact
-              %b Mini Shop
+              %b #{t('title')}
               admin at
               = link_to t('pages.support_email'), "mailto:#{t('pages.support_email')}"
         - else
