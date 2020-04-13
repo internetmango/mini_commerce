@@ -3,21 +3,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
 
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer
-      .permit(:sign_up, keys: %i[name email password confirm_password remember_me])
-
-    devise_parameter_sanitizer
-      .permit(:account_update, keys: %i[name email password current_password])
-  end
-
-  def user_not_authorized(_exception)
-    flash[:warning] = 'Sorry this page is only accessible by admin'
-    redirect_to(request.referrer || root_path)
-  end
-
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   protect_from_forgery
   before_action :authenticate_user!
@@ -34,6 +19,21 @@ class ApplicationController < ActionController::Base
       render status: 403,
              json: { success: false, message: t('api.messages.unauthorized') }
     end
+  end
+  
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer
+      .permit(:sign_up, keys: %i[name email password confirm_password remember_me])
+
+    devise_parameter_sanitizer
+      .permit(:account_update, keys: %i[name email password current_password])
+  end
+
+  def user_not_authorized(_exception)
+    flash[:warning] = 'Sorry this page is only accessible by admin'
+    redirect_to(request.referrer || root_path)
   end
 
   private
