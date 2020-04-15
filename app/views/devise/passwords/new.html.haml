@@ -1,18 +1,18 @@
 .row
   .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
     .card.p-3
-      %h6.text-center Forgot your password?
+      %h6.text-center #{t('auth.passwords.forgot_password')}
       %hr
       = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
         = devise_error_messages!
         .form-group
           = f.label :email
           %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+          = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
         .actions.py-2
-          = f.submit "Send Reset Instructions", class: 'btn btn-danger btn-block'
+          = f.submit t('auth.passwords.send_reset_instructions'), class: 'btn btn-danger btn-block'
       .py-2
         - if controller_name != 'sessions'
           Or
-          = link_to "Log in to your account", new_session_path(resource_name)
+          = link_to t('auth.sessions.action'), new_session_path(resource_name)

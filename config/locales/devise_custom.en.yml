@@ -1,0 +1,62 @@
+en:
+  helpers:
+    label:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        remember_me: "Remeber me"
+        current_passord: "Current Password"
+
+  placeholders:
+    email: 'Your email address'
+    registered_email: "Registered email address"
+    password: 'Your password'
+    new_password: "Set new password"
+    password_confirmation: "Confirm your password"
+
+  auth:
+    no_account: "Don't have an account?"
+    have_account: "Have an account?"
+    login_here: "Login here"
+    sessions:
+      title: "Login to Mini Shop"
+      forgot_password: "Forgot password?"
+      remember_me: "Remember me"
+      action: "Login"
+      sign_up: "Sign Up"
+    registrations:
+      new:
+        title: "Sign up for Mini Shop"
+        minimum_password_length: "%{length} characters minimum"
+        action: "Sign up"
+        forgot_password: "Forgot password?"
+      edit:
+        title: "Update info"
+        characters_minimum: "characters minimum"
+        action: "Update"
+        cancel_account: "Cancel my account"
+
+    passwords:
+      forgot_password: "Forgot Password?"
+      change_password: "Change your Password?"
+      send_reset_instructions: "Send Reset Instructions"
+      subtitle: "If you have forgotten your password, please enter your email address below. We will send you instructions to reset your password."
+      action: "Send reset password instructions"
+      leave_it_blank: "leave blank if you don't want to change it"
+      need_current_password_to_confirm: "we need your current password to confirm your changes"
+      characters_minimum: "characters minimum"
+
+    confirmations:
+      title: "Resend Confirmation Instructions"
+      subtitle: "Didn't receive account confirmation instructions? Please enter your email below to receive confirmation instructions again."
+      action: "Resend Confirmation Instructions"
+      are_you_sure: "Are you sure?"
+      waiting_confirmation: "Currently waiting confirmation for"
+
+    confirmation_with_password:
+      title: "Set Your Password"
+      subtitle: "You have been invited to join GoodTerms. Set your password below:"
+      action: "Complete Signup"
+

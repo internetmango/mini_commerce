@@ -1,0 +1,35 @@
+%h2
+  #{t('auth.registrations.new.title').to_s.humanize}
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = render 'devise/shared/error_messages', resource: resource
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: 'email'
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %div
+      #{t('confirmations.waiting_confirmation')}: #{resource.unconfirmed_email}
+  .field
+    = f.label :password
+    %i #{t('auth.passwords.leave_it_blank')}
+    %br/
+    = f.password_field :password, autocomplete: 'new-password'
+    - if @minimum_password_length
+      %br/
+      %em
+        (#{@minimum_password_length} #{t('auth.registrations.characters_minimum')})
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: 'new-password'
+  .field
+    = f.label :current_password
+    %i ('auth.passwords.need_current_password_to_confir')
+    %br/
+    = f.password_field :current_password, autocomplete: 'current-password'
+  .actions
+    = f.submit t('auth.registrations.edit.action')
+%h3 #{t('auth.registrations.edit.cancel_account')}
+%p
+  Unhappy? #{button_to t('auth.registrations.edit.cancel_account'), registration_path(resource_name), data: { confirm: t('confirmations.are_you_sure') }, method: :delete}
+= link_to 'Back', :back
