@@ -12,7 +12,7 @@
 
   %body
     %nav.navbar.navbar-dark.fixed-top.bg-danger.p-0.shadow
-      = link_to "#{t('title')}", root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
+      = link_to t('title'), root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
       %button.d-sm-none.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
         %span.navbar-toggler-icon
 
@@ -35,7 +35,7 @@
           %li.nav-item.text-nowrap
             %span.navbar-text
               Logged in as #{current_user.email}.
-              = link_to 'Sign Out', destroy_user_session_path
+              = link_to t('sign_out'), destroy_user_session_path
     .container-fluid
       .row
         - if current_user.nil?

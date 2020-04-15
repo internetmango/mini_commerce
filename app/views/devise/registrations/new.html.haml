@@ -1,30 +1,30 @@
 .row
   .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
     .card.p-3
-      %h6.text-center #{t('signup')} for #{t('title')}
+      %h6.text-center #{t('auth.registrations.new.title')}
       %hr
       = form_for(resource, as: resource_name, url: user_registration_path) do |f|
         .form-group
-          = f.label :name
+          = f.label :"#{t('helpers.label.user.name')}"
           = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'
         .form-group
-          = f.label :email
+          = f.label :"#{t('helpers.label.user.email')}"
           = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
 
         .form-group
-          = f.label :password
+          = f.label :"#{t('helpers.label.user.password')}"
           = f.password_field :password, autocomplete: "off", class: 'form-control'
         .form-group
-          = f.label :password_confirmation
+          = f.label :"#{t('helpers.label.user.password_confirmation')}"
           = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
 
         - if devise_mapping.rememberable?
           .form-check
             = f.check_box :remember_me, class: 'form-check-input'
-            = f.label :remember_me
+            = f.label :"#{t('helpers.label.user.remember_me')}"
         .actions
-          = f.submit "#{t('login')}", class: 'btn btn-danger btn-block'
+          = f.submit t('auth.registrations.new.action'), class: 'btn btn-danger btn-block'
       .py-2
 
         - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-          = link_to "#{t('forgot_password')}", new_password_path(resource_name)
+          = link_to t('auth.registrations.forgot_password'), new_password_path(resource_name)
