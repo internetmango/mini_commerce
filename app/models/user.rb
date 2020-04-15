@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
   before_save :ensure_authentication_token
+  has_many :addresses
+  has_many :orders
 
   def ensure_authentication_token
     self.authentication_token = generate_access_token if authentication_token.blank?

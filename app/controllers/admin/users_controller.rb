@@ -8,11 +8,15 @@ module Admin
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
-      @pagy, @users = pagy(User.order(admin: :desc), items: 4)
+      @pagy, @users = pagy(User.where(admin: false), items: 4)
     end
 
     def new
       @user = User.new
+    end
+
+    def show
+      @orders = Order.where('created_at', 1.month.ago).order(created_at: :desc)
     end
 
     def create

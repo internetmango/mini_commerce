@@ -35,4 +35,20 @@
           %dt.col-sm-6 Sign_in count:
           %dd.col-sm-5
             = @user.sign_in_count
+          - if @user.addresses
+            %dt.col-sm-6 Addresses
+            %dd.col-sm-5
+              - user_addresses = @user.addresses
+              - for user_address in user_addresses do
+                = link_to admin_address_path(user_address) do
+                  %li
+                    %span #{user_address.address_line1}
+          - if @user.addresses
+            %dt.col-sm-6 Orders
+            %dd.col-sm-5
+              - user_orders = @user.orders
+              - for user_order in user_orders do
+                = link_to admin_order_path(user_order) do
+                  %li
+                    %span #{user_order.order_number}
       .py-2
