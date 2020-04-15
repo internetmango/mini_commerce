@@ -1,3 +1,8 @@
+= link_to admin_orders_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center Order info
+%br/
+%br/
 .row
   .col-12
     .action-bar
@@ -9,13 +14,14 @@
       %h6.text-center Order/#{@order.order_number}
       %hr
         %p#notice= notice
-        %p
-          %strong Order Number:
-          = @order.order_number
-        %p
-          %strong Subtotal:
-          = @order.sub_total
-        %p
-          %strong Status:
-          = @order.status
+        %dl.row
+          %dt.col-sm-6 Order Number:
+          %dd.col-sm-5
+            = @order.order_number
+          %dt.col-sm-6 Subtotal:
+          %dd.col-sm-5
+            = @order.sub_total
+          %dt.col-sm-6 Status:
+          %dd.col-sm-5
+            = @order.status
       .py-2

@@ -1,0 +1,29 @@
+.row
+  .col-md-5.mx-2.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Create new Product
+      %hr
+      = form_for(product, url: admin_products_path) do |f|
+        .form-group
+          = f.label :category
+          = f.select :category_id, Category.all.collect { |category| [category.name, category.id]}, class: 'form-control'
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
+        .form-group
+          = f.label :description
+          = f.text_field :description, autofocus: true, autocomplete: 'email', class: 'form-control'
+        .form-group
+          = f.label :price
+          = f.number_field :price, autocomplete: 'off', class: 'form-control'
+        .form-group
+          .card-group
+            .row
+              = f.fields_for :product_images do |i|
+                - if i.object.new_record?
+                  .card.col-md-6
+                    .col-lg-15
+                      = i.file_field :image
+        .actions
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+      .py-2

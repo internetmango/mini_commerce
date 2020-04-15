@@ -1,3 +1,8 @@
+= link_to admin_users_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center User info
+%br/
+%br/
 .row
   .col-12
     .action-bar
@@ -9,24 +14,25 @@
         %span{'data-feather' => 'tool'}
         Reset password
 .row
-  .col-md-4.mt-5.col.col-sm-6.col-xs-12
+  .col-md-6.mt-5.col.col-sm-6.col-xs-12
     .card.p-3
       %h6.text-center User card
       %hr
         %p#notice= notice
-        %p
-          %strong Name:
-          = @user.name
-        %p
-          %strong Email:
-          = @user.email
-        %p
-          %strong Admin:
-          = @user.admin
-        %p
-          %strong Last Signed in at:
-          = @user.last_sign_in_at
-        %p
-          %strong Sign_in count:
-          = @user.sign_in_count
+        %dl.row
+          %dt.col-sm-6 Name:
+          %dd.col-sm-5
+            = @user.name
+          %dt.col-sm-6 Email:
+          %dd.col-sm-5
+            = @user.email
+          %dt.col-sm-6 Admin:
+          %dd.col-sm-5
+            = @user.admin
+          %dt.col-sm-6 Last Signed in at:
+          %dd.col-sm-5
+            = @user.last_sign_in_at
+          %dt.col-sm-6 Sign_in count:
+          %dd.col-sm-5
+            = @user.sign_in_count
       .py-2

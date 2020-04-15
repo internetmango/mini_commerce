@@ -1,0 +1,62 @@
+
+= link_to admin_products_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center Products Info
+%br/
+%br/
+.row
+  .col-lg-12
+    .action-bar
+      = link_to admin_product_path(@product), method: :delete,class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'trash'}
+.row
+  .col-md-5.mx-2.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3.float-left
+      %b
+        %h4.text-center
+          Edit Product
+      %hr
+      = form_for(@product, url: admin_product_path(@product),multipart: true) do |f|
+        .form-group
+          = f.label :category
+          = f.select :category_id, Category.all.collect { |category| [category.name, category.id]}, class: 'form-control'
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
+        .form-group
+          = f.label :description
+          = f.text_field :description, autofocus: true, autocomplete: 'email', class: 'form-control'
+        .form-group
+          = f.label :price
+          = f.number_field :price, autocomplete: 'off', class: 'form-control'
+        %b
+          %h6.text-center
+            %span{'data-feather' => 'upload'}
+            Upload Images
+            %br/
+        .form-group
+          .card-group
+            .row
+              = f.fields_for :product_images do |i|
+                - if i.object.new_record?
+                  .card.col-md-6
+                    .col-lg-15
+                      = i.file_field :image
+        %b
+          %h6.text-center
+            %span{'data-feather' => 'image'}
+            Current Images
+            %br/
+        .form-group
+          .card-group
+            .row
+              = f.fields_for :product_images do |i|
+                - if !i.object.new_record?
+                  .card.col-md-3
+                    .col-lg-15
+                      = image_tag i.object.image_url, class: 'img-thumbnail'
+                      = i.check_box :_destroy
+                      = i.label :'Remove'
+        .actions
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+      .py-2

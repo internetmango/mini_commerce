@@ -49,6 +49,9 @@
               = link_to t('pages.support_email'), "mailto:#{t('pages.support_email')}"
         - else
           %main.col-md-12.ml-sm-auto.px-4.py-5{:role => 'main'}
+            #flash
+              - flash.each do |key, value|
+                %div{class: "alert alert-#{key}"}= value
             = yield
 
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"}

@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  before :all do
-    @category = build(:category)
+  before :each do
+    @category = build_stubbed(:category)
   end
 
   it 'name should be present' do
