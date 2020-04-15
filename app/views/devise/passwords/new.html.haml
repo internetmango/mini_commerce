@@ -6,9 +6,9 @@
       = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
         = devise_error_messages!
         .form-group
-          = f.label :"#{t('helpers.label.user.email')}"
+          = f.label :email
           %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+          = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
         .actions.py-2
           = f.submit t('auth.passwords.send_reset_instructions'), class: 'btn btn-danger btn-block'

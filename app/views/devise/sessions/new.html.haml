@@ -5,17 +5,17 @@
       %hr
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
-          = f.label :"#{t('helpers.label.user.email')}"
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+          = f.label :email
+          = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
         .form-group
-          = f.label :"#{t('helpers.label.user.password')}"
-          = f.password_field :password, autocomplete: "off", class: 'form-control'
+          = f.label :password
+          = f.password_field :password, autocomplete: 'off', class: 'form-control'
 
         - if devise_mapping.rememberable?
           .form-check
             = f.check_box :remember_me, class: 'form-check-input'
-            = f.label :"#{t('helpers.label.user.remember_me')}"
+            = f.label :remember_me
         .actions
           = f.submit t('auth.sessions.action'), class: 'btn btn-danger btn-block'
           = link_to t('auth.sessions.sign_up'), new_user_registration_path
