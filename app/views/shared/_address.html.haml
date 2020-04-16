@@ -1,0 +1,26 @@
+.row
+.col-md-4.mt-5.col.col-sm-6.col-xs-12
+  .card.p-3
+    %h6.text-center Address
+    %hr
+      %p#notice= notice
+      %dl.row
+        %dt.col-sm-6 Address  Line-1:
+        %dd.col-sm-5
+          = address.address_line1
+        %dt.col-sm-6 Address Line-2:
+        %dd.col-sm-5
+          = address.address_line2
+        %dt.col-sm-6 City:
+        %dd.col-sm-5
+          = address.city
+        %dt.col-sm-6 Zip Code:
+        %dd.col-sm-5
+          = address.zipcode
+        %dt.col-sm-6 State:
+        %dd.col-sm-5
+          = address.state
+        %dt.col-sm-6 country:
+        %dd.col-sm-5
+          = address.country
+        %dt.col-sm-6 Phone:

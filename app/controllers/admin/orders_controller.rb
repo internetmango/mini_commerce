@@ -7,7 +7,7 @@ module Admin
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
-      @pagy, @orders = pagy(Order.all, items: 4)
+      @pagy, @orders = pagy(Order.all)
     end
 
     def show; end

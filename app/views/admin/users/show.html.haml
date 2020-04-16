@@ -35,4 +35,12 @@
           %dt.col-sm-6 Sign_in count:
           %dd.col-sm-5
             = @user.sign_in_count
-      .py-2
+          - if @user.orders
+            %dt.col-sm-6 Orders
+            %dd.col-sm-5
+              - @orders.each do |user_order|
+                = link_to admin_order_path(user_order) do
+                  %li
+                    %span #{user_order.order_number}
+- @addresses.each do |address|
+  = render "/shared/address", address: address

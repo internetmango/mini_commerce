@@ -9,7 +9,7 @@ module Admin
     before_action :authorize_products, except: %i[show update destroy]
 
     def index
-      @pagy, @products = pagy(Product.order(updated_at: :desc), items: 4)
+      @pagy, @products = pagy(Product.order(updated_at: :desc))
     end
 
     def new
