@@ -15,6 +15,7 @@ products = Product.create!(
 cart1 = ShopingCart.new(token: SecureRandom.hex(8))
 cart1.add_item(product_id: products[1], quantity: 2)
 
+# Upload image
 uploader = ImageUploader.new(:store)
 image_path = "db/assets/images/seed/"
 images = ["#{image_path}vivo 1.jpg","#{image_path}vivo 2.jpg","#{image_path}vivo 3.jpg"]
