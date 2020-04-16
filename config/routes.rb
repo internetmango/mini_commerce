@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :orders , only: [:index, :show, :edit, :update, :destroy]
     resources :products
     resources :address, only: [:show]
-    resources :settings do
+    resource :settings do
       collection do
         get :admin_users
       end

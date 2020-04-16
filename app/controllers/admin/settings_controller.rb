@@ -5,7 +5,7 @@ module Admin
     include Pagy::Backend
 
     def admin_users
-      @pagy, @users = pagy(User.where(admin: true), items: 4)
+      @pagy, @users = pagy(User.where(admin: true))
     end
   end
 end
