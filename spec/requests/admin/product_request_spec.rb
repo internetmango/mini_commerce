@@ -24,13 +24,13 @@ RSpec.describe 'Users', type: :request do
 
   describe 'POST /create' do
     it 'redirect to index page' do
-      category = Category.find(1).id
+      category = Category.first.id
       post '/admin/products', params: { product: {
         name: 'nokia',
         category_id: category,
         price: 9999
       } }
-      expect(response).to redirect_to '/admin/products'
+      expect(response).to redirect_to '/admin/products?locale=en'
     end
   end
 
@@ -51,14 +51,14 @@ RSpec.describe 'Users', type: :request do
   describe 'PATCH /update' do
     it 'redirect to show page' do
       patch "/admin/products/#{@product.id}", params: { product: { name: 'apple' } }
-      expect(response).to redirect_to "/admin/products/#{@product.id}"
+      expect(response).to redirect_to "/admin/products/#{@product.id}?locale=en"
     end
   end
 
   describe 'DELETE /destroy' do
     it 'redirect to index page' do
       delete "/admin/products/#{@product.id}"
-      expect(response).to redirect_to '/admin/products'
+      expect(response).to redirect_to '/admin/products?locale=en'
     end
   end
 end

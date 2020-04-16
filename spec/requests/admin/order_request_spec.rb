@@ -32,7 +32,7 @@ RSpec.describe 'Users', type: :request do
   describe 'PATCH /update' do
     it 'redirect to show page' do
       patch "/admin/orders/#{@order.id}", params: { order: { status: 'order12343' } }
-      expect(response).to redirect_to "/admin/orders/#{@order.id}"
+      expect(response).to redirect_to "/admin/orders/#{@order.id}?locale=en"
     end
   end
 end

@@ -45,12 +45,11 @@ Rails.application.routes.draw do
   end
   
   # Settings
-  namespace :settings do
-    resources :tax_rates
-    resource :settings do
-      collection do
-        get :admin_users
-      end
+  namespace :admin do
+    namespace :settings do
+      resources :admin_users, only: :index
+      resources :tax_rates
+      
     end
   end
 end
