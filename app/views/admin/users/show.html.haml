@@ -42,4 +42,5 @@
                 = link_to admin_order_path(user_order) do
                   %li
                     %span #{user_order.order_number}
-  = render "/shared/address.html.haml", user: @user
+- @addresses.each do |address|
+  = render "/shared/address", address: address

@@ -17,7 +17,7 @@ module Admin
 
     def show
       @orders = @user.orders.where('created_at >= ?', 1.month.ago).order(created_at: :desc)
-      p "====#{@orders}"
+      @addresses = @user.addresses
     end
 
     def create
