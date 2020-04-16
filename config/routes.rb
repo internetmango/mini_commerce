@@ -26,11 +26,6 @@ Rails.application.routes.draw do
     resources :orders , only: [:index, :show, :edit, :update, :destroy]
     resources :products
     resources :address, only: [:show]
-    resource :settings do
-      collection do
-        get :admin_users
-      end
-    end
   end
 
   # Api
@@ -47,5 +42,15 @@ Rails.application.routes.draw do
         resources :product_stocks, only: [:index, :show, :update]
         resources :product_images, except: [:new, :edit]
       end
+  end
+  
+  # Settings
+  namespace :settings do
+    resources :tax_rates
+    resource :settings do
+      collection do
+        get :admin_users
+      end
+    end
   end
 end

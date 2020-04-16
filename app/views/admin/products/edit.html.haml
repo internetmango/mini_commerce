@@ -28,7 +28,7 @@
           = f.text_field :description, autofocus: true, autocomplete: 'email', class: 'form-control'
         .form-group
           = f.label :price
-          = f.number_field :price, autocomplete: 'off', class: 'form-control'
+          = f.number_field :price, step: :any, autocomplete: 'off', class: 'form-control'
         %b
           %h6.text-center
             %span{'data-feather' => 'upload'}
