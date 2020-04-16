@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2020_04_16_061026) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -53,8 +56,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_061026) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "order_id", null: false
-    t.integer "product_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
     t.integer "quantity"
     t.decimal "price", precision: 15, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -66,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_061026) do
   create_table "orders", force: :cascade do |t|
     t.integer "shipping_address_id"
     t.integer "billing_address_id"
-    t.decimal "sub_total", precision: 2
+    t.decimal "sub_total", precision: 10, scale: 2
     t.string "token"
     t.string "status", default: "cart"
     t.integer "user_id"
@@ -95,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_061026) do
     t.text "description"
     t.string "slug"
     t.decimal "price", precision: 15, scale: 2, null: false
-    t.integer "category_id"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
@@ -112,8 +115,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_061026) do
   end
 
   create_table "tax_rates", force: :cascade do |t|
-    t.string "name"
-    t.decimal "rate", precision: 3, scale: 2
+    t.string "name", null: false
+    t.decimal "rate", precision: 4, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

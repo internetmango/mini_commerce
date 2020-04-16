@@ -3,7 +3,6 @@
 User.create!(name: 'Admin User', email: 'admin@example.com', password: 'mangointernet', admin: true)
 User.create!(name: 'John Doe', email: 'user@example.com', password: 'mangointernet')
 User.create!(name: 'Jane Roe', email: 'jane@example.com', password: 'mangointernet')
-
 category = Category.create!(name: 'Phone')
 products = Product.create!(
   [
@@ -14,7 +13,7 @@ products = Product.create!(
 )
 
 cart1 = ShopingCart.new(token: SecureRandom.hex(8))
-cart1.add_item(product_id: products[1].id, quantity: 2)
+cart1.add_item(product_id: products[1], quantity: 2)
 
 uploader = ImageUploader.new(:store)
 image_path = "db/assets/images/seed/"
