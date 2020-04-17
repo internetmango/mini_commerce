@@ -7,7 +7,7 @@ RSpec.describe TaxRate, type: :model do
     @tax_rate = create(:tax_rate)
   end
 
-  it 'should have a title' do
+  it 'should have a name' do
     @tax_rate.name = nil
     expect(@tax_rate).to_not be_valid
   end

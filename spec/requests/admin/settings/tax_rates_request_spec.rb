@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
+RSpec.describe 'Tax_Rates', type: :request do
   before :each do
     @tax_rate = create(:tax_rate)
     user = create(:user)

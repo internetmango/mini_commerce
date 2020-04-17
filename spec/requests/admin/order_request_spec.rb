@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
+RSpec.describe 'Orders', type: :request do
   before :each do
     @order = create(:order)
     user = create(:user)

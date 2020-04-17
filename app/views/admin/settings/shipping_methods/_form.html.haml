@@ -1,0 +1,23 @@
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Add new Shipping Method
+      %hr
+      = form_for(shipping_method, url: admin_settings_shipping_methods_path) do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
+        .form-group
+          = f.label :code
+          = f.text_field :code, autofocus: true, autocomplete: 'code', class: 'form-control'
+        .form-group
+          = f.label :value_type
+          = f.select :value_type, ['flat_rate','flat_percent'], class: 'form-control'
+        .form-group
+          = f.label :value
+          = f.number_field :value, step: :any, autofocus: true, autocomplete: 'value', class: 'form-control'
+        .actions
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = link_to admin_settings_shipping_methods_path, class: 'btn btn-danger btn-block' do
+            %span Cancel
+      .py-2

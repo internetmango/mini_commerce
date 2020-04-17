@@ -64,6 +64,10 @@
                     = link_to admin_users_path, class: 'nav-link' do
                       %span{'data-feather' => 'users'}
                       Customers
+                  %li.nav-item
+                    = link_to admin_settings_shipping_methods_path, class: 'nav-link' do
+                      %span{'data-feather' => 'truck'}
+                      Shipping Methods
                   %br
                   %h5.sidebar-heading.d-flex.align-items-center.px-3.mt-7.mb-1.text-muted
                     %span{'data-feather' => 'settings'}

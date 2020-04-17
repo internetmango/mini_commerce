@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     namespace :settings do
       resources :admin_users, only: :index
       resources :tax_rates
+      resources :shipping_methods
     end
   end
 
