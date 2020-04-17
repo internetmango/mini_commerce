@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2020_04_16_061026) do
 
   # These are extensions that must be enabled in order to support this database
-  # pgsql
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
