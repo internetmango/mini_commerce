@@ -21,9 +21,13 @@ module Admin
     end
 
     def create
-      User.create!(user_params)
-      redirect_to admin_users_path,
-                  notice: 'User was successfully created.'
+      user = User.new(user_params)
+      if user.save
+        redirect_to admin_users_path,
+                    notice: 'User was successfully created.'
+      else
+        render :new
+      end
     end
 
     def update
@@ -38,15 +42,21 @@ module Admin
     def edit; end
 
     def destroy
-      @user.destroy
-      redirect_to admin_users_path,
-                  notice: 'User was successfully destroyed.'
+      if @user.destroy
+        flash[:success] = 'User was successfully destroyed.'
+      else
+        flash[:error] = 'Error processing your request'
+      end
+      redirect_to admin_users_path
     end
 
     def reset_password
-      @user.send_reset_password_instructions
-      redirect_to admin_users_path,
-                  notice: 'Password reset link has been sent.'
+      if @user.send_reset_password_instructions
+        flash[:success] = "Password reset link has been sent to #{@user.name}."
+      else
+        flash[:error] = 'Error processing your request'
+      end
+      redirect_to admin_users_path
     end
 
     private

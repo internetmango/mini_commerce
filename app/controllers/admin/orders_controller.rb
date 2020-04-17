@@ -24,9 +24,12 @@ module Admin
     end
 
     def destroy
-      @order.destroy
-      redirect_to admin_order_path,
-                  notice: 'Order was successfully destroyed.'
+      if @order.destroy
+        flash[:success] = 'Order was successfully destroyed.'
+      else
+        flash[:error] = 'Error processing your request'
+      end
+      redirect_to admin_order_path
     end
 
     private
