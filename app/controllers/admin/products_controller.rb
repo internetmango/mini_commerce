@@ -18,9 +18,13 @@ module Admin
     end
 
     def create
-      Product.create!(product_params)
-      redirect_to admin_products_path,
-                  notice: 'Product was successfully created.'
+      product = Product.new(product_params)
+      if product.save
+        redirect_to admin_products_path,
+                    notice: 'Product was successfully created.'
+      else
+        render :new
+      end
     end
 
     def update
@@ -37,9 +41,12 @@ module Admin
     end
 
     def destroy
-      @product.destroy
-      redirect_to admin_products_path,
-                  notice: 'Product was successfully destroyed.'
+      if @product.destroy
+        flash[:success] = 'Product was successfully destroyed'
+      else
+        flash[:error] = 'Error processing your request'
+      end
+      redirect_to admin_products_path
     end
 
     private

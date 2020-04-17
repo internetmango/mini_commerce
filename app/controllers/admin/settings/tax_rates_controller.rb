@@ -43,7 +43,7 @@ module Admin
         if @tax_rate.destroy
           flash[:success] = 'Tax rate was successfully destroyed'
         else
-          flash[:error] = 'Error processing your request'
+          flash[:error] = 'Error processing your request.'
         end
         redirect_to admin_settings_tax_rates_path
       end
