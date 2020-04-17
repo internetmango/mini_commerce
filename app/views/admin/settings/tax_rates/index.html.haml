@@ -1,0 +1,34 @@
+.row
+  .col-8
+    %h3 Tax Rates
+.row
+  .col-12
+    .action-bar
+      = link_to new_admin_settings_tax_rate_path, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'plus'}
+.row
+  .col-12
+    .py-3
+      %br/
+      - if @tax_rates.blank?
+        %p
+          %b No Tax rates found
+        %p Add a tax rate by clicking the above button.
+      - else
+        %table.table.table-striped.table-sm.table-bordesred.table-responsive-sm
+          %thead
+            %tr
+              %th Name
+              %th Rate
+              %th Actions
+          %tbody
+            - @tax_rates.each do |tax_rate|
+              %tr
+                %td
+                  = link_to tax_rate.name, admin_settings_tax_rate_path(tax_rate)
+                %td= tax_rate.rate
+                %td
+                  %span>
+                    = link_to edit_admin_settings_tax_rate_path(tax_rate), class: 'nav-link' do
+                      %span{'data-feather' => 'edit'}
+      = pagy_bootstrap_nav(@pagy).html_safe

@@ -28,7 +28,6 @@ group :development, :test do
   gem 'letter_opener'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do

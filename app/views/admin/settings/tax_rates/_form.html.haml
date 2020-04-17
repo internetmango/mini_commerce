@@ -1,0 +1,17 @@
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Add new Tax Rate
+      %hr
+      = form_for(tax_rate, url: admin_settings_tax_rates_path) do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
+        .form-group
+          = f.label :rate
+          = f.number_field :rate, step: :any, autofocus: true, autocomplete: 'rate', class: 'form-control'
+        .actions
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = link_to admin_settings_tax_rates_path, class: 'btn btn-danger btn-block' do
+            %span Cancel
+      .py-2

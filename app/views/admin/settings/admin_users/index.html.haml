@@ -1,12 +1,11 @@
 .row
   .col-8
-    %h3 Users
+    %h3 Admin Users
 .row
   .col-12
     .action-bar
       = link_to new_admin_user_path, class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'user-plus'}
-
 .row
   .col-12
     .py-3
@@ -16,8 +15,8 @@
       %br/
       - if @users.blank?
         %p
-          %b No users found
-        %p Add a user by clicking the above button or upload a file of user.
+          %b No admin users found
+        %p Add a user by clicking the above button.
       - else
         %table.table.table-striped.table-sm.table-bordesred.table-responsive-sm
           %thead

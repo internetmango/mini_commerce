@@ -1,0 +1,25 @@
+= link_to admin_settings_tax_rates_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center Edit Tax Info
+%br/
+%br/
+.row
+  .col-12
+    .action-bar
+      = link_to admin_settings_tax_rate_path(@tax_rate), method: :delete, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'trash'}
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Tax Info
+      %hr
+      = form_for(@tax_rate, url: admin_settings_tax_rate_path(@tax_rate)) do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
+        .form-group
+          = f.label :rate
+          = f.number_field :rate,step: :any, autofocus: true, autocomplete: 'rate', class: 'form-control'
+        .actions
+          = f.submit 'Update', class: 'btn btn-danger btn-block'
+      .py-2

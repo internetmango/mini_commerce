@@ -69,9 +69,13 @@
                     %span{'data-feather' => 'settings'}
                     Settings
                   %li.nav-item
-                    = link_to admin_users_admin_settings_path,class: 'nav-link' do
+                    = link_to admin_settings_admin_users_path,class: 'nav-link' do
                       %span{'data-feather' => 'users'}
                       Admins
+                  %li.nav-item
+                    = link_to admin_settings_tax_rates_path,class: 'nav-link' do
+                      %span Tax Rates
+                        
                 %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
                   %span Reports
                 %ul.nav.flex-column.mb-2

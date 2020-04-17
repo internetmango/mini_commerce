@@ -26,10 +26,11 @@ Rails.application.routes.draw do
     resources :orders , only: [:index, :show, :edit, :update, :destroy]
     resources :products
     resources :address, only: [:show]
-    resource :settings do
-      collection do
-        get :admin_users
-      end
+
+    # Settings
+    namespace :settings do
+      resources :admin_users, only: :index
+      resources :tax_rates
     end
   end
 
