@@ -1,0 +1,38 @@
+.row
+  .col-12
+    %h3.text-center Shipping Methods
+.row
+  .col-12
+    .action-bar
+      = link_to new_admin_settings_shipping_method_path, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'plus'}
+.row
+  .col-12
+    .py-3
+      %br/
+      - if @shipping_methods.blank?
+        %p
+          %b No shipping methods found
+        %p Add a shipping method by clicking the above button.
+      - else
+        %table.table.table-striped.table-sm.table-bordesred.table-responsive-sm
+          %thead
+            %tr
+              %th Name
+              %th Code
+              %th Value type
+              %th Value
+              %th Actions
+          %tbody
+            - @shipping_methods.each do |shipping_method|
+              %tr
+                %td
+                  = link_to shipping_method.name, admin_settings_shipping_method_path(shipping_method)
+                %td= shipping_method.code
+                %td= shipping_method.value_type
+                %td= shipping_method.value
+                %td
+                  %span>
+                    = link_to edit_admin_settings_shipping_method_path(shipping_method), class: 'nav-link' do
+                      %span{'data-feather' => 'edit'}
+      = pagy_bootstrap_nav(@pagy).html_safe

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
+RSpec.describe 'Admin_Users', type: :request do
   before :each do
     @user = create(:user)
     sign_in @user
