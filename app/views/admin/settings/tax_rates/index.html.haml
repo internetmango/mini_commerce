@@ -9,9 +9,6 @@
 .row
   .col-12
     .py-3
-      %form.form-inline.my-2.my-lg-0{action: root_path}
-        %input.form-control.form-control-sm.m-1.mr-sm-2{'aria-label' => 'Search', name: 'q', placeholder: 'Name or Email', type: 'search'}/
-        %button.btn.btn-danger.btn-sm.mx-2.my-2.my-sm-0{type: 'submit'} Tax Rates
       %br/
       - if @tax_rates.blank?
         %p

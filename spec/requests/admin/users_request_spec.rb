@@ -30,7 +30,7 @@ RSpec.describe 'Users', type: :request do
         password_confirmation: 'password',
         admin: true
       } }
-      expect(response).to redirect_to '/admin/users?locale=en'
+      expect(response.location).to include '/admin/users'
     end
   end
 
@@ -51,14 +51,14 @@ RSpec.describe 'Users', type: :request do
   describe 'PATCH /update' do
     it 'redirect to show page' do
       patch "/admin/users/#{@user.id}", params: { user: { name: 'yadu' } }
-      expect(response).to redirect_to "/admin/users/#{@user.id}?locale=en"
+      expect(response.location).to include "/admin/users/#{@user.id}"
     end
   end
 
   describe 'DELETE /destroy' do
     it 'redirect to index page' do
       delete "/admin/users/#{@user.id}"
-      expect(response).to redirect_to '/admin/users?locale=en'
+      expect(response.location).to include '/admin/users'
     end
   end
 end

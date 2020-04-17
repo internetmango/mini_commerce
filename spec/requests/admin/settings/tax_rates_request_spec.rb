@@ -28,7 +28,7 @@ RSpec.describe 'Users', type: :request do
         name: 'India',
         rate: 2.8
       } }
-      expect(response).to redirect_to '/admin/settings/tax_rates?locale=en'
+      expect(response.location).to include '/admin/settings/tax_rates'
     end
   end
 
@@ -49,14 +49,14 @@ RSpec.describe 'Users', type: :request do
   describe 'PATCH /update' do
     it 'redirect to show page' do
       patch "/admin/settings/tax_rates/#{@tax_rate.id}", params: { tax_rate: { name: 'japan' } }
-      expect(response).to redirect_to "/admin/settings/tax_rates/#{@tax_rate.id}?locale=en"
+      expect(response.location).to include "/admin/settings/tax_rates/#{@tax_rate.id}"
     end
   end
 
   describe 'DELETE /destroy' do
     it 'redirect to index page' do
       delete "/admin/settings/tax_rates/#{@tax_rate.id}"
-      expect(response).to redirect_to '/admin/settings/tax_rates?locale=en'
+      expect(response.location).to include '/admin/settings/tax_rates'
     end
   end
 end

@@ -18,9 +18,13 @@ module Admin
       end
 
       def create
-        TaxRate.create!(tax_rate_params)
-        redirect_to admin_settings_tax_rates_path,
-                    notice: 'Tax rate was successfully created.'
+        tax_rate = TaxRate.new(tax_rate_params)
+        if tax_rate.save
+          redirect_to admin_settings_tax_rates_path,
+                      notice: 'Tax rate was successfully created.'
+        else
+          render :new
+        end
       end
 
       def update
@@ -36,9 +40,12 @@ module Admin
       def edit; end
 
       def destroy
-        @tax_rate.destroy
-        redirect_to admin_settings_tax_rates_path,
-                    notice: 'Tax rate was successfully destroyed.'
+        if @tax_rate.destroy
+          flash[:success] = 'Tax rate was successfully destroyed'
+        else
+          flash[:error] = 'Error processing your request'
+        end
+        redirect_to admin_settings_tax_rates_path
       end
 
       private
