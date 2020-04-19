@@ -1,0 +1,37 @@
+= link_to admin_settings_payment_methods_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center Edit Payment Method
+%br/
+%br/
+.row
+  .col-12
+    .action-bar
+      = link_to admin_settings_payment_method_path(@payment_method), method: :delete, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'trash'}
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Payment method Info
+      %hr
+      = form_for(@payment_method, url: admin_settings_payment_method_path(@payment_method)) do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
+        .form-group
+          = f.label :description
+          = f.text_field :description, autofocus: true, autocomplete: 'description', class: 'form-control'
+        .form-group
+          = f.label :provider
+          = f.select :provider, ['razor_pay','stripe'], class: 'form-control'
+        %b Active
+        .form-group
+          = f.radio_button :active, 'true'
+          Yes
+          %br/
+          = f.radio_button :active, 'false'
+          No
+          %br
+        .actions
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = link_to admin_settings_payment_methods_path, class: 'btn btn-danger btn-block' do
+            %span Cancel

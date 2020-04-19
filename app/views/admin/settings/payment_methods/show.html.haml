@@ -1,0 +1,29 @@
+= link_to                                                         admin_settings_payment_methods_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center Shipping Method info
+%br/
+%br/
+.row
+  .col-12
+    .action-bar
+      = link_to admin_settings_payment_method_path(@payment_method), method: :delete, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'trash'}
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Payment Method
+      %hr
+        %p#notice= notice
+        %dl.row
+          %dt.col-sm-6 Name:
+          %dd.col-sm-5
+            = @payment_method.name
+          %dt.col-sm-6 Description:
+          %dd.col-sm-5
+            = @payment_method.description
+          %dt.col-sm-6 Provider:
+          %dd.col-sm-5
+            = @payment_method.provider
+          %dt.col-sm-6 Active:
+          %dd.col-sm-5
+            = @payment_method.active
