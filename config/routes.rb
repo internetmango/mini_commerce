@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :admin_users, only: :index
       resources :tax_rates
       resources :shipping_methods
+      resources :payment_methods
     end
   end
 

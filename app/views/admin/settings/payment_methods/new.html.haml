@@ -1,0 +1,7 @@
+= link_to admin_settings_payment_methods_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center New Payment Method
+%br/
+%br/
+= render 'form', payment_method: @payment_method
+= link_to 'Back', admin_settings_payment_methods_path

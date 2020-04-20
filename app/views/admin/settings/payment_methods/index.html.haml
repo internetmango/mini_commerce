@@ -1,0 +1,38 @@
+.row
+  .col-12
+    %h3.text-center Payment Methods
+.row
+  .col-12
+    .action-bar
+      = link_to new_admin_settings_payment_method_path, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'plus'}
+.row
+  .col-12
+    .py-3
+      %br/
+      - if @payment_methods.blank?
+        %p
+          %b No Payment methods found
+        %p Add a Payment method by clicking the above button.
+      - else
+        %table.table.table-striped.table-sm.table-bordesred.table-responsive-sm
+          %thead
+            %tr
+              %th Name
+              %th Description
+              %th Provider
+              %th active
+              %th Actions
+          %tbody
+            - @payment_methods.each do |payment_method|
+              %tr
+                %td
+                  = link_to payment_method.name, admin_settings_payment_method_path(payment_method)
+                %td= payment_method.description
+                %td= payment_method.provider
+                %td= payment_method.active
+                %td
+                  %span>
+                    = link_to edit_admin_settings_payment_method_path(payment_method), class: 'nav-link' do
+                      %span{'data-feather' => 'edit'}
+      = pagy_bootstrap_nav(@pagy).html_safe
