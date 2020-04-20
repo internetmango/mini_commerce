@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Payment_Methods', type: :request do
-  let (:payment_method) { create(:payment_method) }
+  let(:payment_method) { create(:payment_method) }
+  let(:user) { create(:user) }
   before :each do
-    user = create(:user)
     sign_in user
   end
   describe 'GET /index' do

@@ -3,22 +3,21 @@
 require 'rails_helper'
 
 RSpec.describe Shipment, type: :model do
-  before :each do
-    @shipment = build_stubbed(:shipment)
-  end
+  let(:shipment) { build(:shipment) }
+
   it 'should have a number' do
-    @shipment.number = nil
-    expect(@shipment).to_not be_valid
+    shipment.number = nil
+    expect(shipment).to_not be_valid
   end
 
   it 'should have an order id' do
-    @shipment.order_id = nil
-    expect(@shipment).to_not be_valid
+    shipment.order_id = nil
+    expect(shipment).to_not be_valid
   end
 
   it 'should have an address_id' do
-    @shipment.address_id = nil
-    expect(@shipment).to_not be_valid
+    shipment.address_id = nil
+    expect(shipment).to_not be_valid
   end
 
   it 'should belongs to address' do
