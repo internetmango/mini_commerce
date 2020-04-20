@@ -15,6 +15,9 @@
       %hr
         %p#notice= notice
         %dl.row
+          %dt.col-sm-6 User:
+          %dd.col-sm-5
+            = User.find(@order.user_id).name
           %dt.col-sm-6 Order Number:
           %dd.col-sm-5
             = @order.order_number

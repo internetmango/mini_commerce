@@ -11,9 +11,9 @@ products = Product.create!(
     { category_id: category.id, description: '', name: 'Realme 5', price: 10_000 }
   ]
 )
-
+current_user = User.first
 cart1 = ShopingCart.new(token: SecureRandom.hex(8))
-cart1.add_item(product_id: products[1], quantity: 2)
+cart1.add_item(current_user: current_user,product_id: Product.first.id, quantity: 2)
 
 # Upload image
 uploader = ImageUploader.new(:store)
