@@ -3,17 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe TaxRate, type: :model do
-  before :each do
-    @tax_rate = create(:tax_rate)
-  end
+  subject { build(:tax_rate) }
 
   it 'should have a name' do
-    @tax_rate.name = nil
-    expect(@tax_rate).to_not be_valid
+    subject.name = nil
+    expect(subject).to_not be_valid
   end
 
   it 'should have a rate' do
-    @tax_rate.rate = nil
-    expect(@tax_rate).to_not be_valid
+    subject.rate = nil
+    expect(subject).to_not be_valid
   end
 end

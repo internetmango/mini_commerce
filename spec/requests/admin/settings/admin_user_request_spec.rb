@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin_Users', type: :request do
+  let(:user) { create(:user) }
   before :each do
-    @user = create(:user)
-    sign_in @user
+    sign_in user
   end
   describe 'GET /index' do
     it 'returns http success' do

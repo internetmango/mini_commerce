@@ -3,17 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe ProductStock, type: :model do
-  before :all do
-    @product_stock = build_stubbed(:product_stock)
-  end
+  let(:product_stock) { build(:product_stock) }
+
   it 'should have a product id' do
-    @product_stock.product_id = nil
-    expect(@product_stock).to_not be_valid
+    product_stock.product_id = nil
+    expect(product_stock).to_not be_valid
   end
 
   it 'should have current_stock' do
-    @product_stock.current_stock = nil
-    expect(@product_stock).to_not be_valid
+    product_stock.current_stock = nil
+    expect(product_stock).to_not be_valid
   end
 
   it 'should belongs to a product' do
