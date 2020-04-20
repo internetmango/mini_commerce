@@ -48,6 +48,7 @@ Rails.application.routes.draw do
         resources :orders, only: [:index, :show, :update] do
           collection do
             post :add_cart
+            get :cart
           end
         end
         resources :categories, except: [:new, :edit]

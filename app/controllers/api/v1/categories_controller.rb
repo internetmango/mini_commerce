@@ -2,7 +2,7 @@
 
 module Api::V1
   # Products controller
-  class CategoriesController < AdminController
+  class CategoriesController < ApiController
     skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
     before_action :authenticate_user_with_api_token

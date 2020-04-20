@@ -2,12 +2,11 @@
 
 module Api::V1
   # Orders controller
-  class OrdersController < AdminController
-    skip_before_action :authenticate_admin
+  class OrdersController < ApiController
     before_action :authenticate_user_with_api_token
     skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
-    before_action :set_order, except: %i[index add_cart]
+    before_action :set_order, except: %i[index add_cart cart]
     respond_to :json
 
     def index
@@ -28,13 +27,32 @@ module Api::V1
     end
 
     def add_cart
-      @current_cart.add_item(
-        current_user: current_user,
-        product_id: add_cart_params['product_id'], quantity: add_cart_params['quantity']
+      @order ||= current_user.orders.find_or_create_by(status: 'cart', token: cart_token) do |order|
+        order.sub_total = 0
+    end
+
+      current_cart.add_item(
+        product_id: add_cart_params['product_id'],
+        quantity: add_cart_params['quantity']
       )
-      order = current_cart.order
       render json: "Order was successfully added to cart.
-                    {  id: #{order.id},
+                    {  id: #{@order.id},
+                       user_id: #{@order.user_id},
+                       sub_total: #{@order.sub_total},
+                       token: #{@order.token},
+                       status: #{@order.status},
+                       shipping_address_id: #{@order.shipping_address_id},
+                       billing_address_id: #{@order.billing_address_id},
+                       order_number: #{@order.order_number}
+                     }"
+    end
+
+    def cart
+      if current_user.orders.where(status: 'cart').first
+        p 'cart'
+        order = current_user.orders.where(status: 'cart').first
+        render json:
+                    "{  id: #{order.id},
                        user_id: #{order.user_id},
                        sub_total: #{order.sub_total},
                        token: #{order.token},
@@ -43,9 +61,23 @@ module Api::V1
                        billing_address_id: #{order.billing_address_id},
                        order_number: #{order.order_number}
                      }"
+      else
+        render json: 'No orders yet'
+      end
+    end
+
+    def current_cart
+      @current_cart ||= ShopingCart.new(order: @order)
     end
 
     private
+
+    def cart_token
+      return @cart_token if @cart_token
+
+      session[:cart_token] ||= SecureRandom.hex(8)
+      @cart_token = session[:cart_token]
+    end
 
     def order_params
       params.require(:order).permit(:order_number, :status, :sub_total, :user_id, :token)

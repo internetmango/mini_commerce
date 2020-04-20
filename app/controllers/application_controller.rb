@@ -7,20 +7,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  before_action :current_cart
-
-  def authenticate_user_with_api_token
-    token = request.headers['token']
-    email = request.headers['email']
-
-    user = email && User.find_by(email: email)
-    if user && ActiveSupport::SecurityUtils.secure_compare(user.authentication_token, token)
-      @current_user = user
-    else
-      render status: 403,
-             json: { success: false, message: t('api.messages.unauthorized') }
-    end
-  end
 
   protected
 
@@ -37,18 +23,7 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || root_path)
   end
 
-  def current_cart
-    @current_cart ||= ShopingCart.new(token: cart_token)
-  end
-
   private
-
-  def cart_token
-    return @cart_token if @cart_token
-
-    session[:cart_token] ||= SecureRandom.hex(8)
-    @cart_token = session[:cart_token]
-  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
