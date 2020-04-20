@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe PaymentMethod, type: :model do
-  subject { create(:payment_method) }
+  subject { build(:payment_method) }
 
   it 'should have a name' do
     subject.name = nil
