@@ -11,42 +11,42 @@ module Api::V1
 
     def index
       users = User.order(admin: :desc)
-      render_json(users)
+      render_json(type: 'user', value: user)
     end
 
     def create
       user = User.create!(user_params)
-      render_json(user)
+      render_json(type: 'user', value: user)
     end
 
     def show
-      render_json(@user)
+      render_json(type: 'user', value: @user)
     end
 
     def update
       user = @user.update(user_params)
       if user
-        render_json(user)
+        render_json(type: 'user', value: user)
       else
         Rails.logger.info(@user.errors.messages.inspect)
-        render_json('error')
+        render_json(value: 'error')
       end
     end
 
     def destroy
       user = @user
       if @user.destroy
-        render_json(user)
+        render_json(type: 'user', value: user)
       else
-        render_json('error')
+        render_json(value: 'error')
       end
     end
 
     def reset_password
       if @user.send_reset_password_instructions
-        render_json(@user)
+        render_json(type: 'user', value: @user)
       else
-        render_json('error')
+        render_json(value: 'error')
       end
     end
 
@@ -54,20 +54,19 @@ module Api::V1
     def addresses
       if @user.addresses
         addresses = @user.addresses
-        serializer = AddressSerializer.new(addresses)
-        render json: serializer
+        render_json(type: 'address', value: addresses)
       else
-        render json: []
+        render_json(value: 'error')
       end
     end
 
     def create_address
-      address = Address.new(address_params)
+      p "==========#{@user}"
+      address = @user.addresses.new(address_params)
       if address.save
-        serializer = AddressSerializer.new(address)
-        render json: serializer
+        render_json(type: 'address', value: address)
       else
-        render json: []
+        render_json(value: 'error')
       end
     end
 
@@ -75,13 +74,13 @@ module Api::V1
       if @user.addresses.find(params[:address_id]) &.destroy
         render json: true
       else
-        render json: []
+        render_json(value: 'error')
       end
     end
 
-    def render_json(users)
-      if users != 'error'
-        serializer = UserSerializer.new(users)
+    def render_json(type: nil,value:)
+      if value != 'error' and type != nil
+        serializer = "#{type.capitalize}Serializer".constantize.new(value)
         render json: serializer
       else
         render json: []
