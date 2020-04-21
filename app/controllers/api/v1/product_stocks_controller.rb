@@ -23,12 +23,12 @@ module Api::V1
         render_json(@product_stock)
       else
         Rails.logger.info(@product_stock.errors.messages.inspect)
-        render_json('error')
+        render_json
       end
     end
 
-    def render_json(product_stocks)
-      if product_stocks != 'error'
+    def render_json(product_stocks = nil)
+      if product_stocks
         serializer = ProductStockSerializer.new(product_stocks)
         render json: serializer
       else

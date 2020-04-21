@@ -21,7 +21,7 @@ module Api::V1
       if product
         render_json(product)
       else
-        render_json('error')
+        render_json
       end
     end
 
@@ -34,7 +34,7 @@ module Api::V1
         render_json(@product)
       else
         Rails.logger.info(@product.errors.messages.inspect)
-        render_json('error')
+        render_json
       end
     end
 
@@ -43,12 +43,12 @@ module Api::V1
       if @product.destroy
         render_json(product)
       else
-        render_json('error')
+        render_json
       end
     end
 
-    def render_json(products)
-      if products != 'error'
+    def render_json(products = nil)
+      if products
         serializer = ProductSerializer.new(products)
         render json: serializer
       else
