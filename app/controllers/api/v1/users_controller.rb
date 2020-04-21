@@ -61,7 +61,6 @@ module Api::V1
     end
 
     def create_address
-      p "==========#{@user}"
       address = @user.addresses.new(address_params)
       if address.save
         render_json(type: 'address', value: address)
