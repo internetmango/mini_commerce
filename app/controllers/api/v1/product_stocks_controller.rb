@@ -2,7 +2,7 @@
 
 module Api::V1
   # Products controller
-  class ProductStocksController < AdminController
+  class ProductStocksController < ApiController
     skip_before_action :verify_authenticity_token
     before_action :authenticate_user_with_api_token
     skip_before_action :authenticate_user!

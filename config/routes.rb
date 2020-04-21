@@ -45,7 +45,12 @@ Rails.application.routes.draw do
             get :reset_password
           end
         end
-        resources :orders, only: [:index, :show, :update]
+        resources :orders, only: [:index, :show, :update] do
+          collection do
+            post :add_cart
+            get :cart
+          end
+        end
         resources :categories, except: [:new, :edit]
         resources :product_stocks, only: [:index, :show, :update]
         resources :product_images, except: [:new, :edit]
