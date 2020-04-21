@@ -21,10 +21,10 @@ module Api::V1
         if product_image
           render_json(product_image)
         else
-          render_json('error')
+          render_json
         end
       else
-        render_json('error')
+        render_json
       end
     end
 
@@ -37,7 +37,7 @@ module Api::V1
         render_json(@product_image)
       else
         Rails.logger.info(@product_image.errors.messages.inspect)
-        render_json('error')
+        render_json
       end
     end
 
@@ -46,12 +46,12 @@ module Api::V1
       if @product_image.destroy
         render_json(product_image)
       else
-        render_json('error')
+        render_json
       end
     end
 
-    def render_json(product_images)
-      if product_images != 'error'
+    def render_json(product_images = nil)
+      if product_images
         serializer = ProductImageSerializer.new(product_images)
         render json: serializer
       else

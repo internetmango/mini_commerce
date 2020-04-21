@@ -22,7 +22,7 @@ module Api::V1
       if @order.update(order_params)
         render_json(@order)
       else
-        render_json('error')
+        render_json
       end
     end
 
@@ -43,7 +43,7 @@ module Api::V1
         order = current_user.orders.where(status: 'cart').first
         render_json(order)
       else
-        render_json('error')
+        render_json
       end
     end
 
@@ -51,8 +51,8 @@ module Api::V1
       @current_cart ||= ShopingCart.new(order: @order)
     end
 
-    def render_json(orders)
-      if orders != 'error'
+    def render_json(orders = nil)
+      if orders
         serializer = OrderSerializer.new(orders)
         render json: serializer
       else

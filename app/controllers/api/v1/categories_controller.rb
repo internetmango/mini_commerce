@@ -25,7 +25,7 @@ module Api::V1
       if @category
         render_json(@category)
       else
-        render_json('error')
+        render_json
       end
     end
 
@@ -33,7 +33,7 @@ module Api::V1
       if @category.update(category_params)
         render_json(@category)
       else
-        render_json('error')
+        render_json
       end
     end
 
@@ -42,12 +42,12 @@ module Api::V1
       if @category.destroy
         render_json(category)
       else
-        render_json('error')
+        render_json
       end
     end
 
-    def render_json(categories)
-      if categories != 'error'
+    def render_json(categories = nil)
+      if categories
         serializer = CategorySerializer.new(categories)
         render json: serializer
       else

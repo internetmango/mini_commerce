@@ -15,8 +15,11 @@ module Api::V1
     end
 
     def create
-      user = User.create!(user_params)
-      render_json(user)
+      if (user = User.create!(user_params))
+        render_json(user)
+      else
+        render_json
+      end
     end
 
     def show
@@ -29,7 +32,7 @@ module Api::V1
         render_json(user)
       else
         Rails.logger.info(@user.errors.messages.inspect)
-        render_json('error')
+        render_json
       end
     end
 
@@ -38,18 +41,21 @@ module Api::V1
       if @user.destroy
         render_json(user)
       else
-        render_json('error')
+        render_json
       end
     end
 
     def reset_password
-      @user.send_reset_password_instructions
-      render_json(@user)
+      if @user.send_reset_password_instructions
+        render_json(@user)
+      else
+        render_json
+      end
     end
 
-    def render_json(users)
-      if users != 'error'
-        serializer = UserSerializer.new(users)
+    def render_json(value = nil)
+      if value
+        serializer = UserSerializer.new(value)
         render json: serializer
       else
         render json: []
@@ -59,7 +65,11 @@ module Api::V1
     private
 
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name, :admin)
+      params.require(:user).permit(
+        :email, :password,
+        :password_confirmation,
+        :name, :admin
+      )
     end
 
     def set_user
