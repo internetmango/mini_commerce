@@ -49,10 +49,9 @@ module Api::V1
 
     def cart
       if current_user.orders.where(status: 'cart').first
-        p 'cart'
         order = current_user.orders.where(status: 'cart').first
         render json:
-                    "{  id: #{order.id},
+                    "{ id: #{order.id},
                        user_id: #{order.user_id},
                        sub_total: #{order.sub_total},
                        token: #{order.token},
