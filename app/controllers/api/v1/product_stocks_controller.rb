@@ -11,19 +11,28 @@ module Api::V1
 
     def index
       @product_stocks = ProductStock.order(updated_at: :desc)
-      render json: @product_stocks
+      render_json(@product_stocks)
     end
 
     def show
-      render json: @product_stock
+      render_json(@product_stock)
     end
 
     def update
       if @product_stock.update(product_stock_params)
-        render json: @product_stock
+        render_json(@product_stock)
       else
         Rails.logger.info(@product_stock.errors.messages.inspect)
-        render :edit
+        render_json('error')
+      end
+    end
+
+    def render_json(product_stocks)
+      if product_stocks != 'error'
+        serializer = ProductStockSerializer.new(product_stocks)
+        render json: serializer
+      else
+        render json: []
       end
     end
 

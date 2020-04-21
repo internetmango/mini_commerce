@@ -13,33 +13,46 @@ module Api::V1
 
     def index
       @categories = Category.order(:name)
-      render json: @categories
+      render_json(@categories)
     end
 
     def show
-      render json: @category
+      render_json(@category)
     end
 
     def create
       @category = Category.create!(category_params)
       if @category
-        render json: @category
+        render_json(@category)
       else
-        render :new
+        render_json('error')
       end
     end
 
     def update
       if @category.update(category_params)
-        render json: @category
+        render_json(@category)
       else
-        render :edit
+        render_json('error')
       end
     end
 
     def destroy
-      @category.destroy
-      render json: 'Category was successfully destroyed.'
+      category = @category
+      if @category.destroy
+        render_json(category)
+      else
+        render_json('error')
+      end
+    end
+
+    def render_json(categories)
+      if categories != 'error'
+        serializer = CategorySerializer.new(categories)
+        render json: serializer
+      else
+        render json: []
+      end
     end
 
     private

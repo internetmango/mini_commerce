@@ -11,36 +11,49 @@ module Api::V1
 
     def index
       users = User.order(admin: :desc)
-      render json: users
+      render_json(users)
     end
 
     def create
       user = User.create!(user_params)
-      render json: user
+      render_json(user)
     end
 
     def show
-      render json: @user
+      render_json(@user)
     end
 
     def update
       user = @user.update(user_params)
       if user
-        render json: user
+        render_json(user)
       else
         Rails.logger.info(@user.errors.messages.inspect)
-        render :edit
+        render_json('error')
       end
     end
 
     def destroy
-      @user.destroy
-      render json: 'User was successfully destroyed.'
+      user = @user
+      if @user.destroy
+        render_json(user)
+      else
+        render_json('error')
+      end
     end
 
     def reset_password
       @user.send_reset_password_instructions
-      render json: 'Password reset link has been sent.'
+      render_json(@user)
+    end
+
+    def render_json(users)
+      if users != 'error'
+        serializer = UserSerializer.new(users)
+        render json: serializer
+      else
+        render json: []
+      end
     end
 
     private
