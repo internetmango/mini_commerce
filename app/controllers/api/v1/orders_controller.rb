@@ -29,37 +29,21 @@ module Api::V1
     def add_cart
       @order ||= current_user.orders.find_or_create_by(status: 'cart', token: cart_token) do |order|
         order.sub_total = 0
-    end
+      end
 
       current_cart.add_item(
         product_id: add_cart_params['product_id'],
         quantity: add_cart_params['quantity']
       )
-      render json: "Order was successfully added to cart.
-                    {  id: #{@order.id},
-                       user_id: #{@order.user_id},
-                       sub_total: #{@order.sub_total},
-                       token: #{@order.token},
-                       status: #{@order.status},
-                       shipping_address_id: #{@order.shipping_address_id},
-                       billing_address_id: #{@order.billing_address_id},
-                       order_number: #{@order.order_number}
-                     }"
+      serializer = OrderSerializer.new(@order)
+      render json: serializer
     end
 
     def cart
       if current_user.orders.where(status: 'cart').first
         order = current_user.orders.where(status: 'cart').first
-        render json:
-                    "{ id: #{order.id},
-                       user_id: #{order.user_id},
-                       sub_total: #{order.sub_total},
-                       token: #{order.token},
-                       status: #{order.status},
-                       shipping_address_id: #{order.shipping_address_id},
-                       billing_address_id: #{order.billing_address_id},
-                       order_number: #{order.order_number}
-                     }"
+        serializer = OrderSerializer.new(order)
+        render json: serializer
       else
         render json: 'No orders yet'
       end

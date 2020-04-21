@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class ApiController < ApplicationController
-
-
-	def authenticate_user_with_api_token
+  def authenticate_user_with_api_token
     token = request.headers['token']
     email = request.headers['email']
 

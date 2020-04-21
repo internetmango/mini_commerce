@@ -21,6 +21,7 @@ gem 'webpacker', '~> 4.0'
 gem 'pagy', '~> 3.7.4'
 gem 'shrine', '~> 3.2.1'
 gem 'pundit', '~> 2.1.0'
+gem 'fast_jsonapi'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
