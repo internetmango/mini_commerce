@@ -11,18 +11,18 @@ module Api::V1
 
     def index
       @orders = Order.all
-      render json: @orders
+      render_json(@orders)
     end
 
     def show
-      render json: @order
+      render_json(@order)
     end
 
     def update
       if @order.update(order_params)
-        render json: 'Order was successfully updated.'
+        render_json(@order)
       else
-        render :edit
+        render_json('error')
       end
     end
 
@@ -35,22 +35,29 @@ module Api::V1
         product_id: add_cart_params['product_id'],
         quantity: add_cart_params['quantity']
       )
-      serializer = OrderSerializer.new(@order)
-      render json: serializer
+      render_json(@order)
     end
 
     def cart
       if current_user.orders.where(status: 'cart').first
         order = current_user.orders.where(status: 'cart').first
-        serializer = OrderSerializer.new(order)
-        render json: serializer
+        render_json(order)
       else
-        render json: 'No orders yet'
+        render_json('error')
       end
     end
 
     def current_cart
       @current_cart ||= ShopingCart.new(order: @order)
+    end
+
+    def render_json(orders)
+      if orders != 'error'
+        serializer = OrderSerializer.new(orders)
+        render json: serializer
+      else
+        render json: []
+      end
     end
 
     private

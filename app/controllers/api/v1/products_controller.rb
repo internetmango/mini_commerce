@@ -12,13 +12,17 @@ module Api::V1
     respond_to :json
 
     def index
-      @products = Product.order(updated_at: :desc)
-      render json: @products
+      products = Product.order(updated_at: :desc)
+      render_json(products)
     end
 
     def create
-      Product.create!(product_params)
-      render json: 'Product was successfully created.'
+      product = Product.create!(product_params)
+      if product
+        render_json(product)
+      else
+        render_json('error')
+      end
     end
 
     def show
@@ -27,16 +31,29 @@ module Api::V1
 
     def update
       if @product.update(product_params)
-        render json: 'Product was successfully updated.'
+        render_json(@product)
       else
         Rails.logger.info(@product.errors.messages.inspect)
-        render :edit
+        render_json('error')
       end
     end
 
     def destroy
-      @product.destroy
-      render json: 'Product was successfully destroyed.'
+      product = @product
+      if @product.destroy
+        render_json(product)
+      else
+        render_json('error')
+      end
+    end
+
+    def render_json(products)
+      if products != 'error'
+        serializer = ProductSerializer.new(products)
+        render json: serializer
+      else
+        render json: []
+      end
     end
 
     private

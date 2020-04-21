@@ -10,32 +10,53 @@ module Api::V1
     respond_to :json
 
     def index
-      @product_images = ProductImage.order(product_id: :desc)
-      render json: @product_images
+      product_images = ProductImage.order(product_id: :desc)
+      render_json(product_images)
     end
 
     def create
-      product = Product.find(product_image_params['product_id'])
-      product_image = product.product_images.new(product_image_params)
-      render json: product_image
+      if Product.find(product_image_params['product_id'])
+        product = Product.find(product_image_params['product_id'])
+        product_image = product.product_images.new(product_image_params)
+        if product_image
+          render_json(product_image)
+        else
+          render_json('error')
+        end
+      else
+        render_json('error')
+      end
     end
 
     def show
-      render json: @product_image
+      render_json(@product_image)
     end
 
     def update
       if @product_image.update(product_image_params)
-        render json: @product_image
+        render_json(@product_image)
       else
         Rails.logger.info(@product_image.errors.messages.inspect)
-        render :edit
+        render_json('error')
       end
     end
 
     def destroy
-      @product_image.destroy
-      render json: 'Product was successfully destroyed.'
+      product_image = @product_image
+      if @product_image.destroy
+        render_json(product_image)
+      else
+        render_json('error')
+      end
+    end
+
+    def render_json(product_images)
+      if product_images != 'error'
+        serializer = ProductImageSerializer.new(product_images)
+        render json: serializer
+      else
+        render json: []
+      end
     end
 
     private
