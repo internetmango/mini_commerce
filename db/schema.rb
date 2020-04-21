@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_04_19_051845) do
     t.string "country"
     t.string "phone"
     t.integer "user_id"
+    t.boolean "is_default", default: false, null: false
+    t.string "address_type", default: "shipping", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

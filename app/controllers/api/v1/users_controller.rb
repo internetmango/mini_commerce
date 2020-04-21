@@ -43,8 +43,40 @@ module Api::V1
     end
 
     def reset_password
-      @user.send_reset_password_instructions
-      render_json(@user)
+      if @user.send_reset_password_instructions
+        render_json(@user)
+      else
+        render_json('error')
+      end
+    end
+
+    # User address list,create,delete operations
+    def addresses
+      if @user.addresses
+        addresses = @user.addresses
+        serializer = AddressSerializer.new(addresses)
+        render json: serializer
+      else
+        render json: []
+      end
+    end
+
+    def create_address
+      address = Address.new(address_params)
+      if address.save
+        serializer = AddressSerializer.new(address)
+        render json: serializer
+      else
+        render json: []
+      end
+    end
+
+    def delete_address
+      if @user.addresses.find(params[:address_id]) &.destroy
+        render json: true
+      else
+        render json: []
+      end
     end
 
     def render_json(users)
@@ -58,8 +90,20 @@ module Api::V1
 
     private
 
+    def address_params
+      params.require(:address).permit(
+        :id, :address_line1, :address_line2,
+        :city, :zipcode, :state, :country, :phone,
+        :user_id, :is_default, :address_type
+      )
+    end
+
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name, :admin)
+      params.require(:user).permit(
+        :email, :password,
+        :password_confirmation,
+        :name, :admin
+      )
     end
 
     def set_user
