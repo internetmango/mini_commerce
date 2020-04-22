@@ -50,7 +50,8 @@ module Api::V1
     end
 
     def finalize
-      return unless (@order &.status = 'confirmed')
+      return unless @order &.status = 'confirmed'
+
       @order.save
       render_json(@order)
     end
