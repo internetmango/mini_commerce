@@ -3,6 +3,7 @@
 class ShopingCart
   delegate :sub_total, to: :order
   attr_reader :order
+  ZERO = 0
 
   def initialize(order:)
     @order = order
@@ -14,9 +15,10 @@ class ShopingCart
     order_item.price = product.price
     order_item.quantity = quantity
     item_quantity(product_id: product_id)
+
     ActiveRecord::Base.transaction do
       order_item.save
-      update_subtotal
+      update_subtotal_and_save
     end
   end
 
@@ -25,15 +27,12 @@ class ShopingCart
   end
 
   def item_quantity(product_id)
-    product = @order.items.find_by(product_id)
-    if product
-      product.quantity
-    else
-      1
-    end
+    product_item = @order.items.find_by(product_id: product_id)
+    return product_item.quantity if product_item
+    ZERO
   end
 
-  def update_subtotal
+  def update_subtotal_and_save
     @order.sub_total = @order.items.sum('quantity*price')
     @order.save
   end
