@@ -52,7 +52,7 @@ Rails.application.routes.draw do
             post :add_cart
             get :cart
             patch :update
-            get :finalize
+            post :finalize
             delete :remove
           end
         end
