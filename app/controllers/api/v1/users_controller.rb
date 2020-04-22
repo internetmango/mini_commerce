@@ -3,7 +3,6 @@
 module Api::V1
   # Products controller
   class UsersController < ApiController
-    skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
     before_action :authenticate_user_with_api_token
     before_action :set_user, except: %i[index new create]
@@ -58,7 +57,7 @@ module Api::V1
         serializer = UserSerializer.new(value)
         render json: serializer
       else
-        render json: []
+        render json: nil
       end
     end
 

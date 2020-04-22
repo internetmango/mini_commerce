@@ -3,7 +3,6 @@
 module Api::V1
   # Orders controller
   class OrdersController < ApiController
-    before_action :authenticate_user_with_api_token
     skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
     before_action :set_order, except: %i[index add_cart cart]
@@ -31,7 +30,7 @@ module Api::V1
         serializer = OrderSerializer.new(orders)
         render json: serializer
       else
-        render json: []
+        render json: nil
       end
     end
 

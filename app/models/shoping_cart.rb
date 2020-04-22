@@ -2,12 +2,11 @@
 
 class ShopingCart
   delegate :sub_total, to: :order
+  attr_reader :order
 
   def initialize(order:)
     @order = order
   end
-
-  attr_reader :order
 
   def add_item(product_id:, quantity:)
     product = Product.find(product_id)

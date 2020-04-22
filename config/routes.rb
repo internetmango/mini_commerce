@@ -48,13 +48,10 @@ Rails.application.routes.draw do
           resources :addresses
         end
         resources :orders, only: [:index, :show, :update]
-        resources :carts do
-          collection do
-            post :add_cart
-            get :cart
-            patch :update
+        resource :cart do
+          member do
+            post :add_item
             post :finalize
-            delete :remove
           end
         end
         resources :categories, except: [:new, :edit]

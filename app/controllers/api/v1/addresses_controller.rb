@@ -3,7 +3,6 @@
 module Api::V1
   # Products controller
   class AddressesController < ApiController
-    skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
     before_action :authenticate_user_with_api_token
     before_action :set_user, except: %i[render_json]
@@ -52,7 +51,7 @@ module Api::V1
         serializer = AddressSerializer.new(addresses)
         render json: serializer
       else
-        render json: []
+        render json: nil
       end
     end
 
