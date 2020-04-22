@@ -34,4 +34,12 @@ RSpec.describe Category, type: :model do
     category = Category.reflect_on_association(:products)
     expect(category.macro).to eq(:has_many)
   end
+
+  it 'has one attached image ' do
+    subject.image.attach(
+      io: File.open(fixture_path + '/mobile.jpeg'),
+      filename: 'mobile.jpg', content_type: 'image/jpg'
+    )
+    expect(subject.image).to be_attached
+  end
 end

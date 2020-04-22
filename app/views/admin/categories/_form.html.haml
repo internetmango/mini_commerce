@@ -1,0 +1,15 @@
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Create new Category
+      %hr
+      = form_for(category, url: admin_categories_path) do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
+        .form-group
+          = f.label :image
+          = f.file_field :image, autocomplete: 'off', class: 'form-control'
+        .actions
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+

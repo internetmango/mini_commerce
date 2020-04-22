@@ -57,6 +57,10 @@
                       %span{'data-feather' => 'shopping-cart'}
                       Orders
                   %li.nav-item
+                    = link_to admin_categories_path, class: 'nav-link' do
+                      %span{'data-feather' => 'columns'}
+                      Categories
+                  %li.nav-item
                     = link_to admin_products_path, class: 'nav-link' do
                       %span{'data-feather' => 'box'}
                       Products
