@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class Order < ApplicationRecord
-  has_many :items, class_name: 'OrderItem'
+  has_many :items, class_name: 'OrderItem', dependent: :destroy
   belongs_to :billing_address, optional: true, class_name: 'Address'
   belongs_to :shipping_address, optional: true, class_name: 'Address'
   belongs_to :user, optional: true
   before_save :set_order_number
-  validate :custom_validation
+  validate :no_existing_cart
 
   def self.group_by_day(orders)
     data = orders.group_by do |order|
@@ -34,10 +34,15 @@ class Order < ApplicationRecord
 
   private
 
-  def custom_validation
-    user = User.find(user_id)
-    if user.orders.where(status: 'cart').count > 1
-      errors[:base] << 'An order with status:cart already exist'
-    end
+  def no_existing_cart
+    existing_cart_order = if persisted?
+                            Order.where(user_id: user_id, deleted_at: nil, status: 'cart')
+                                 .where.not(id: id).first
+                          else
+                            Order.where(user_id: user_id, deleted_at: nil, status: 'cart').first
+                          end
+    return unless existing_cart_order
+
+    errors.add(:base, 'Shopping cart already exists for user')
   end
 end

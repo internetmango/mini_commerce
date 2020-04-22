@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :orders , only: [:index, :show, :edit, :update, :destroy]
     resources :products
     resources :address, only: [:show]
+    resources :categories
 
     # Settings
     namespace :settings do
@@ -43,15 +44,14 @@ Rails.application.routes.draw do
         resources :users, except: [:new, :edit] do
           member do
             get :reset_password
-            
-            # delete ':addresses/:address_id', action: :delete_address
           end
           resources :addresses
         end
-        resources :orders, only: [:index, :show, :update] do
-          collection do
-            post :add_cart
-            get :cart
+        resources :orders, only: [:index, :show, :update]
+        resource :cart do
+          member do
+            post :add_item
+            post :finalize
           end
         end
         resources :categories, except: [:new, :edit]
