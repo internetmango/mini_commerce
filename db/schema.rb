@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_051845) do
     t.string "status", default: "cart"
     t.integer "user_id"
     t.string "order_number"
+    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

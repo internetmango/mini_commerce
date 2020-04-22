@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Order < ApplicationRecord
-  has_many :items, class_name: 'OrderItem'
+  has_many :items, class_name: 'OrderItem', dependent: :destroy
   belongs_to :billing_address, optional: true, class_name: 'Address'
   belongs_to :shipping_address, optional: true, class_name: 'Address'
   belongs_to :user, optional: true
@@ -36,8 +36,8 @@ class Order < ApplicationRecord
 
   def custom_validation
     user = User.find(user_id)
-    if user.orders.where(status: 'cart').count > 1
-      errors[:base] << 'An order with status:cart already exist'
-    end
+    return unless user.orders.where(status: 'cart').count > 1
+
+    errors[:base] << 'An order with status:cart already exist'
   end
 end

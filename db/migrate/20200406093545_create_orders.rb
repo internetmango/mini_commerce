@@ -10,6 +10,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :status, default: 'cart'
       t.integer :user_id
       t.string :order_number
+      t.datetime :deleted_at
 
       t.timestamps
     end

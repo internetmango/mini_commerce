@@ -43,15 +43,16 @@ Rails.application.routes.draw do
         resources :users, except: [:new, :edit] do
           member do
             get :reset_password
-            
-            # delete ':addresses/:address_id', action: :delete_address
           end
           resources :addresses
         end
-        resources :orders, only: [:index, :show, :update] do
+        resources :orders, only: [:index, :show, :update]
+        resources :carts do
           collection do
             post :add_cart
             get :cart
+            patch :update
+            delete :remove
           end
         end
         resources :categories, except: [:new, :edit]
