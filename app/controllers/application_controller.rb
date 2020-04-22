@@ -2,11 +2,13 @@
 
 class ApplicationController < ActionController::Base
   include Pundit
+  protect_from_forgery
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  protect_from_forgery
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  around_action :set_locale
 
   protected
 
@@ -25,8 +27,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource_or_scope) || root_path
+  end
+
+  def set_locale(&action)
+    session[:locale] = params[:locale] || session[:locale] || I18n.default_locale
+    I18n.with_locale(session[:locale], &action)
   end
 
   def default_url_options(options = {})

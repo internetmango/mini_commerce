@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 module Api::V1
-  # Products controller
   class ProductImagesController < ApiController
-    skip_before_action :authenticate_user!
-    before_action :authenticate_user_with_api_token
-    before_action :set_product_image, only: %i[show update destroy]
-    respond_to :json
+    before_action :set_product_image, only: [:show, :update, :destroy]
 
     def index
       product_images = ProductImage.order(product_id: :desc)
@@ -49,6 +45,8 @@ module Api::V1
       end
     end
 
+    private
+
     def render_json(product_images = nil)
       if product_images
         serializer = ProductImageSerializer.new(product_images)
@@ -57,8 +55,6 @@ module Api::V1
         render json: nil
       end
     end
-
-    private
 
     # Only allow a list of trusted parameters through.
     def product_image_params

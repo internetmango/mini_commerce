@@ -1,18 +1,14 @@
 # frozen_string_literal: true
 
 module Api::V1
-  # Products controller
   class CategoriesController < ApiController
-    skip_before_action :authenticate_user!
-    before_action :authenticate_user_with_api_token
-    before_action :set_category, only: %i[show update destroy]
-    before_action :authorize_category, only: %i[show update destroy]
-    before_action :authorize_categories, except: %i[show update destroy]
-    respond_to :json
+    before_action :set_category, only: [:show, :update, :destroy]
+    before_action :authorize_category, only: [:show, :update, :destroy]
+    before_action :authorize_categories, except: [:show, :update, :destroy]
 
     def index
-      @categories = Category.order(:name)
-      render_json(@categories)
+      categories = Category.order(:name)
+      render_json(categories)
     end
 
     def show
@@ -45,6 +41,8 @@ module Api::V1
       end
     end
 
+    private
+
     def render_json(categories = nil)
       if categories
         serializer = CategorySerializer.new(categories)
@@ -54,9 +52,6 @@ module Api::V1
       end
     end
 
-    private
-
-    # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
     end
