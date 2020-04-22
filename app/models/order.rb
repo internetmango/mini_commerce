@@ -36,9 +36,9 @@ class Order < ApplicationRecord
 
   def no_existing_cart
     existing_cart_order = if persisted?
-                            Order.where(user_id: user_id, deleted_at: nil).where.not(id: id).first
+                            Order.where(user_id: user_id, deleted_at: nil, status: 'cart').where.not(id: id).first
                           else
-                            Order.where(user_id: user_id, deleted_at: nil).first
+                            Order.where(user_id: user_id, deleted_at: nil, status: 'cart').first
                           end
     return unless existing_cart_order
 

@@ -6,7 +6,7 @@ module Api::V1
     skip_before_action :verify_authenticity_token
     skip_before_action :authenticate_user!
     before_action :authenticate_user_with_api_token
-    before_action :set_cart, only: %i[cart update remove current_cart]
+    before_action :set_cart, except: %i[add_cart render_json]
     respond_to :json
 
     def set_cart
@@ -49,16 +49,18 @@ module Api::V1
       render_json(@order)
     end
 
+    def finalize
+      return unless (@order &.status = 'confirmed')
+      @order.save
+      render_json(@order)
+    end
+
     def remove
       return unless @order
 
       @order.deleted_at = Time.now
       @order.save
       render_json(@order)
-    end
-
-    def current_cart
-      @current_cart ||= ShopingCart.new(order: @order)
     end
 
     def render_json(carts = nil)
@@ -68,6 +70,10 @@ module Api::V1
       else
         render json: []
       end
+    end
+
+    def current_cart
+      @current_cart ||= ShopingCart.new(order: @order)
     end
 
     private
