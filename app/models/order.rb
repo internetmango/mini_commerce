@@ -6,7 +6,7 @@ class Order < ApplicationRecord
   belongs_to :shipping_address, optional: true, class_name: 'Address'
   belongs_to :user, optional: true
   before_save :set_order_number
-  validate :custom_validation
+  validate :no_existing_cart
 
   def self.group_by_day(orders)
     data = orders.group_by do |order|
@@ -34,10 +34,14 @@ class Order < ApplicationRecord
 
   private
 
-  def custom_validation
-    user = User.find(user_id)
-    return unless user.orders.where(status: 'cart').count > 1
+  def no_existing_cart
+    existing_cart_order = if persisted?
+                            Order.where(user_id: user_id, deleted_at: nil).where.not(id: id).first
+                          else
+                            Order.where(user_id: user_id, deleted_at: nil).first
+                          end
+    return unless existing_cart_order
 
-    errors[:base] << 'An order with status:cart already exist'
+    errors.add(:base, 'Shopping cart already exists for user')
   end
 end

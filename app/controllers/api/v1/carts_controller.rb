@@ -10,11 +10,13 @@ module Api::V1
     respond_to :json
 
     def set_cart
-      @order unless (@order = current_user.orders.where(status: 'cart').first)
+      @order unless (@order = current_user.orders.where(status: 'cart', deleted_at: nil).first)
     end
 
     def add_cart
-      @order ||= current_user.orders.find_or_create_by(status: 'cart', token: cart_token) do |order|
+      @order ||= current_user.orders.find_or_create_by(
+        status: 'cart', token: cart_token, deleted_at: nil
+      ) do |order|
         order.sub_total = 0
       end
 
@@ -51,8 +53,6 @@ module Api::V1
       return unless @order
 
       @order.deleted_at = Time.now
-      @order.status = nil
-      @order.token = nil
       @order.save
       render_json(@order)
     end
