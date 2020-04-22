@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
 module Api::V1
-  # Products controller
   class AddressesController < ApiController
-    skip_before_action :authenticate_user!
-    before_action :authenticate_user_with_api_token
-    before_action :set_user, except: %i[render_json]
-    before_action :set_address, only: %i[show update destroy]
-    before_action :authorize_address, only: %i[show update destroy]
-    before_action :authorize_addresses, except: %i[show update destroy]
-    respond_to :json
+    before_action :set_user, except: [:show, :update]
+    before_action :set_address, only: [:show, :update, :destroy]
+    before_action :authorize_address, only: [:show, :update, :destroy]
+    before_action :authorize_addresses, except: [:show, :update, :destroy]
 
     def index
       addresses = @user.addresses.order(:created_at)
@@ -46,6 +42,8 @@ module Api::V1
       end
     end
 
+    private
+
     def render_json(addresses = nil)
       if addresses
         serializer = AddressSerializer.new(addresses)
@@ -55,9 +53,6 @@ module Api::V1
       end
     end
 
-    private
-
-    # Use callbacks to share common setup or constraints between actions.
     def set_address
       @address = @user.addresses.find(params[:id])
     end

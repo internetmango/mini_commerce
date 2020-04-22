@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 module Api::V1
-  # Products controller
   class UsersController < ApiController
-    skip_before_action :authenticate_user!
-    before_action :authenticate_user_with_api_token
-    before_action :set_user, except: %i[index new create]
-    respond_to :json
+    before_action :set_user, except: [:index, :create]
 
     def index
       users = User.order(admin: :desc)
@@ -52,6 +48,8 @@ module Api::V1
       end
     end
 
+    private
+
     def render_json(value = nil)
       if value
         serializer = UserSerializer.new(value)
@@ -60,8 +58,6 @@ module Api::V1
         render json: nil
       end
     end
-
-    private
 
     def user_params
       params.require(:user).permit(

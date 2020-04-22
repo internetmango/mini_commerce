@@ -1,18 +1,15 @@
 # frozen_string_literal: true
 
 module Api::V1
-  # Products controller
   class CartsController < ApiController
-    skip_before_action :authenticate_user!
-    before_action :authenticate_user_with_api_token
-    before_action :set_cart, except: %i[add_item render_json]
-    respond_to :json
+    before_action :set_order
 
     def add_item
-      @order ||= current_user.orders.find_or_create_by(status: 'cart', deleted_at: nil)
+      # Order is set by set_order, else build new
+      @order ||= current_user.orders.build(status: 'cart', deleted_at: nil, token: cart_token)
       current_cart.add_item(
-        product_id: add_cart_params[:product_id],
-        quantity: add_cart_params[:quantity]
+        product_id: order_item_params[:product_id],
+        quantity: order_item_params[:quantity]
       )
       render_json(@order)
     end
@@ -53,6 +50,8 @@ module Api::V1
       end
     end
 
+    private
+
     def render_json(cart = nil)
       if cart
         serializer = OrderSerializer.new(cart)
@@ -66,10 +65,8 @@ module Api::V1
       @current_cart ||= ShopingCart.new(order: @order)
     end
 
-    private
-
-    def set_cart
-      @order ||= current_user.orders.where(status: 'cart', deleted_at: nil).first
+    def set_order
+      @order = current_user.orders.where(status: 'cart', deleted_at: nil).first
     end
 
     def cart_params
@@ -79,15 +76,12 @@ module Api::V1
       )
     end
 
-    def add_cart_params
+    def order_item_params
       params.require(:cart).permit(:product_id, :quantity)
     end
 
     def cart_token
-      return @cart_token if @cart_token
-
-      session[:cart_token] ||= SecureRandom.hex(8)
-      @cart_token = session[:cart_token]
+      @cart_token ||= SecureRandom.hex(8)
     end
   end
 end

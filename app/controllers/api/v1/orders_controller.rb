@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
 module Api::V1
-  # Orders controller
   class OrdersController < ApiController
-    skip_before_action :verify_authenticity_token
-    skip_before_action :authenticate_user!
-    before_action :set_order, except: %i[index add_cart cart]
-    respond_to :json
+    before_action :set_order, except: :index
 
     def index
-      @orders = Order.all
-      render_json(@orders)
+      orders = Order.all
+      render_json(orders)
     end
 
     def show
@@ -25,6 +21,8 @@ module Api::V1
       end
     end
 
+    private
+
     def render_json(orders = nil)
       if orders
         serializer = OrderSerializer.new(orders)
@@ -33,8 +31,6 @@ module Api::V1
         render json: nil
       end
     end
-
-    private
 
     def order_params
       params.require(:order).permit(:order_number, :status, :sub_total, :user_id, :token)

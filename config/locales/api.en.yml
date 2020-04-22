@@ -1,0 +1,10 @@
+en:
+  api:
+    messages:
+      unauthorized: "Unauthorized"
+      not_found: "Resource not found"
+      server_error: "Server error. Please try again."
+      invalid_request: "Invalid request"
+      transaction_error: "Error in transaction"
+      deleted: "Resource deleted"
+      processing_error: "Error while processing"

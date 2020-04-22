@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
 module Api::V1
-  # Products controller
   class ProductsController < ApiController
-    skip_before_action :authenticate_user!
-    before_action :authenticate_user_with_api_token
-    before_action :set_product, only: %i[show update destroy]
-    before_action :authorize_product, only: %i[show update destroy]
-    before_action :authorize_products, except: %i[show update destroy]
-    respond_to :json
+    before_action :set_product, only: [:show, :update, :destroy]
+    before_action :authorize_product, only: [:show, :update, :destroy]
+    before_action :authorize_products, except: [:show, :update, :destroy]
 
     def index
       products = Product.order(updated_at: :desc)
@@ -46,6 +42,8 @@ module Api::V1
       end
     end
 
+    private
+
     def render_json(products = nil)
       if products
         serializer = ProductSerializer.new(products)
@@ -54,8 +52,6 @@ module Api::V1
         render json: nil
       end
     end
-
-    private
 
     # Only allow a list of trusted parameters through.
     def product_params
