@@ -33,7 +33,6 @@ class ApiController < ActionController::Base
   end
 
   def render_500
-
     render status: :internal_server_error,
            json: { success: false, message: t('api.messages.server_error') }
   end

@@ -29,6 +29,7 @@ class ShopingCart
   def item_quantity(product_id)
     product_item = @order.items.find_by(product_id: product_id)
     return product_item.quantity if product_item
+
     ZERO
   end
 

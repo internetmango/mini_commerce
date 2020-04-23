@@ -2,7 +2,7 @@
 
 module Api::V1
   class ProductStocksController < ApiController
-    before_action :set_product_stock, only: [:show, :update, :destroy]
+    before_action :set_product_stock, only: %i[show update destroy]
 
     def index
       product_stocks = ProductStock.order(updated_at: :desc)

@@ -2,9 +2,9 @@
 
 module Api::V1
   class CategoriesController < ApiController
-    before_action :set_category, only: [:show, :update, :destroy]
-    before_action :authorize_category, only: [:show, :update, :destroy]
-    before_action :authorize_categories, except: [:show, :update, :destroy]
+    before_action :set_category, only: %i[show update destroy]
+    before_action :authorize_category, only: %i[show update destroy]
+    before_action :authorize_categories, except: %i[show update destroy]
 
     def index
       categories = Category.order(:name)

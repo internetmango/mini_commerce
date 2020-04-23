@@ -2,7 +2,7 @@
 
 module Api::V1
   class UsersController < ApiController
-    before_action :set_user, except: [:index, :create]
+    before_action :set_user, except: %i[index create]
 
     def index
       users = User.order(admin: :desc)

@@ -2,9 +2,9 @@
 
 module Api::V1
   class ProductsController < ApiController
-    before_action :set_product, only: [:show, :update, :destroy]
-    before_action :authorize_product, only: [:show, :update, :destroy]
-    before_action :authorize_products, except: [:show, :update, :destroy]
+    before_action :set_product, only: %i[show update destroy]
+    before_action :authorize_product, only: %i[show update destroy]
+    before_action :authorize_products, except: %i[show update destroy]
 
     def index
       products = Product.order(updated_at: :desc)
