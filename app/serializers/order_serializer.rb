@@ -5,5 +5,6 @@ class OrderSerializer
   attributes :id, :user_id, :sub_total, :token,
              :status, :shipping_address_id,
              :billing_address_id, :order_number,
-             :created_at, :updated_at, :deleted_at
+             :created_at, :updated_at, :deleted_at,
+             :payment_method
 end

@@ -27,6 +27,12 @@ module Api::V1
         billing_address = Address.find(cart_params[:billing_address_id])
         @order.billing_address = billing_address
       end
+      if cart_params[:payment_method]
+        payment_method = cart_params[:payment_method]
+        if PaymentMethod.find_by(code: payment_method)
+          @order.payment_method = payment_method
+        end
+      end
       if @order.save
         render_json(@order)
       else
@@ -72,7 +78,7 @@ module Api::V1
     def cart_params
       params.require(:cart).permit(
         :order_number, :status, :sub_total, :user_id,
-        :token, :shipping_address_id, :billing_address_id
+        :token, :shipping_address_id, :billing_address_id, :payment_method
       )
     end
 

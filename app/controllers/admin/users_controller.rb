@@ -4,7 +4,7 @@ module Admin
   class UsersController < AdminController
     include Pagy::Backend
 
-    before_action :set_user, except: %i[index new create]
+    before_action :set_user, except: [:index, :new, :create]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index

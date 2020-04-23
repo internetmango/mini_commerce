@@ -3,7 +3,7 @@
 module Admin
   class OrdersController < AdminController
     include Pagy::Backend
-    before_action :set_order, except: %i[index]
+    before_action :set_order, except: :index
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
