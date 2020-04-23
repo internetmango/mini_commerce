@@ -2,7 +2,6 @@
 
 module Api::V1
   class AccountsController < ApiController
-
     def show
       render_json(current_user)
     end
