@@ -8,9 +8,9 @@ module Api::V1
 
     private
 
-    def render_json(addresses = nil)
-      if addresses
-        serializer = UserSerializer.new(addresses)
+    def render_json(user = nil)
+      if user
+        serializer = UserSerializer.new(user)
         render json: serializer
       else
         render json: nil
