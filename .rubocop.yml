@@ -44,3 +44,13 @@ Metrics/BlockLength:
     - 'Rakefile'
     - '**/*.rake'
     - 'spec/**/*.rb'
+
+Style/SymbolArray:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/controllers/*.rb'
+
+Metrics/MethodLength:
+  Max: 20
