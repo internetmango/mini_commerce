@@ -3,7 +3,9 @@
 class ShopingCart
   delegate :sub_total, to: :order
   attr_reader :order
+
   ZERO = 0
+  private_constant :ZERO
 
   def initialize(order:)
     @order = order
@@ -29,6 +31,7 @@ class ShopingCart
   def item_quantity(product_id)
     product_item = @order.items.find_by(product_id: product_id)
     return product_item.quantity if product_item
+
     ZERO
   end
 

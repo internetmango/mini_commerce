@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     stored_location_for(resource_or_scope) || root_path
   end
 
@@ -36,7 +36,9 @@ class ApplicationController < ActionController::Base
     I18n.with_locale(session[:locale], &action)
   end
 
+  # rubocop:disable Style/OptionHash
   def default_url_options(options = {})
-    { locale: I18n.locale }.merge options
+    { locale: I18n.locale }.merge(options)
   end
+  # rubocop:enable Style/OptionHash
 end
