@@ -6,7 +6,7 @@ module Api::V1
 
     def add_item
       # Order is set by set_order, else build new
-      @order ||= current_user.orders.build(status: 'cart', deleted_at: nil, token: cart_token)
+      @order ||= current_user.orders.create(status: 'cart', deleted_at: nil)
       current_cart.add_item(
         product_id: order_item_params[:product_id],
         quantity: order_item_params[:quantity]

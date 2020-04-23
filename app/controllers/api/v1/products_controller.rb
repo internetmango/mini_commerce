@@ -57,7 +57,7 @@ module Api::V1
     def product_params
       params.require(:product).permit(
         :name, :description,
-        :slug, :price,
+        :slug, :price, :short_description,
         :category, :category_id,
         product_images_attributes: %i[image id _destroy]
       )

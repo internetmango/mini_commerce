@@ -48,19 +48,22 @@
       %hr
         %p#notice= notice
         %dl.row
-          %dt.col-sm-4 Name:
-          %dd.col-sm-8
+          %dt.col-sm-5 Name:
+          %dd.col-sm-7
             = @product.name
-          %dt.col-sm-4 Category:
-          %dd.col-sm-8
+          %dt.col-sm-5 Category:
+          %dd.col-sm-7
             = @product.category.name
-          %dt.col-sm-4 Description:
-          %dd.col-sm-8
+          %dt.col-sm-5 Short Description:
+          %dd.col-sm-7
+            = @product.short_description
+          %dt.col-sm-5 Description:
+          %dd.col-sm-7
             = @product.description
-          %dt.col-sm-4 Price:
-          %dd.col-sm-8
+          %dt.col-sm-5 Price:
+          %dd.col-sm-7
             = @product.price
-          %dt.col-sm-4 Stock:
-          %dd.col-sm-8
+          %dt.col-sm-5 Stock:
+          %dd.col-sm-7
             = @product.product_stock.current_stock
       .py-2

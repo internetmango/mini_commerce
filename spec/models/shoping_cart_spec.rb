@@ -19,7 +19,7 @@ RSpec.describe ShopingCart, type: :model do
 
   it 'can add 2 more items' do
     current_cart.add_item(product_id: product2.id, quantity: 2)
-    expect(current_cart.order.sub_total).to eq(60_000)
+    expect(current_cart.order.totoal_amount).to eq(60_000)
   end
 
   it 'items count will be 5' do

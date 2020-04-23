@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_061143) do
+ActiveRecord::Schema.define(version: 2020_04_23_110711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,9 +61,13 @@ ActiveRecord::Schema.define(version: 2020_04_23_061143) do
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
     t.integer "quantity"
-    t.decimal "price", precision: 15, scale: 2, null: false
+    t.decimal "amount", precision: 15, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "product_name"
+    t.decimal "product_price", precision: 15, scale: 2
+    t.text "product_short_description"
+    t.string "product_category"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
@@ -71,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_061143) do
   create_table "orders", force: :cascade do |t|
     t.integer "shipping_address_id"
     t.integer "billing_address_id"
-    t.decimal "sub_total", precision: 10, scale: 2
+    t.decimal "total_amount", precision: 10, scale: 2
     t.string "token"
     t.string "status", default: "cart"
     t.integer "user_id"
@@ -115,6 +119,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_061143) do
     t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "short_description"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

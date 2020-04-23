@@ -7,6 +7,5 @@ class AddressSerializer
              :zipcode, :state,
              :country, :phone,
              :user_id, :is_default,
-             :address_type, :created_at,
-             :updated_at
+             :address_type
 end

@@ -21,10 +21,12 @@
           %dt.col-sm-6 User:
           %dd.col-sm-5
             = @order.user&.name
-          %dt.col-sm-6 Subtotal:
+          %dt.col-sm-6 Total amount:
           %dd.col-sm-5
-            = @order.sub_total
+            = @order.total_amount
           %dt.col-sm-6 Status:
           %dd.col-sm-5
             = @order.status
-      .py-2
+          %dt.col-sm-6 Deleted at:
+          %dd.col-sm-5
+            = @order.deleted_at

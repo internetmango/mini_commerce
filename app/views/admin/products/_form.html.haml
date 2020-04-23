@@ -11,8 +11,11 @@
           = f.label :name
           = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
         .form-group
+          = f.label :short_description
+          = f.text_field :short_description, autofocus: true, autocomplete: 'short_description', class: 'form-control'
+        .form-group
           = f.label :description
-          = f.text_field :description, autofocus: true, autocomplete: 'email', class: 'form-control'
+          = f.text_field :description, autofocus: true, autocomplete: 'description', class: 'form-control'
         .form-group
           = f.label :price
           = f.number_field :price, step: :any, autocomplete: 'off', class: 'form-control'

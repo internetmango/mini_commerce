@@ -7,7 +7,7 @@ module Admin
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
-      @pagy, @orders = pagy(Order.all)
+      @pagy, @orders = pagy(Order.all.order(deleted_at: :desc).order(user_id: :desc))
     end
 
     def show; end
@@ -35,7 +35,7 @@ module Admin
     private
 
     def order_params
-      params.require(:order).permit(:order_number, :status, :sub_total, :user_id, :token)
+      params.require(:order).permit(:order_number, :status, :total_amount, :user_id, :token)
     end
 
     def set_order
