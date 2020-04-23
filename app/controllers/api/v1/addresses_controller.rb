@@ -2,10 +2,10 @@
 
 module Api::V1
   class AddressesController < ApiController
-    before_action :set_user, except: %i[show update]
-    before_action :set_address, only: %i[show update destroy]
-    before_action :authorize_address, only: %i[show update destroy]
-    before_action :authorize_addresses, except: %i[show update destroy]
+    before_action :set_user, except: [:show, :update]
+    before_action :set_address, only: [:show, :update, :destroy]
+    before_action :authorize_address, only: [:show, :update, :destroy]
+    before_action :authorize_addresses, except: [:show, :update, :destroy]
 
     def index
       addresses = @user.addresses.order(:created_at)

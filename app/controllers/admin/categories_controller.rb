@@ -4,9 +4,9 @@ module Admin
   class CategoriesController < AdminController
     include Pagy::Backend
     skip_before_action :verify_authenticity_token, only: [:destroy]
-    before_action :set_category, only: %i[show edit update destroy]
-    before_action :authorize_category, only: %i[show update destroy]
-    before_action :authorize_categories, except: %i[show update destroy]
+    before_action :set_category, only: [:show, :edit, :update, :destroy]
+    before_action :authorize_category, only: [:show, :update, :destroy]
+    before_action :authorize_categories, except: [:show, :update, :destroy]
 
     def index
       @pagy, @categories = pagy(Category.order(updated_at: :desc))

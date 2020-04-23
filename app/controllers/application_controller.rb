@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer
-      .permit(:sign_up, keys: %i[name email password confirm_password remember_me])
+      .permit(:sign_up, keys: [:name, :email, :password, :confirm_password, :remember_me])
 
     devise_parameter_sanitizer
-      .permit(:account_update, keys: %i[name email password current_password])
+      .permit(:account_update, keys: [:name, :email, :password, :current_password])
   end
 
   def user_not_authorized(_exception)
@@ -28,15 +28,11 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(_resource)
-    stored_location_for(resource_or_scope) || root_path
+    stored_location_for(_resource) || root_path
   end
 
   def set_locale(&action)
     session[:locale] = params[:locale] || session[:locale] || I18n.default_locale
     I18n.with_locale(session[:locale], &action)
-  end
-
-  def default_url_options(options = {})
-    { locale: I18n.locale }.merge options
   end
 end
