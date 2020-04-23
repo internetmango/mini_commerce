@@ -3,7 +3,9 @@
 class ShopingCart
   delegate :sub_total, to: :order
   attr_reader :order
+
   ZERO = 0
+  private_constant :ZERO
 
   def initialize(order:)
     @order = order
