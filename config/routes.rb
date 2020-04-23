@@ -54,6 +54,7 @@ Rails.application.routes.draw do
             post :finalize
           end
         end
+        resource :account
         resources :categories, except: [:new, :edit]
         resources :product_stocks, only: [:index, :show, :update]
         resources :product_images, except: [:new, :edit]
