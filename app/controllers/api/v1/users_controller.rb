@@ -22,9 +22,8 @@ module Api::V1
     end
 
     def update
-      user = @user.update(user_params)
-      if user
-        render_json(user)
+      if @user.update(user_params)
+        render_json(@user)
       else
         Rails.logger.info(@user.errors.messages.inspect)
         render_json
@@ -63,7 +62,7 @@ module Api::V1
       params.require(:user).permit(
         :email, :password,
         :password_confirmation,
-        :name, :admin
+        :name, :admin, :mobile
       )
     end
 
