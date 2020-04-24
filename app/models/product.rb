@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_term, against: [:name, :short_description, :description],
+                                   using: {
+                                     tsearch: { prefix: true }
+                                   }
   validates :name, presence: true
   belongs_to :category
   has_many :product_images, dependent: :destroy

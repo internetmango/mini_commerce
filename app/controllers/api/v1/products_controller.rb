@@ -42,6 +42,11 @@ module Api::V1
       end
     end
 
+    def search
+      product = Product.search_by_term(params[:q])
+      render_json(product)
+    end
+
     private
 
     def render_json(products = nil)

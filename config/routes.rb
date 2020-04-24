@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     end
 
     resources :orders , only: [:index, :show, :edit, :update, :destroy]
-    resources :products
+    resources :products do
+      collection do
+        get :search
+      end
+    end
     resources :address, only: [:show]
     resources :categories
 
@@ -40,7 +44,11 @@ Rails.application.routes.draw do
   # Api
   namespace :api do
       namespace :v1 do
-        resources :products,except: [:new]
+        resources :products,except: [:new] do
+          collection do
+            get :search
+          end
+        end
         resources :users, except: [:new, :edit] do
           member do
             get :reset_password

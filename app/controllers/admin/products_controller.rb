@@ -49,6 +49,15 @@ module Admin
       redirect_to admin_products_path
     end
 
+    def search
+      if params[:q].present?
+        @pagy, @products = pagy(Product.search_by_term(params[:q]))
+      else
+        @products = Product.all
+      end
+      render :index
+    end
+
     private
 
     def product_params
