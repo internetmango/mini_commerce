@@ -11,10 +11,15 @@
       = form_for(@featured_product, url: admin_featured_product_path(@featured_product)) do |f|
         .form-group
           = f.label :product_id
-          = f.text_field :product_id, autofocus: true, autocomplete: 'product_id', class: 'form-control'
+          = f.select :product_id, options_from_collection_for_select(@products, :id, :name), {}, class: "select2 form-control"
         .form-group
           = f.label :listing_type
           = f.select :listing_type, ['top_selling','featured'], class: 'form-control'
         .actions
           = f.submit 'Submit', class: 'btn btn-danger btn-block'
-      .py-2
+:javascript
+  $('.select2').select2({
+    placeholder: "Choose a product",
+    allowClear: true
+  });
+

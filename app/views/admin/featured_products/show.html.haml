@@ -5,6 +5,25 @@
 %br/
 %br/
 .row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      .row
+        .col-12
+          %h3.text-center Fetured Product
+          = link_to edit_admin_featured_product_path(@featured_product), class: 'btn btn-danger btn-sm mr-1' do
+            %span{'data-feather' => 'edit'}
+          = link_to admin_featured_product_path(@featured_product), method: :delete, class: 'btn btn-danger btn-sm mr-1' do
+            %span{'data-feather' => 'trash'}
+      %hr
+        %p#notice= notice
+        %dl.row
+          %dt.col-sm-6 Product id:
+          %dd.col-sm-5
+            = @featured_product.id
+          %dt.col-sm-6 Listing Type:
+          %dd.col-sm-5
+            = @featured_product.listing_type
+.row
   - product_images = @product.product_images if @product.product_images
   - image_count = product_images.count
   - if product_images && product_images.count >= 1
@@ -40,11 +59,7 @@
     .card.p-3
       .row
         .col-12
-          %h3.text-center Fetured Product
-          = link_to edit_admin_featured_product_path(@featured_product), class: 'btn btn-danger btn-sm mr-1' do
-            %span{'data-feather' => 'edit'}
-          = link_to admin_featured_product_path(@featured_product), method: :delete, class: 'btn btn-danger btn-sm mr-1' do
-            %span{'data-feather' => 'trash'}
+          %h6.text-center Fetured Product info
       %hr
         %p#notice= notice
         %dl.row

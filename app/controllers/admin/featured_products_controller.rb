@@ -22,7 +22,7 @@ module Admin
     end
 
     def create
-      if !FeaturedProduct.where(product_id: featured_product_params[:product_id])
+      if !FeaturedProduct.where(product_id: featured_product_params[:product_id]).first
         featured_product = FeaturedProduct.new(featured_product_params)
         if featured_product.save
           redirect_to admin_featured_products_path,
@@ -32,8 +32,7 @@ module Admin
         end
       else
         featured_product =
-          FeaturedProduct.find_by(product_id: featured_product_params[:product_id])
-          
+          FeaturedProduct.where(product_id: featured_product_params[:product_id]).first
         redirect_to admin_featured_product_path(featured_product),
                     notice: 'This product is already in the list.'
       end
@@ -49,7 +48,9 @@ module Admin
       end
     end
 
-    def edit; end
+    def edit
+      @products = Product.all
+    end
 
     def destroy
       if @featured_product.destroy
