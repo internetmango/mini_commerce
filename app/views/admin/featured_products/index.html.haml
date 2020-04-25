@@ -1,22 +1,22 @@
 .row
   .col-12
-    %h3.text-center Products
+    %h3.text-center Featured Product
 .row
   .col-12
     .action-bar
-      = link_to new_admin_product_path, class: 'btn btn-danger btn-sm' do
+      = link_to new_admin_featured_product_path, class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'plus'}
 .row
   .col-12
     .py-3
-      %form.form-inline.my-2.my-lg-0{action: search_admin_products_path}
-        %input.form-control.form-control-sm.m-1.mr-sm-2{'aria-label' => 'Search', name: 'q', placeholder: 'search by term', type: 'search'}/
+      %form.form-inline.my-2.my-lg-0{action: admin_featured_products_path}
+        %input.form-control.form-control-sm.m-1.mr-sm-2{'aria-label' => 'Search', name: 'q', placeholder: 'Search by term', type: 'search'}/
         %button.btn.btn-danger.btn-sm.mx-2.my-2.my-sm-0{type: 'submit'} Search
       %br/
-      - if @products.blank?
+      - if @featured_products.blank?
         %p
-          %b No products found
-        %p Add a product by clicking the above button or upload a file of product.
+          %b No featured products found
+        %p Add a featured products by clicking the above button.
       - else
         %table.table.table-striped.table-sm.table-bordesred.table-responsive-sm
           %thead
@@ -29,16 +29,17 @@
               %th Actions
 
           %tbody
-            - @products.each do |product|
+            - @featured_products.each do |featured_product|
+            - product = Product.find(featured_product.product_id)
               %tr
                 %td
-                  = link_to product.name, admin_product_path(product)
+                  = link_to product.name, admin_featured_product_path(featured_product)
                 %td= product.category.name
                 %td= product.description
                 %td= product.short_description
                 %td= product.price
                 %td
                   %span>
-                    = link_to edit_admin_product_path(product), class: 'nav-link' do
+                    = link_to edit_admin_featured_product_path(featured_product), class: 'nav-link' do
                       %span{'data-feather' => 'edit'}
       = pagy_bootstrap_nav(@pagy).html_safe

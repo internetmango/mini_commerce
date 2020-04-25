@@ -22,7 +22,7 @@
           = f.text_field :code, autofocus: true, autocomplete: 'code', class: 'form-control'
         .form-group
           = f.label :value_type
-          = f.select :value_type, ['flat_rate','flat_percent'], class: 'form-control'
+          = f.select :value_type, ['flat_rate','flat_percent'], {},class: 'form-control'
         .form-group
           = f.label :value
           = f.number_field :value, step: :any, autofocus: true, autocomplete: 'value', class: 'form-control'

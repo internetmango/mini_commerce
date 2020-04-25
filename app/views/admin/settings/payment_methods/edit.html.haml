@@ -22,7 +22,7 @@
           = f.text_field :description, autofocus: true, autocomplete: 'description', class: 'form-control'
         .form-group
           = f.label :provider
-          = f.select :provider, ['razor_pay','stripe'], class: 'form-control'
+          = f.select :provider, ['razor_pay','stripe'], {},class: 'form-control'
         %b Active
         .form-group
           = f.radio_button :active, 'true'

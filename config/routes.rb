@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     end
     resources :address, only: [:show]
     resources :categories
+    resources :featured_products
 
     # Settings
     namespace :settings do
@@ -66,6 +67,7 @@ Rails.application.routes.draw do
         resources :categories, except: [:new, :edit]
         resources :product_stocks, only: [:index, :show, :update]
         resources :product_images, except: [:new, :edit]
+        resources :featured_products, only: [:index]
       end
   end
 end
