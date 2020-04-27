@@ -33,7 +33,7 @@ module Api::V1
     end
 
     def order_params
-      params.require(:order).permit(:order_number, :status, :sub_total, :user_id, :token)
+      params.require(:order).permit(:order_number, :status, :total_amount, :user_id, :token)
     end
 
     def set_order

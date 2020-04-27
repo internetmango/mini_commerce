@@ -1,0 +1,25 @@
+= link_to admin_featured_products_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+%h1.text-center Edit Featured Product
+%br/
+%br/
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Featured Product
+      %hr
+      = form_for(@featured_product, url: admin_featured_product_path(@featured_product)) do |f|
+        .form-group
+          = f.label :product_id
+          = f.select :product_id, options_from_collection_for_select(@products, :id, :name), {}, class: "select2 form-control"
+        .form-group
+          = f.label :listing_type
+          = f.select :listing_type, ['top_selling','featured'], class: 'form-control'
+        .actions
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+:javascript
+  $('.select2').select2({
+    placeholder: "Choose a product",
+    allowClear: true
+  });
+

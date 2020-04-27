@@ -49,12 +49,21 @@ module Admin
       redirect_to admin_products_path
     end
 
+    def search
+      if params[:q].present?
+        @pagy, @products = pagy(Product.search_by_term(params[:q]))
+      else
+        @products = Product.all
+      end
+      render :index
+    end
+
     private
 
     def product_params
       params.require(:product).permit(
         :name, :description,
-        :slug, :price,
+        :slug, :price, :short_description,
         :category, :category_id,
         product_images_attributes: %i[image id _destroy picture]
       )

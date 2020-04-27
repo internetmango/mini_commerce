@@ -19,13 +19,16 @@
       = form_for(@product, url: admin_product_path(@product),multipart: true) do |f|
         .form-group
           = f.label :category
-          = f.select :category_id, Category.all.collect { |category| [category.name, category.id]}, class: 'form-control'
+          = f.select :category_id, Category.all.collect { |category| [category.name, category.id]}, {}, class: 'form-control'
         .form-group
           = f.label :name
           = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
         .form-group
+          = f.label :short_description
+          = f.text_field :short_description, autofocus: true, autocomplete: 'short_description', class: 'form-control'
+        .form-group
           = f.label :description
-          = f.text_field :description, autofocus: true, autocomplete: 'email', class: 'form-control'
+          = f.text_field :description, autofocus: true, autocomplete: 'description', class: 'form-control'
         .form-group
           = f.label :price
           = f.number_field :price, step: :any, autocomplete: 'off', class: 'form-control'

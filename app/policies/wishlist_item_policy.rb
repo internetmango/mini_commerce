@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ProductPolicy < ApplicationPolicy
+class WishlistItemPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -33,9 +33,5 @@ class ProductPolicy < ApplicationPolicy
 
   def destroy?
     user.admin?
-  end
-
-  def search?
-    true
   end
 end

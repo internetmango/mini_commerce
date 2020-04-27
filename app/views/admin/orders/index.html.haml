@@ -16,7 +16,7 @@
               %th Order Number
               %th User
               %th Status
-              %th Subtotal
+              %th Total amount
               %th Action
           %tbody
             - @orders.each do |order|
@@ -24,8 +24,15 @@
                 %td
                   = link_to order.order_number, admin_order_path(order)
                 %td= User.find(order.user_id).name
-                %td= order.status
-                %td= order.sub_total
+                %td
+                  -if order.deleted_at
+                    %span{'data-feather' => 'trash-2'}
+                  -elsif order.status == 'confirmed'
+                    %span{'data-feather' => 'thumbs-up'}
+                  -elsif order.status && !order.deleted_at
+                    %span{'data-feather' => 'shopping-cart'}
+                  = order.status
+                %td= order.total_amount
                 %td
                   %span>
                     = link_to edit_admin_order_path(order), class: 'nav-link' do

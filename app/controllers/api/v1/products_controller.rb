@@ -42,6 +42,11 @@ module Api::V1
       end
     end
 
+    def search
+      product = Product.search_by_term(params[:q])
+      render_json(product)
+    end
+
     private
 
     def render_json(products = nil)
@@ -57,7 +62,7 @@ module Api::V1
     def product_params
       params.require(:product).permit(
         :name, :description,
-        :slug, :price,
+        :slug, :price, :short_description,
         :category, :category_id,
         product_images_attributes: %i[image id _destroy]
       )

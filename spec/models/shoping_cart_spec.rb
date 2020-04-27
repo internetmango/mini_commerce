@@ -8,7 +8,8 @@ RSpec.describe ShopingCart, type: :model do
 
   # TODO: Strange error, calling create(:product) twice fails
   let(:product2) do
-    product2 = build(:product, name: 'product-2', price: 5_000)
+    category_id = Category.last.id
+    product2 = create(:product, category_id: category_id, name: 'product-2', price: 5_000)
     product2.save
     product2
   end
@@ -19,7 +20,7 @@ RSpec.describe ShopingCart, type: :model do
 
   it 'can add 2 more items' do
     current_cart.add_item(product_id: product2.id, quantity: 2)
-    expect(current_cart.order.sub_total).to eq(60_000)
+    expect(current_cart.order.total_amount).to eq(60_000)
   end
 
   it 'items count will be 5' do

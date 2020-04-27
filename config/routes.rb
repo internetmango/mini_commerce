@@ -24,9 +24,14 @@ Rails.application.routes.draw do
     end
 
     resources :orders , only: [:index, :show, :edit, :update, :destroy]
-    resources :products
+    resources :products do
+      collection do
+        get :search
+      end
+    end
     resources :address, only: [:show]
     resources :categories
+    resources :featured_products
 
     # Settings
     namespace :settings do
@@ -40,7 +45,11 @@ Rails.application.routes.draw do
   # Api
   namespace :api do
       namespace :v1 do
-        resources :products,except: [:new]
+        resources :products,except: [:new] do
+          collection do
+            get :search
+          end
+        end
         resources :users, except: [:new, :edit] do
           member do
             get :reset_password
@@ -58,6 +67,8 @@ Rails.application.routes.draw do
         resources :categories, except: [:new, :edit]
         resources :product_stocks, only: [:index, :show, :update]
         resources :product_images, except: [:new, :edit]
+        resources :featured_products, only: [:index]
+        resources :wishlist_items
       end
   end
 end

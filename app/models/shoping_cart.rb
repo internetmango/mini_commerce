@@ -14,10 +14,12 @@ class ShopingCart
   def add_item(product_id:, quantity:)
     product = Product.find(product_id)
     order_item = @order.items.find_or_initialize_by(product_id: product_id)
-    order_item.price = product.price
+    order_item.product_name = product.name
+    order_item.product_category = Category.find(product.category_id).name
+    order_item.product_price = product.price
+    order_item.product_short_description = product.short_description
+    order_item.amount = quantity * product.price
     order_item.quantity = quantity
-    item_quantity(product_id: product_id)
-
     ActiveRecord::Base.transaction do
       order_item.save
       update_subtotal_and_save
@@ -36,7 +38,7 @@ class ShopingCart
   end
 
   def update_subtotal_and_save
-    @order.sub_total = @order.items.sum('quantity*price')
+    @order.total_amount = @order.items.sum('amount')
     @order.save
   end
 end
