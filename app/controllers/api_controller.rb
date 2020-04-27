@@ -4,7 +4,7 @@ class ApiController < ActionController::Base
   include Pundit
   protect_from_forgery
 
-  rescue_f  rom Exception, with: :render_500
+  rescue_from Exception, with: :render_500
   rescue_from ActionController::RoutingError, with: :render_404
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from Pundit::NotAuthorizedError, with: :render_unauthorized
@@ -13,6 +13,10 @@ class ApiController < ActionController::Base
   around_action :set_locale
 
   respond_to :json
+
+  def login(user)
+    @current_user = user
+  end
 
   def authenticate_user_with_api_token
     # TODO: change to Authorization header

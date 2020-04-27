@@ -9,9 +9,14 @@ class User < ApplicationRecord
   has_many :addresses
   has_many :orders
   has_many :wishlist_items
+  has_many :otps
 
   def ensure_authentication_token
     self.authentication_token = generate_access_token if authentication_token.blank?
+  end
+
+  def self.find_user_by(value)
+    where(['mobile = :value OR email = :value', { value: value }]).first
   end
 
   private

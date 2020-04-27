@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_164844) do
+ActiveRecord::Schema.define(version: 2020_04_27_094915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,14 +93,24 @@ ActiveRecord::Schema.define(version: 2020_04_26_164844) do
     t.string "payment_method"
   end
 
+  create_table "otps", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "code", null: false
+    t.boolean "verified", default: false, null: false
+    t.datetime "valid_till"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_otps_on_user_id"
+  end
+
   create_table "payment_methods", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.string "provider", null: false
+    t.string "code"
     t.boolean "active", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "code"
   end
 
   create_table "product_images", force: :cascade do |t|
@@ -192,5 +202,6 @@ ActiveRecord::Schema.define(version: 2020_04_26_164844) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "otps", "users"
   add_foreign_key "products", "categories"
 end
