@@ -68,6 +68,7 @@ Rails.application.routes.draw do
         resources :product_stocks, only: [:index, :show, :update]
         resources :product_images, except: [:new, :edit]
         resources :featured_products, only: [:index]
+        resources :wishlist_items
       end
   end
 end

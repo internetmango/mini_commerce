@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_164844) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "wish_lists", force: :cascade do |t|
+  create_table "wishlist_items", force: :cascade do |t|
     t.integer "product_id"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

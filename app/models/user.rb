@@ -8,6 +8,7 @@ class User < ApplicationRecord
   before_save :ensure_authentication_token
   has_many :addresses
   has_many :orders
+  has_many :wishlist_items
 
   def ensure_authentication_token
     self.authentication_token = generate_access_token if authentication_token.blank?
