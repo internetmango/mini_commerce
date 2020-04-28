@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :addresses
   has_many :orders
   has_many :wishlist_items
-  has_many :otps
+  has_many :otps, dependent: :destroy
 
   def ensure_authentication_token
     self.authentication_token = generate_access_token if authentication_token.blank?
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   def regenerate_authentication_token
     self.authentication_token = nil
     ensure_authentication_token
-    self.save
+    save
   end
 
   def generate_otp_and_notify

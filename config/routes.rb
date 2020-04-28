@@ -69,8 +69,10 @@ Rails.application.routes.draw do
         resources :product_images, except: [:new, :edit]
         resources :featured_products, only: [:index]
         resources :wishlist_items
+        resource :register
         post :login, to: 'sessions#create'
         delete :logout, to: 'sessions#destroy'
+
         
       end
   end
