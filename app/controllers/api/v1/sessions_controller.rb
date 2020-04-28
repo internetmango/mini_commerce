@@ -15,6 +15,7 @@ module Api::V1
         user.generate_otp_and_notify
         render json: { status: 200, success: true, message: 'OTP has been sent' }
       elsif user.verify_otp_and_save(login_params[:otp])
+        user.regenerate_authentication_token
         login(user)
         render_json(user)
       else

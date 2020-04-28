@@ -15,6 +15,11 @@ class User < ApplicationRecord
     self.authentication_token = generate_access_token if authentication_token.blank?
   end
 
+  def regenerate_authentication_token
+    self.authentication_token = nil
+    ensure_authentication_token
+  end
+
   def generate_otp_and_notify
     otp = Otp.generate_otp
     otps.create!(code: otp)

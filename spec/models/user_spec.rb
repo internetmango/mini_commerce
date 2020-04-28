@@ -39,6 +39,11 @@ RSpec.describe User, type: :model do
     expect(subject.authentication_token).not_to be_empty
   end
 
+  it 're-generate access token' do
+    pre_authentication_token = subject.authentication_token
+    expect(subject.regenerate_authentication_token).not_to eq(pre_authentication_token)
+  end
+
   it 'generate otp and notify' do
     object = subject.generate_otp_and_notify
     otp = subject.otps.last.code
