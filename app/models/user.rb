@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :orders
   has_many :wishlist_items
   has_many :otps, dependent: :destroy
+  validates :mobile, presence: true,
+                     numericality: true,
+                     length: { is: 10 }
 
   def ensure_authentication_token
     self.authentication_token = generate_access_token if authentication_token.blank?

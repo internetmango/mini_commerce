@@ -19,7 +19,10 @@ module Api::V1
           email: email, mobile: mobile, password: password,
           password_confirmation: password
         )
-        user.save
+        unless user.save
+          render_403 && return
+        end
+
       end
 
       if !register_params[:otp]
