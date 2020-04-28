@@ -31,6 +31,11 @@ class ApiController < ActionController::Base
     end
   end
 
+  def render_403
+    render status: :forbidden,
+           json: { success: false, message: t('api.messages.invalid_credentials') }
+  end
+
   def render_404
     render status: :not_found,
            json: { success: false, message: t('api.messages.not_found') }

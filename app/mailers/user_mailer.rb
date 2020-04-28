@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class UserMailer < ApplicationMailer
-  def info_email
+  def login_otp
     @user = params[:user]
     @otp = params[:otp]
-    @url = 'http://example.com/login'
-    mail(to: @user.email, subject: "otp has been send to #{@user.email}")
+    mail(to: @user.email, subject: 'Mini shop login with otp')
   end
 end

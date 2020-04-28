@@ -8,3 +8,4 @@ en:
       transaction_error: "Error in transaction"
       deleted: "Resource deleted"
       processing_error: "Error while processing"
+      invalid_credentials: "Invalid credentials"

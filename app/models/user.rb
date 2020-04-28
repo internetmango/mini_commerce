@@ -15,8 +15,18 @@ class User < ApplicationRecord
     self.authentication_token = generate_access_token if authentication_token.blank?
   end
 
-  def self.find_user_by(value)
-    where(['mobile = :value OR email = :value', { value: value }]).first
+  def generate_otp_and_notify
+    otp = Otp.generate_otp
+    otps.create!(code: otp)
+    UserMailer.with(user: self, otp: otp).login_otp.deliver_now
+  end
+
+  def verify_otp_and_save(otp)
+    return unless otps.find_by(code: otp)
+
+    user_otp = otps.find_by(code: otp)
+    user_otp.verified = true
+    user_otp.save
   end
 
   private

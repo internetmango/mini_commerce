@@ -4,6 +4,6 @@ class Otp < ApplicationRecord
   belongs_to :user
 
   def self.generate_otp
-    Integer((SecureRandom.random_number(9e5) + 1e5), 10)
-end
+    '%06d' % rand(1_000_000)
+  end
 end
