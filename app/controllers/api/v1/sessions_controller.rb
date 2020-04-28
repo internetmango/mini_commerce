@@ -23,6 +23,14 @@ module Api::V1
       end
     end
 
+    def destroy
+      if current_user.regenerate_authentication_token
+        render json: { status: 200, success: true }
+      else
+        render json: { success: false, message: 'Error processing request' }
+      end
+    end
+
     private
 
     def login_params

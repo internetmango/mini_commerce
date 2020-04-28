@@ -18,6 +18,7 @@ class User < ApplicationRecord
   def regenerate_authentication_token
     self.authentication_token = nil
     ensure_authentication_token
+    self.save
   end
 
   def generate_otp_and_notify
