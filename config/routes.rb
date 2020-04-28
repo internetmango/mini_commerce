@@ -69,7 +69,7 @@ Rails.application.routes.draw do
         resources :product_images, except: [:new, :edit]
         resources :featured_products, only: [:index]
         resources :wishlist_items
-        resource :session
+        resource :session, path: 'login'
       end
   end
 end
