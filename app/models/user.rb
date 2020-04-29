@@ -24,16 +24,16 @@ class User < ApplicationRecord
 
   def generate_otp_and_notify
     otp = Otp.generate_otp
-    otps.create!(code: otp)
+    otps.create!(code: otp, valid_till: 1.hour.from_now)
     UserMailer.with(user: self, otp: otp).login_otp.deliver_now
   end
 
   def verify_otp_and_save(otp)
-    return unless otps.valid.find_by(code: otp)
+    otp = otps.find_by(code: otp)
+    return if otp.nil? || otp.expired?
 
-    user_otp = otps.valid.find_by(code: otp)
-    user_otp.verified = true
-    user_otp.save
+    otp.verified = true
+    otp.save
   end
 
   private
