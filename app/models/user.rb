@@ -6,9 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
   before_save :ensure_authentication_token
-  has_many :addresses
+  has_many :addresses, dependent: :destroy
   has_many :orders
-  has_many :wishlist_items
+  has_many :wishlist_items, dependent: :destroy
   has_many :otps, dependent: :destroy
   validates :mobile, numericality: true, length: { is: 10 }, if: :mobile
 
@@ -29,9 +29,9 @@ class User < ApplicationRecord
   end
 
   def verify_otp_and_save(otp)
-    return unless otps.find_by(code: otp)
+    return unless otps.valid.find_by(code: otp)
 
-    user_otp = otps.find_by(code: otp)
+    user_otp = otps.valid.find_by(code: otp)
     user_otp.verified = true
     user_otp.save
   end

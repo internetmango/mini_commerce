@@ -3,6 +3,7 @@
 module Api::V1
   class RegistersController < ApiController
     skip_before_action :authenticate_user_with_api_token
+    skip_before_action :check_account_status
 
     def create
       user = User.find_by(email: register_params[:email]) if register_params[:email]

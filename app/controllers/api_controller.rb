@@ -4,11 +4,12 @@ class ApiController < ActionController::Base
   include Pundit
   protect_from_forgery
 
-  rescue_from Exception, with: :render_500
-  rescue_from ActionController::RoutingError, with: :render_404
-  rescue_from ActiveRecord::RecordNotFound, with: :render_404
-  rescue_from Pundit::NotAuthorizedError, with: :render_unauthorized
+  # rescue_from Exception, with: :render_500
+  # rescue_from ActionController::RoutingError, with: :render_404
+  # rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  # rescue_from Pundit::NotAuthorizedError, with: :render_unauthorized
 
+  before_action :remove_expired_otps
   before_action :authenticate_user_with_api_token
   before_action :check_account_status
   around_action :set_locale
@@ -35,6 +36,11 @@ class ApiController < ActionController::Base
     else
       render_unauthorized
     end
+  end
+
+  def remove_expired_otps
+    expired_otps = Otp.expired_otps
+    expired_otps.destroy_all
   end
 
   def render_403
