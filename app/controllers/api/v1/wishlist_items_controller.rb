@@ -21,7 +21,9 @@ module Api::V1
     end
 
     def create
-      if !current_user.wishlist_items.where(product_id: wishlist_item_params[:product_id]).first
+      wishlist_item = current_user.wishlist_items
+                                  .where(product_id: wishlist_item_params[:product_id]).first
+      if !wishlist_item
         wishlist_item = current_user.wishlist_items.build(wishlist_item_params)
         if wishlist_item.save
           render_json(wishlist_item)
@@ -29,8 +31,7 @@ module Api::V1
           render_json
         end
       else
-        wishlist_item =
-          current_user.wishlist_items.where(product_id: wishlist_item_params[:product_id]).first
+        wishlist_item = wishlist_item
         render_json(wishlist_item)
       end
     end
