@@ -4,18 +4,25 @@ class ApiController < ActionController::Base
   include Pundit
   protect_from_forgery
 
-  # rescue_from Exception, with: :render_500
-  # rescue_from ActionController::RoutingError, with: :render_404
-  # rescue_from ActiveRecord::RecordNotFound, with: :render_404
-  # rescue_from Pundit::NotAuthorizedError, with: :render_unauthorized
+  rescue_from Exception, with: :render_500
+  rescue_from ActionController::RoutingError, with: :render_404
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  rescue_from Pundit::NotAuthorizedError, with: :render_unauthorized
 
   before_action :authenticate_user_with_api_token
+  before_action :check_account_status
   around_action :set_locale
 
   respond_to :json
 
   def login(user)
     @current_user = user
+  end
+
+  def check_account_status
+    return unless current_user.active
+
+    render json: { success: false, message: t('api.messages.please_activate_your_account') }
   end
 
   def authenticate_user_with_api_token
