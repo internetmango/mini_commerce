@@ -58,9 +58,7 @@ module Api::V1
     end
 
     def set_user
-      p "-----"
       @user = User.find(params[:user_id])
-      p "--#{@user}"
     end
 
     def authorize_address
