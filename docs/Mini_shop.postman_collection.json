@@ -1,0 +1,3328 @@
+{
+	"info": {
+		"_postman_id": "47746805-e767-44fa-b294-8db9a383e93a",
+		"name": "Mini_shop_apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:3000/api/v1/register",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "pGkydjFUs4-4xxHKYjbN",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"email\": \"user@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Generate otp for registration"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/register",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "pGkydjFUs4-4xxHKYjbN",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"email\": \"user@gmail.com\",\n\t\"otp\" : \"876548\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Verify otp and login."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "pGkydjFUs4-4xxHKYjbN",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"yadu@internetmango.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/logout",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "pGkydjFUs4-4xxHKYjbN",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/wishlist_items",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/wishlist_items",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"wishlist_items"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Add a wishlist item."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/wishlist_items/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "email",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/wishlist_items/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"wishlist_items",
+						"2"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Delete a wishlist item."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/wishlist_items/1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/wishlist_items/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"wishlist_items",
+						"1"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update a wishlist item."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/wishlist_items/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/wishlist_items/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"wishlist_items",
+						"1"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Show a wishlist item."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/wishlist_items",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/wishlist_items",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"wishlist_items"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "List all wishlist items of a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"email\": \"james@gmail.com\",\n        \"password\": \"123456\",\n        \"password_confirmation\": \"123456\",\n        \"name\": \"james\",\n        \"mobile\": \"9547658764\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"email\": \"james@gmail.com\",\n        \"password\": \"123456\",\n        \"password_confirmation\": \"123456\",\n        \"name\": \"james\",\n        \"mobile\": \"9547658764\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "List all users."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users/24",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"email\": \"james@gmail.com\",\n        \"password\": \"123456\",\n        \"password_confirmation\": \"123456\",\n        \"name\": \"james\",\n        \"mobile\": \"9547658765\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users/24",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"24"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users/24",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"email\": \"james@gmail.com\",\n        \"password\": \"123456\",\n        \"password_confirmation\": \"123456\",\n        \"name\": \"james\",\n        \"mobile\": \"9547658765\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users/24",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"24"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Show a user info."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users/24",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users/24",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"24"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Delete a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/products/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						""
+					]
+				},
+				"description": "List all products."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/products",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"category_id\": 1,\n    \"name\": \"oppo 7\",\n    \"price\": \"50000\",\n    \"description\": \"Some description\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create a product."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/products/4",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"category_id\": 1,\n    \"name\": \"vivo 7\",\n    \"price\": \"50000\",\n    \"description\": \"Some description\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/products/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"4"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update a product."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users/19/addresses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users/19/addresses",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"19",
+						"addresses"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "List all address associated to a user.\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users/19/addresses",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": {\n        \"address_line1\": \"edappally\",\n        \"address_line2\": \"Ekm\",\n        \"city\": \"Ekm\",\n        \"zipcode\": \"121hsg\",\n        \"state\": \"Kerala\",\n        \"country\": \"India\",\n        \"phone\": \"883848484\",\n        \"user_id\": 4,\n        \"is_default\": false,\n        \"address_type\": \"billing\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users/19/addresses",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"19",
+						"addresses"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Add a new address to a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users/19/addresses/1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": {\n        \"address_line1\": \"kaloor\",\n        \"address_line2\": \"Ekm\",\n        \"city\": \"Ekm\",\n        \"zipcode\": \"121hsg\",\n        \"state\": \"Kerala\",\n        \"country\": \"India\",\n        \"phone\": \"883848484\",\n        \"is_default\": false,\n        \"address_type\": \"billing\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users/19/addresses/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"19",
+						"addresses",
+						"2"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update an address of a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users/19/addresses/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": {\n        \"address_line1\": \"kaloor\",\n        \"address_line2\": \"Ekm\",\n        \"city\": \"Ekm\",\n        \"zipcode\": \"121hsg\",\n        \"state\": \"Kerala\",\n        \"country\": \"India\",\n        \"phone\": \"883848484\",\n        \"is_default\": false,\n        \"address_type\": \"billing\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users/19/addresses/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"19",
+						"addresses",
+						"1"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Show an address of a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/users/19/addresses/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/users/19/addresses/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"19",
+						"addresses",
+						"1"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Delete an address of a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/cart/add_item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 1,\n    \"quantity\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/cart/add_item",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"add_item"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Add item to cart."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/cart",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cart\": {\n        \"shipping_address_id\": 2,\n        \"payment_method\": \"upi\"\n        \n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/cart",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cart"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update your cart."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/cart/finalize",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/cart/finalize",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"finalize"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Confirm your order."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/cart",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/cart",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cart"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "View your cart."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/cart",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/cart",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"cart"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Remove your cart."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/products/search?q=descr",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/products/search?q=descr",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "descr"
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Product search by term."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/featured_products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/featured_products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"featured_products"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "List all featured products."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/account",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"name\": \"Specs\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/account",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"account"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Show user account."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/categories",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"name\": \"Specs\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/categories",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Add a category."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/categories/1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"name\": \"Dress\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/categories/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"1"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update a category info."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/categories/2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/categories/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"1"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "View a category info."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/categories",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "List all categories."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/categories/2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/categories/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"2"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Delete a category."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "List all orders."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/orders/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/orders/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"1"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "View an order info."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/orders/1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order\": {\n        \"order_number\": \"order12345\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/orders/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"1"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update an order info."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/product_images",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order\": {\n        \"order_number\": \"order12345\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/product_images",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"product_images"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "List all product images."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/product_images/10",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_image\": {\n        \"product_id\": 2,\n        \"main\": true,\n        \"image_data\": \"{\\\"id\\\":\\\"425d61482f5ce309013d2bd068aa0ea4.jpg\\\",\\\"storage\\\":\\\"store\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"vivo 1.jpg\\\",\\\"size\\\":60436,\\\"mime_type\\\":\\\"image/jpeg\\\"}}\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/product_images/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"product_images",
+						"10"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update a product image."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/product_images",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_image\": {\n        \"product_id\": 2,\n        \"main\": false,\n        \"image_data\": \"{\\\"id\\\":\\\"425d61482f5ce309013d2bd068aa0ea4.jpg\\\",\\\"storage\\\":\\\"store\\\",\\\"metadata\\\":{\\\"filename\\\":\\\"vivo 1.jpg\\\",\\\"size\\\":60436,\\\"mime_type\\\":\\\"image/jpeg\\\"}}\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/product_images",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"product_images"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Add a new product image."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/product_images/10",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"type": "text",
+						"value": "yadu@internetmango.com",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"type": "text",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/product_images/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"product_images",
+						"10"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "View a product image."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/product_images/10",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order\": {\n        \"order_number\": \"order12345\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/product_images/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"product_images",
+						"10"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Delete a product image."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/product_stocks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"type": "text",
+						"value": "yadu@internetmango.com",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"type": "text",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/product_stocks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"product_stocks"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "List all product stocks."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/product_stocks/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"type": "text",
+						"value": "yadu@internetmango.com",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"type": "text",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/product_stocks/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"product_stocks",
+						"1"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "View a product stock info."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/product_stocks/1",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "email",
+						"type": "text",
+						"value": "yadu@internetmango.com",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"type": "text",
+						"value": "rTyxWe8rWiyjBCyVUeyx",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_stock\": {\n        \"current_stock\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/product_stocks/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"product_stocks",
+						"1"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update a product stock info.\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/products/4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"category_id\": 1,\n    \"name\": \"vivo 7\",\n    \"price\": \"50000\",\n    \"description\": \"Some description\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/products/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"4"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "View a product info."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/api/v1/products/4",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "email",
+						"value": "yadu@internetmango.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Token",
+						"value": "A8jDsyEzbxA4xH2N1UU2",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer token=XmzmkHughb4THvJjT9UN,email=\"yadu@internetmango.com\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"category_id\": 1,\n    \"name\": \"vivo 7\",\n    \"price\": \"50000\",\n    \"description\": \"Some description\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/products/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"4"
+					],
+					"query": [
+						{
+							"key": "user_email",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "yadu@internetmango.com",
+							"disabled": true
+						},
+						{
+							"key": "user_token",
+							"value": "Ry6hwEZnW8dkyxzvpExT",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Delete a product."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
