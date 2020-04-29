@@ -9,9 +9,29 @@ class User < ApplicationRecord
   has_many :addresses
   has_many :orders
   has_many :wishlist_items
+  has_many :otps
 
   def ensure_authentication_token
     self.authentication_token = generate_access_token if authentication_token.blank?
+  end
+
+  def regenerate_authentication_token
+    self.authentication_token = nil
+    ensure_authentication_token
+  end
+
+  def generate_otp_and_notify
+    otp = Otp.generate_otp
+    otps.create!(code: otp)
+    UserMailer.with(user: self, otp: otp).login_otp.deliver_now
+  end
+
+  def verify_otp_and_save(otp)
+    return unless otps.find_by(code: otp)
+
+    user_otp = otps.find_by(code: otp)
+    user_otp.verified = true
+    user_otp.save
   end
 
   private
