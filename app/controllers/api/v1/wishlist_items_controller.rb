@@ -7,7 +7,7 @@ module Api::V1
     before_action :authorize_wishlist_items, except: [:show, :update, :destroy]
 
     def index
-      product_ids = WishlistItem.all.map(&:product_id)
+      product_ids = current_user.wishlist_items.map(&:product_id)
 
       products = Product.find(product_ids)
       wishlist_items = ProductSerializer.new(products)
@@ -21,7 +21,9 @@ module Api::V1
     end
 
     def create
-      if !WishlistItem.where(product_id: wishlist_item_params[:product_id]).first
+      wishlist_item = current_user.wishlist_items
+                                  .where(product_id: wishlist_item_params[:product_id]).first
+      if !wishlist_item
         wishlist_item = current_user.wishlist_items.build(wishlist_item_params)
         if wishlist_item.save
           render_json(wishlist_item)
@@ -29,8 +31,7 @@ module Api::V1
           render_json
         end
       else
-        wishlist_item =
-          WishlistItem.where(product_id: wishlist_item_params[:product_id]).first
+        wishlist_item = wishlist_item
         render_json(wishlist_item)
       end
     end

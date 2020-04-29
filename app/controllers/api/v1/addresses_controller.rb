@@ -2,7 +2,7 @@
 
 module Api::V1
   class AddressesController < ApiController
-    before_action :set_user, except: [:show, :update]
+    before_action :set_user
     before_action :set_address, only: [:show, :update, :destroy]
     before_action :authorize_address, only: [:show, :update, :destroy]
     before_action :authorize_addresses, except: [:show, :update, :destroy]

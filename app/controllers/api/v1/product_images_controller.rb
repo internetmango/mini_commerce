@@ -13,7 +13,7 @@ module Api::V1
       if Product.find(product_image_params['product_id'])
         product = Product.find(product_image_params['product_id'])
         product_image = product.product_images.new(product_image_params)
-        if product_image
+        if product_image.save
           render_json(product_image)
         else
           render_json
