@@ -9,3 +9,4 @@ en:
       deleted: "Resource deleted"
       processing_error: "Error while processing"
       invalid_credentials: "Invalid credentials"
+      please_activate_your_account: "Please activate your account for successfull login"

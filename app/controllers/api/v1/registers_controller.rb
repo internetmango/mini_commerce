@@ -17,7 +17,7 @@ module Api::V1
         password = SecureRandom.hex
         user = User.new(
           email: email, mobile: mobile, password: password,
-          password_confirmation: password
+          password_confirmation: password, active: false
         )
         unless user.save
           render_403 && return
@@ -30,6 +30,7 @@ module Api::V1
         render json: { status: 200, success: true, message: 'OTP has been sent' }
       elsif user.verify_otp_and_save(register_params[:otp])
         user.regenerate_authentication_token
+        activate_user(user)
         login(user)
         render_json(user)
       elsif user.destroy
@@ -56,6 +57,11 @@ module Api::V1
 
     def valid_params?
       register_params != nil
+    end
+
+    def activate_user(user)
+      user.active = true
+      user.save
     end
   end
 end
