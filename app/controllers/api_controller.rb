@@ -20,15 +20,14 @@ class ApiController < ActionController::Base
   end
 
   def check_account_status
-    return unless current_user.active
+    return if current_user.active
 
     render json: { success: false, message: t('api.messages.please_activate_your_account') }
   end
 
   def authenticate_user_with_api_token
-    # TODO: change to Authorization header
-    token = request.headers['token']
-    email = request.headers['email']
+    token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
+    email = options.blank? ? nil : options[:email]
 
     user = email && User.find_by(email: email)
     if user && ActiveSupport::SecurityUtils.secure_compare(user.authentication_token, token)
