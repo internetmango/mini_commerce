@@ -17,9 +17,9 @@
           = f.text_field :image_url, autofocus: true, autocomplete: 'image_url', class: 'form-control'
         .form-group
           = f.label :mobile_params
-          = f.text_field :mobile_params, autofocus: true, autocomplete: 'mobile_params', class: 'form-control'
+          = f.text_area :mobile_params, autofocus: true, autocomplete: 'mobile_params', class: 'form-control'
         .form-group
           = f.label :web_params
-          = f.text_field :web_params, autofocus: true, autocomplete: 'web_params', class: 'form-control'
+          = f.text_area :web_params, autofocus: true, autocomplete: 'web_params', class: 'form-control'
         .actions
           = f.submit 'Submit', class: 'btn btn-danger btn-block'
