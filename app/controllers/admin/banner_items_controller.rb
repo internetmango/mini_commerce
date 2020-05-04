@@ -28,15 +28,15 @@ module Admin
 
     def update
       if @banner_item.update(banner_item_params)
-        redirect_to admin_banner_item_path(@banner_item), notice: 'Banner item was successfully updated.'
+        redirect_to admin_banner_item_path(@banner_item),
+                    notice: 'Banner item was successfully updated.'
       else
         Rails.logger.info(@banner_item.errors.messages.inspect)
         render :edit
       end
     end
 
-    def edit
-    end
+    def edit; end
 
     def destroy
       if @banner_item.destroy
