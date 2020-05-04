@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :address, only: [:show]
     resources :categories
     resources :featured_products
+    resources :banner_items
 
     # Settings
     namespace :settings do
@@ -70,6 +71,7 @@ Rails.application.routes.draw do
         resources :featured_products, only: [:index]
         resources :wishlist_items
         resource :register
+        resources :banner_items, only: [:index]
         post :login, to: 'sessions#create'
         delete :logout, to: 'sessions#destroy'
 

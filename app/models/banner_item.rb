@@ -1,0 +1,2 @@
+class BannerItem < ApplicationRecord
+end

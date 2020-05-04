@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_094915) do
+ActiveRecord::Schema.define(version: 2020_05_04_054240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 2020_04_27_094915) do
     t.integer "user_id"
     t.boolean "is_default", default: false, null: false
     t.string "address_type", default: "shipping", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "banner_items", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "image_url", null: false
+    t.json "web_params"
+    t.json "mobile_params"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -187,6 +196,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_094915) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "authentication_token", limit: 30
     t.string "mobile"
+    t.boolean "active", default: true, null: false
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
