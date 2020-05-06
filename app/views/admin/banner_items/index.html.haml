@@ -1,0 +1,41 @@
+.row
+  .col-12
+    %h3.text-center Banner Items
+.row
+  .col-12
+    .action-bar
+      = link_to new_admin_banner_item_path, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'plus'}
+.row
+  .col-12
+    .py-3
+      %form.form-inline.my-2.my-lg-0{action: root_path}
+        %input.form-control.form-control-sm.m-1.mr-sm-2{'aria-label' => 'Search', name: 'q', placeholder: 'Search by term', type: 'search'}/
+        %button.btn.btn-danger.btn-sm.mx-2.my-2.my-sm-0{type: 'submit'} Search
+      %br/
+      - if @banner_items.blank?
+        %p
+          %b No Banner items found
+        %p Add a banner item by clicking the above button.
+      - else
+        %table.table.table-striped.table-sm.table-bordesred.table-responsive-sm
+          %thead
+            %tr
+              %th Title
+              %th Image
+              %th Web params
+              %th Mobile params
+
+          %tbody
+            - @banner_items.each do |banner_item|
+              %tr
+                %td
+                  = link_to banner_item.title, admin_banner_item_path(banner_item)
+                %td= banner_item.image_url
+                %td= banner_item.web_params
+                %td= banner_item.mobile_params
+                %td
+                  %span>
+                    = link_to edit_admin_banner_item_path(banner_item), class: 'nav-link' do
+                      %span{'data-feather' => 'edit'}
+      = pagy_bootstrap_nav(@pagy).html_safe

@@ -1,0 +1,21 @@
+.row
+  .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
+    .card.p-3
+      %h6.text-center Add new Banner Item
+      %hr
+
+      = form_for(banner_item, url: admin_banner_items_path) do |f|
+        .form-group
+          = f.label :title
+          = f.text_field :title, autofocus: true, autocomplete: 'title', class: 'form-control'
+        .form-group
+          = f.label :image_url
+          = f.text_field :image_url, autofocus: true, autocomplete: 'image_url', class: 'form-control'
+        .form-group
+          = f.label :mobile_params
+          = f.text_area :mobile_params, autofocus: true, autocomplete: 'mobile_params', class: 'form-control'
+        .form-group
+          = f.label :web_params
+          = f.text_area :web_params, autofocus: true, autocomplete: 'web_params', class: 'form-control'
+        .actions
+          = f.submit 'Submit', class: 'btn btn-danger btn-block'
