@@ -62,7 +62,10 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name, :admin)
+      params.require(:user).permit(
+        :email, :mobile, :password,
+        :password_confirmation, :name, :admin
+      )
     end
 
     def set_user

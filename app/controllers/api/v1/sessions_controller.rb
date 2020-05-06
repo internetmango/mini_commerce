@@ -13,8 +13,12 @@ module Api::V1
       render_403 && return unless valid_params?
 
       if !login_params[:otp]
-        user.generate_otp_and_notify
-        render json: { status: 200, success: true, message: 'OTP has been sent' }
+        status = user.generate_otp_and_notify
+        if status != 'failure'
+          render json: { status: 200, success: true, message: 'OTP has been sent' }
+        else
+          render json: { success: false, message: 'Error processing request' }
+        end
       elsif user.verify_otp_and_save(login_params[:otp])
         user.regenerate_authentication_token
         login(user)

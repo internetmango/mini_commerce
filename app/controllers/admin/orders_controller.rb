@@ -23,15 +23,6 @@ module Admin
       end
     end
 
-    def destroy
-      if @order.destroy
-        flash[:success] = 'Order was successfully destroyed.'
-      else
-        flash[:error] = 'Error processing your request'
-      end
-      redirect_to admin_order_path
-    end
-
     private
 
     def order_params

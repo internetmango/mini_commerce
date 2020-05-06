@@ -46,8 +46,7 @@ RSpec.describe User, type: :model do
 
   it 'generate otp and notify' do
     object = subject.generate_otp_and_notify
-    otp = subject.otps.last.code
-    expect(object.to_s).to include otp
+    expect(object.to_s).not_to include 'failure'
   end
 
   it 'verify otp and save' do

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Products', type: :request do
-  let(:product) { create(:product) }
+  let(:product) { create(:product, name: 'redmi 5') }
   let(:user) { create(:user) }
 
   before :each do
@@ -66,6 +66,13 @@ RSpec.describe 'Products', type: :request do
       expect(response.location).to include '/admin/products'
       follow_redirect!
       expect(response.body).to include('successfully destroyed')
+    end
+  end
+
+  describe 'GET /search' do
+    it 'render to index page' do
+      get '/admin/products/search', params: { q: 'redmi 5' }
+      expect(response.body).to include('redmi 5')
     end
   end
 end

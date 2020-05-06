@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :wishlist_items, dependent: :destroy
   has_many :otps, dependent: :destroy
-  validates :mobile, numericality: true, length: { is: 10 }, if: :mobile
+  validates :mobile, numericality: true, length: { is: 10 }, allow_blank: true, if: :mobile
 
   def ensure_authentication_token
     self.authentication_token = generate_access_token if authentication_token.blank?
@@ -25,7 +25,14 @@ class User < ApplicationRecord
   def generate_otp_and_notify
     otp = Otp.generate_otp
     otps.create!(code: otp, valid_till: 1.hour.from_now)
-    UserMailer.with(user: self, otp: otp).login_otp.deliver_now
+    status = TextlocalClient.send_otp(mobile, otp) if mobile
+    if !mobile || (status == 'failure')
+      mail = UserMailer.with(user: self, otp: otp)
+                       .login_otp.deliver_now
+    end
+    if !status && !mail.to_s.include?(otp)
+      'failure'
+    end
   end
 
   def verify_otp_and_save(otp)
