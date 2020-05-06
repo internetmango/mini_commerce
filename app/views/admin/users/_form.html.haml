@@ -10,7 +10,9 @@
         .form-group
           = f.label :email
           = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
-
+        .form-group
+          = f.label :mobile
+          = f.text_field :mobile, autofocus: true, autocomplete: 'mobile', class: 'form-control'
         .form-group
           = f.label :password
           = f.password_field :password, autocomplete: 'off', class: 'form-control'

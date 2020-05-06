@@ -33,7 +33,8 @@ RSpec.describe Order, type: :model do
   end
 
   it 'should generate order number' do
-    expect(subject.order_number).not_to be_empty
+    prev_order_number = subject.order_number
+    expect(subject.generate_order_number).not_to eq(prev_order_number)
   end
 
   it 'should set order number' do

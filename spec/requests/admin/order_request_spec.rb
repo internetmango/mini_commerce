@@ -32,7 +32,7 @@ RSpec.describe 'Orders', type: :request do
 
   describe 'PATCH /update' do
     it 'redirect to show page' do
-      patch "/admin/orders/#{order.id}", params: { order: { status: 'order12343' } }
+      patch "/admin/orders/#{order.id}", params: { order: { order_number: 'order12343' } }
       expect(response.location).to include "/admin/orders/#{order.id}"
       follow_redirect!
       expect(response.body).to include('order12343')

@@ -4,6 +4,8 @@
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require 'factory_bot_rails'
+require 'simplecov'
+SimpleCov.start
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 if Rails.env.production?

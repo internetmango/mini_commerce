@@ -51,7 +51,8 @@ module Admin
 
     def search
       if params[:q].present?
-        @pagy, @products = pagy(Product.search_by_term(params[:q]))
+        value = params[:q]
+        @pagy, @products = pagy(Product.search_by_term(value))
       else
         @products = Product.all
       end
