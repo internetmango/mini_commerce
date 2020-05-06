@@ -4,7 +4,7 @@ class CreatePaymentMethods < ActiveRecord::Migration[6.0]
       t.string :name, null:false
       t.text :description
       t.string :provider, null:false
-      t.code :string
+      t.string :code
       t.boolean :active, null:false, default: false
 
       t.timestamps
