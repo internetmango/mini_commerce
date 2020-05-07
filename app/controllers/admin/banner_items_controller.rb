@@ -47,6 +47,16 @@ module Admin
       redirect_to admin_banner_items_path
     end
 
+    def search
+      if params[:q].present?
+        value = params[:q]
+        @pagy, @banner_items = pagy(BannerItem.search_by_term(value))
+      else
+        @banner_items = BannerItem.all
+      end
+      render :index
+    end
+
     private
 
     def banner_item_params

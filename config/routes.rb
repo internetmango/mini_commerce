@@ -18,28 +18,59 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :dashboard, only: :show
     resources :users do
+      collection do
+        get :search
+      end
       member do
         get :reset_password
       end
     end
 
-    resources :orders , only: [:index, :show, :edit, :update, :destroy]
+    resources :orders , only: [:index, :show, :edit, :update, :destroy] do
+      collection do
+        get :search
+      end
+    end
     resources :products do
       collection do
         get :search
       end
     end
     resources :address, only: [:show]
-    resources :categories
-    resources :featured_products
-    resources :banner_items
+    resources :categories do
+      collection do
+        get :search
+      end
+    end
+    resources :featured_products do
+      collection do
+        get :search
+      end
+    end
+    resources :banner_items do
+      collection do
+        get :search
+      end
+    end
 
     # Settings
     namespace :settings do
       resources :admin_users, only: :index
-      resources :tax_rates
-      resources :shipping_methods
-      resources :payment_methods
+      resources :tax_rates do
+        collection do
+          get :search
+        end
+      end
+      resources :shipping_methods do
+        collection do
+          get :search
+        end
+      end
+      resources :payment_methods do
+        collection do
+          get :search
+        end
+      end
     end
   end
 

@@ -4,7 +4,7 @@ module Admin
   class UsersController < AdminController
     include Pagy::Backend
 
-    before_action :set_user, except: [:index, :new, :create]
+    before_action :set_user, except: [:index, :new, :create, :search]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
@@ -57,6 +57,16 @@ module Admin
         flash[:error] = 'Error processing your request'
       end
       redirect_to admin_users_path
+    end
+
+    def search
+      if params[:q].present?
+        value = params[:q]
+        @pagy, @users = pagy(User.search_by_term(value))
+      else
+        @users = User.all
+      end
+      render :index
     end
 
     private

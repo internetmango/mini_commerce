@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ShippingMethodPolicy < ApplicationPolicy
+class ProductPolicy < ApplicationPolicy
   def index?
     true
   end
@@ -9,24 +9,12 @@ class ShippingMethodPolicy < ApplicationPolicy
     user.admin?
   end
 
-  def create?
-    user.admin?
-  end
-
-  def new?
-    create? && user.admin?
-  end
-
   def update?
     user.admin?
   end
 
   def edit?
     update? && user.admin?
-  end
-
-  def destroy?
-    user.admin?
   end
 
   def search?
