@@ -47,11 +47,7 @@ Rails.application.routes.draw do
         get :search
       end
     end
-    resources :banner_items do
-      collection do
-        get :search
-      end
-    end
+    resources :banner_items
 
     # Settings
     namespace :settings do
