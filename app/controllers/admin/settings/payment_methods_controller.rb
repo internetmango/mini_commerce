@@ -50,16 +50,6 @@ module Admin
         redirect_to admin_settings_payment_methods_path
       end
 
-      def search
-        if params[:q].present?
-          value = params[:q]
-          @pagy, @payment_methods = pagy(PaymentMethod.search_by_term(value))
-        else
-          @payment_methods = PaymentMethod.all
-        end
-        render :index
-      end
-
       private
 
       def payment_method_params

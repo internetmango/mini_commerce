@@ -28,8 +28,4 @@ class ShippingMethodPolicy < ApplicationPolicy
   def destroy?
     user.admin?
   end
-
-  def search?
-    true
-  end
 end

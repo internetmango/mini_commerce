@@ -48,16 +48,6 @@ module Admin
         redirect_to admin_settings_tax_rates_path
       end
 
-      def search
-        if params[:q].present?
-          value = params[:q]
-          @pagy, @tax_rates = pagy(TaxRate.search_by_term(value))
-        else
-          @tax_rates = TaxRate.all
-        end
-        render :index
-      end
-
       private
 
       def tax_rate_params

@@ -50,16 +50,6 @@ module Admin
         redirect_to admin_settings_shipping_methods_path
       end
 
-      def search
-        if params[:q].present?
-          value = params[:q]
-          @pagy, @shipping_methods = pagy(ShippingMethod.search_by_term(value))
-        else
-          @shipping_methods = ShippingMethod.all
-        end
-        render :index
-      end
-
       private
 
       def shipping_method_params
