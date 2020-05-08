@@ -34,6 +34,12 @@ Rails.application.routes.draw do
     resources :products do
       collection do
         get :search
+        get :import_csv
+        get :export_csv
+        post :process_csv
+      end
+      member do
+        get :reset_password
       end
     end
     resources :address, only: [:show]
