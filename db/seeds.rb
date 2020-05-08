@@ -20,6 +20,8 @@ categories = Category.create!(
 )
 
 # Add Products
+@products_collection = []
+@products = []
 categories.each_with_index do |category, index|
   products_data =
     [
@@ -212,7 +214,13 @@ categories.each_with_index do |category, index|
         }
       ]
     ]
-  @products = Product.create!(products_data[index])
+  @products_collection << Product.create!(products_data[index])
+end
+
+@products_collection.each do | products_set |
+  products_set.each do |product|
+    @products << product
+  end
 end
 
 # Upload image
