@@ -321,9 +321,9 @@ featured_products =
   FeaturedProduct.create!(
     [
       { product_id: @products[0].id },
-      { product_id: @products[7].id },
-      { product_id: @products[14].id },
-      { product_id: @products[21].id }
+      { product_id: @products[1].id },
+      { product_id: @products[2].id },
+      { product_id: @products[3].id }
     ]
   )
 
@@ -331,9 +331,8 @@ featured_products =
 wishlist_item =
   users[0].wishlist_items.create!(
     [
-      { product_id: @products[0].id },
-      { product_id: @products[7].id },
-      { product_id: @products[14].id },
-      { product_id: @products[21].id }
+      { product_id: @products[1].id },
+      { product_id: @products[2].id },
+      { product_id: @products[3].id },
     ]
   )
