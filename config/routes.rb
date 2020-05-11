@@ -74,6 +74,17 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    # Reports
+    namespace :reports do
+      resources :reports, only: :index do
+        collection do
+          get :get_sales_reports
+          post :sales_reports
+          get :sales_reports
+        end
+      end
+    end
   end
 
   # Api

@@ -1,25 +1,43 @@
-.row.no-gutters
-  .col-12
-    .px-2
-      %h4 Orders
-
+= link_to admin_users_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'arrow-left-circle'}
+&nbsp;
+= link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-danger btn-sm' do
+  %span{'data-feather' => 'refresh-cw'}
 .row
   .col-12
-    .action-bar
-      = link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-danger btn-sm' do
-        %span{'data-feather' => 'file-text'}
-        Reports
-
+    %h3.text-center Reports
+.row
+  .col-8
+    .py-3
+      = form_for :report, url: sales_reports_admin_reports_reports_path, :html => {class: "form-inline"} do |f|
+        .form-group
+          = f.label :start_date
+          &nbsp;
+          = f.date_field :start_date, autofocus: true, autocomplete: 'start_date', class: 'form-control'
+          &nbsp;
+          &nbsp;
+          &nbsp;
+        .form-group
+          = f.label :end_date
+          &nbsp;
+          = f.date_field :end_date, autofocus: true, autocomplete: 'start_date', class: 'form-control'
+          &nbsp;
+          &nbsp;
+          &nbsp;
+        .actions
+          = f.submit 'Submit',class: 'btn btn-primary btn-block'
+        &nbsp;
+        .actions
+          = f.submit 'Get CSV',class: 'btn btn-primary btn-block'
+          
+%br/
 .row.no-gutters
   .col-12
     .py-3
-      %form.form-inline.my-2.my-lg-0{action: search_admin_orders_path}
-        %input.form-control.form-control-sm.m-1.mr-sm-2{'aria-label' => 'Search', name: 'q', placeholder: 'Order #', type: 'search'}
-        %button.btn.btn-primary.btn-sm.mx-2.my-2.my-sm-0{type: 'submit'} Search
       %br/
       - if @orders.blank?
         %p
-          %b No orders found
+          %b No orders found for the given period.
       - else
         %table.table.table-striped.table-sm.table-bordered.table-responsive-sm
           %thead
