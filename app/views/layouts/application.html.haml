@@ -10,8 +10,8 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application'
   %body
-    %nav.navbar.navbar-dark.fixed-top.bg-danger.p-0.shadow
-      = link_to t('title'), root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
+    %nav.navbar.navbar-dark.fixed-top.bg-theme.p-0
+      = link_to t('title'), root_path, class: 'navbar-brand bg-theme text-light px-3'
       %button.d-sm-none.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
         %span.navbar-toggler-icon
 
@@ -41,17 +41,20 @@
         - if current_user.nil?
           %main.col-md-12.ml-auto.px-4.py-5
             .well.text-center
-              Not valid roles!
-              %br
-              Please contact
-              %b #{t('title')}
-              admin at
-              = link_to t('pages.support_email'), "mailto:#{t('pages.support_email')}"
+              %p No valid roles!
+              %p
+                Please contact
+                %b #{t('title')}
+                admin at
+                = link_to t('pages.support_email'), "mailto:#{t('pages.support_email')}"
         - else
-          %main.col-md-12.ml-sm-auto.px-4.py-5{:role => 'main'}
-            #flash
-              - flash.each do |key, value|
-                %div{class: "alert alert-#{key}"}= value
+          %main.col-md-12.ml-auto.px-4.py-5
+            - unless flash.empty?
+              .row
+                .col-md-6.col.col-sm-8.col-xs-12.mx-auto
+                  %div.text-center
+                    - flash.each do |name, msg|
+                      = content_tag :div, msg, class: "#{flash_class(name)}"
             = yield
 
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"}

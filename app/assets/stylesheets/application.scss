@@ -35,7 +35,7 @@ body {
   z-index: 100; /* Behind the navbar */
   padding: 48px 0 0; /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-  color: #EEE;
+  color: #333;
 }
 
 .sidebar-sticky {
@@ -48,7 +48,7 @@ body {
 }
 
 .sidebar-navbar > .nav > .nav-item > a.nav-link {
-  color: #fff;
+  color: #333;
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -60,12 +60,12 @@ body {
 
 .sidebar .nav-link {
   font-weight: 500;
-  color: #FFF;
+  color: #333;
 }
 
 .sidebar .nav-link .feather {
   margin-right: 4px;
-  color: #CCC;
+  color: #AAA;
 }
 
 .sidebar .nav-link.active {
@@ -125,8 +125,6 @@ body {
   }
 }
 
-
-
 .navbar .form-control {
   padding: .75rem 1rem;
   border-width: 0;
@@ -146,6 +144,10 @@ body {
 
 .form-inline .form-control {
   font-size: .875rem;
+}
+
+.bg-theme {
+  background-color: #21125E;
 }
 
 /*********************************************************************

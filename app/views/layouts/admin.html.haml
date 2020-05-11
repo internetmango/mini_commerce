@@ -9,15 +9,15 @@
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application'
-    
+
     %script{src: "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"}
     %script{src: "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css", rel: "stylesheet"}/
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"}
 
   %body
-    %nav.navbar.navbar-dark.fixed-top.bg-danger.p-0.shadow
-      = link_to t('title'), root_path, class: 'navbar-brand bg-danger text-light px-3 rounded'
+    %nav.navbar.navbar-dark.fixed-top.bg-theme.p-0
+      = link_to t('title'), root_path, class: 'navbar-brand bg-theme text-light px-3'
       %button.d-sm-none.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
         %span.navbar-toggler-icon
 
@@ -86,17 +86,17 @@
               admin at
               = link_to t('pages.support_email'), "mailto:#{t('pages.support_email')}"
         - else
-          %nav.col-md-3.col-lg-2.d-none.d-md-block.bg-dark.sidebar
+          %nav.col-md-3.col-lg-2.d-none.d-md-block.bg-light.sidebar
             .sidebar-sticky
               - if current_user && current_user.admin?
-                %ul.nav.flex-column.pt-4
+                %ul.nav.flex-column.pt-3
                   %li.nav-item
                     = link_to admin_orders_path, class: 'nav-link' do
                       %span{'data-feather' => 'shopping-cart'}
                       Orders
                   %li.nav-item
                     = link_to admin_categories_path, class: 'nav-link' do
-                      %span{'data-feather' => 'columns'}
+                      %span{'data-feather' => 'triangle'}
                       Categories
                   %li.nav-item
                     = link_to admin_products_path, class: 'nav-link' do
@@ -106,27 +106,15 @@
                     = link_to admin_featured_products_path, class: 'nav-link' do
                       %span{'data-feather' => 'box'}
                       Featured Products
-                  %li.nav-item
-                    = link_to admin_banner_items_path, class: 'nav-link' do
-                      %span{'data-feather' => 'box'}
-                      Banner Items
 
                   %li.nav-item
                     = link_to admin_users_path, class: 'nav-link' do
                       %span{'data-feather' => 'users'}
                       Customers
-                  %br
-                  %h5.sidebar-heading.d-flex.align-items-center.px-3.mt-7.mb-1.text-muted
-                    %span{'data-feather' => 'settings'}
-                    Settings
-                  %li.nav-item
-                    = link_to admin_settings_admin_users_path,class: 'nav-link' do
-                      %span{'data-feather' => 'users'}
-                      Admins
-                  %li.nav-item
-                    = link_to admin_settings_tax_rates_path,class: 'nav-link' do
-                      %span{'data-feather' => 'percent'}
-                      Tax Rates
+
+                  %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+                    %span Settings
+
                   %li.nav-item
                     = link_to admin_settings_shipping_methods_path, class: 'nav-link' do
                       %span{'data-feather' => 'truck'}
@@ -135,7 +123,19 @@
                     = link_to admin_settings_payment_methods_path, class: 'nav-link' do
                       %span{'data-feather' => 'credit-card'}
                       Payment Methods
-                        
+                  %li.nav-item
+                    = link_to admin_settings_tax_rates_path,class: 'nav-link' do
+                      %span{'data-feather' => 'percent'}
+                      Tax Rates
+                  %li.nav-item
+                    = link_to admin_settings_admin_users_path,class: 'nav-link' do
+                      %span{'data-feather' => 'users'}
+                      Admin Users
+                  %li.nav-item
+                    = link_to admin_banner_items_path, class: 'nav-link' do
+                      %span{'data-feather' => 'box'}
+                      Banner Items
+
                 %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
                   %span Reports
                 %ul.nav.flex-column.mb-2
@@ -144,7 +144,7 @@
                       %span{'data-feather' => 'file-text'}
                       Daily Orders
 
-          %main.col-md-9.ml-sm-auto.col-lg-10.px-4{:role => 'main'}
+          %main.col-md-9.ml-sm-auto.col-lg-10.px-2{:role => 'main'}
             #flash
               - flash.each do |key, value|
                 %div{class: "alert alert-#{key}"}= value

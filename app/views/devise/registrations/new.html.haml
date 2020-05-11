@@ -18,13 +18,14 @@
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
 
-        - if devise_mapping.rememberable?
-          .form-check
-            = f.check_box :remember_me, class: 'form-check-input'
-            = f.label :remember_me
         .actions
-          = f.submit t('auth.registrations.new.action'), class: 'btn btn-danger btn-block'
-      .py-2
+          = f.submit t('auth.registrations.new.action'), class: 'btn btn-primary btn-block'
+
+      .py-4
+        - if controller_name != 'sessions'
+          %div
+            #{t('auth.have_account')}
+            = link_to "#{t('auth.login_here')}", new_session_path(resource_name)
 
         - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-          = link_to t('auth.registrations.forgot_password'), new_password_path(resource_name)
+          %div= link_to t('auth.registrations.forgot_password'), new_password_path(resource_name)

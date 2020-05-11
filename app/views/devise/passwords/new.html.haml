@@ -11,8 +11,7 @@
           = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
         .actions.py-2
-          = f.submit t('auth.passwords.send_reset_instructions'), class: 'btn btn-danger btn-block'
+          = f.submit t('auth.passwords.send_reset_instructions'), class: 'btn btn-primary btn-block'
       .py-2
         - if controller_name != 'sessions'
-          Or
-          = link_to t('auth.sessions.action'), new_session_path(resource_name)
+          = link_to t('auth.sessions.title'), new_session_path(resource_name)

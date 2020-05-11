@@ -19,7 +19,7 @@
           %br/
           = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
         .actions.py-2
-          = f.submit t('auth.passwords.change_password'), class: 'btn btn-danger btn-block'
+          = f.submit t('auth.passwords.change_password'), class: 'btn btn-primary btn-block'
 
       .py-2
         - if controller_name != 'sessions'
