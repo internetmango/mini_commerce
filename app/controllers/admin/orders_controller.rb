@@ -3,7 +3,7 @@
 module Admin
   class OrdersController < AdminController
     include Pagy::Backend
-    before_action :set_order, except: :index
+    before_action :set_order, except: [:index, :search]
     skip_before_action :verify_authenticity_token, only: [:destroy]
 
     def index
@@ -21,6 +21,16 @@ module Admin
       else
         render :edit
       end
+    end
+
+    def search
+      if params[:q].present?
+        value = params[:q]
+        @pagy, @orders = pagy(Order.search_by_term(value))
+      else
+        @orders = Order.all
+      end
+      render :index
     end
 
     private

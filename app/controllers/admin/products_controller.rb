@@ -7,6 +7,7 @@ module Admin
     before_action :set_product, only: [:show, :edit, :update, :destroy]
     before_action :authorize_product, only: [:show, :update, :destroy]
     before_action :authorize_products, except: [:show, :update, :destroy]
+    respond_to :csv
 
     def index
       @pagy, @products = pagy(Product.order(updated_at: :desc))
@@ -59,6 +60,19 @@ module Admin
       render :index
     end
 
+    def export_csv
+      respond_to do |format|
+        format.csv { send_data Product.generate_csv, filename: "products-#{Date.today}.csv" }
+      end
+    end
+
+    def import_csv; end
+
+    def process_csv
+      Product.import(import_params[:file])
+      redirect_to admin_products_path
+    end
+
     private
 
     def product_params
@@ -68,6 +82,10 @@ module Admin
         :category, :category_id,
         product_images_attributes: %i[image id _destroy picture]
       )
+    end
+
+    def import_params
+      params.permit(:file)
     end
 
     def set_product

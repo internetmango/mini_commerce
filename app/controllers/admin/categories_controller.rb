@@ -46,6 +46,16 @@ module Admin
       redirect_to admin_categories_path
     end
 
+    def search
+      if params[:q].present?
+        value = params[:q]
+        @pagy, @categories = pagy(Category.search_by_term(value))
+      else
+        @categories = Category.all
+      end
+      render :index
+    end
+
     private
 
     def category_params

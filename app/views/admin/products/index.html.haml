@@ -6,6 +6,14 @@
     .action-bar
       = link_to new_admin_product_path, class: 'btn btn-danger btn-sm' do
         %span{'data-feather' => 'plus'}
+      &nbsp;
+      = link_to import_csv_admin_products_path, class: 'btn btn-danger btn-sm' do
+        %span{'data-feather' => 'upload'}
+        Upload CSV
+      &nbsp;
+      = link_to export_csv_admin_products_path(format: "csv"), class: "btn btn-danger btn-sm" do
+        %span{'data-feather' => 'Download'}
+        Sample CSV
 .row
   .col-12
     .py-3
@@ -41,4 +49,4 @@
                   %span>
                     = link_to edit_admin_product_path(product), class: 'nav-link' do
                       %span{'data-feather' => 'edit'}
-      = pagy_bootstrap_nav(@pagy).html_safe
+        = pagy_bootstrap_nav(@pagy).html_safe

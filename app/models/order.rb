@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Order < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_term, against: [:order_number, :status, :total_amount],
+                                   using: {
+                                     tsearch: { prefix: true }
+                                   }
   has_many :items, class_name: 'OrderItem', dependent: :destroy
   belongs_to :billing_address, optional: true, class_name: 'Address'
   belongs_to :shipping_address, optional: true, class_name: 'Address'

@@ -32,4 +32,16 @@ class ProductPolicy < ApplicationPolicy
   def search?
     true
   end
+
+  def import_csv?
+    user.admin?
+  end
+
+  def export_csv?
+    user.admin?
+  end
+
+  def process_csv?
+    user.admin?
+  end
 end

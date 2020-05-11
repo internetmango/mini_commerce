@@ -18,7 +18,7 @@ class TextlocalClient
       uri,
       apikey: TL_APIKEY,
       message: message,
-      sender: ENV['SMS_SENDER'], # This is configurable sender-code from TextLocal if I remember right.
+      sender: ENV['SMS_SENDER'],
       numbers: mobile_number
     )
 
