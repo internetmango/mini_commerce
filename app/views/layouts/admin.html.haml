@@ -25,17 +25,50 @@
         .d-sm-none.collapse.navbar-collapse.sidebar-navbar#navbarCollapse
           %ul.nav.flex-column
             %li.nav-item
-              = link_to root_path, class: 'nav-link' do
+              = link_to admin_orders_path, class: 'nav-link' do
+                %span{'data-feather' => 'shopping-cart'}
+                Orders
+            %li.nav-item
+              = link_to admin_categories_path, class: 'nav-link' do
+                %span{'data-feather' => 'columns'}
+                Categories
+            %li.nav-item
+              = link_to admin_products_path, class: 'nav-link' do
+                %span{'data-feather' => 'box'}
+                Products
+            %li.nav-item
+              = link_to admin_featured_products_path, class: 'nav-link' do
+                %span{'data-feather' => 'box'}
+                Featured Products
+            %li.nav-item
+              = link_to admin_banner_items_path, class: 'nav-link' do
+                %span{'data-feather' => 'box'}
+                Banner Items
+
+            %li.nav-item
+              = link_to admin_users_path, class: 'nav-link' do
                 %span{'data-feather' => 'users'}
-            - if current_user.admin?
-              %li.nav-item
-                %a.nav-link{href: '#'}
-                  %span{'data-feather' => 'droplet'}
-                  Link 2
-              %li.nav-item
-                %a.nav-link{href: '#'}
-                  %span{'data-feather' => 'user'}
-                  User
+                Customers
+            %br
+            %h5.sidebar-heading.d-flex.align-items-center.px-3.mt-7.mb-1.text-muted
+              %span{'data-feather' => 'settings'}
+              Settings
+            %li.nav-item
+              = link_to admin_settings_admin_users_path,class: 'nav-link' do
+                %span{'data-feather' => 'users'}
+                Admins
+            %li.nav-item
+              = link_to admin_settings_tax_rates_path,class: 'nav-link' do
+                %span{'data-feather' => 'percent'}
+                Tax Rates
+            %li.nav-item
+              = link_to admin_settings_shipping_methods_path, class: 'nav-link' do
+                %span{'data-feather' => 'truck'}
+                Shipping Methods
+            %li.nav-item
+              = link_to admin_settings_payment_methods_path, class: 'nav-link' do
+                %span{'data-feather' => 'credit-card'}
+                Payment Methods
         %ul.navbar-nav.px-3.d-xs-none
           %li.nav-item.text-nowrap
             %span.navbar-text

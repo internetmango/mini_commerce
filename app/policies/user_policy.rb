@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FeaturedProductPolicy < ApplicationPolicy
+class ProductPolicy < ApplicationPolicy
   def index?
     true
   end
