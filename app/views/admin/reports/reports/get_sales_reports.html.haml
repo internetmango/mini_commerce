@@ -1,4 +1,4 @@
-= link_to admin_users_path, class: 'btn btn-danger btn-sm' do
+= link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-danger btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
 &nbsp;
 = link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-danger btn-sm' do
@@ -7,20 +7,20 @@
   .col-12
     %h3.text-center Reports
 .row
-  .col-8
+  .col-12
     .py-3
       = form_for :report, url: sales_reports_admin_reports_reports_path, :html => {class: "form-inline"} do |f|
         .form-group
           = f.label :start_date
           &nbsp;
-          = f.date_field :start_date, autofocus: true, autocomplete: 'start_date', class: 'form-control'
+          = f.text_field :start_date, autofocus: true, autocomplete: 'start_date', class: 'form-control datepicker'
           &nbsp;
           &nbsp;
           &nbsp;
         .form-group
           = f.label :end_date
           &nbsp;
-          = f.date_field :end_date, autofocus: true, autocomplete: 'start_date', class: 'form-control'
+          = f.text_field :end_date, autofocus: true, autocomplete: 'start_date', class: 'form-control datepicker'
           &nbsp;
           &nbsp;
           &nbsp;
