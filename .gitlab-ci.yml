@@ -1,6 +1,7 @@
 image: "ruby:2.6"
 
 cache:
+  key: "${CI_COMMIT_BRANCH}-master"
   paths:
     - node_modules/
     - .yarn
@@ -30,7 +31,3 @@ before_script:
 rspec:
   script:
     - RAILS_ENV=test bundle exec rspec
-
-rubocop:
-  script:
-    - bundle exec rubocop
