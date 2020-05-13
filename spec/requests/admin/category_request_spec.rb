@@ -65,4 +65,12 @@ RSpec.describe 'Category', type: :request do
       expect(response.body).to include('successfully destroyed')
     end
   end
+
+  describe 'GET /search' do
+    it 'render to index page' do
+      create(:category, name: 'vegitables')
+      get '/admin/categories/search', params: { q: 'vegitables' }
+      expect(response.body).to include('vegitables')
+    end
+  end
 end

@@ -38,4 +38,12 @@ RSpec.describe 'Orders', type: :request do
       expect(response.body).to include('order12343')
     end
   end
+
+  describe 'GET /search' do
+    it 'render to index page' do
+      create(:order, user_id: user.id)
+      get '/admin/orders/search', params: { q: '123' }
+      expect(response.body).to include('123')
+    end
+  end
 end

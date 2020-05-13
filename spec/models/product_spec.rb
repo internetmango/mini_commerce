@@ -29,7 +29,7 @@ RSpec.describe Product, type: :model do
 
   it 'should import csv file and create products' do
     Product.import(csv_file)
-    product = Product.find_by(name: "Fresho Frozen Green Peas, 2 kg Slider Zip Standy Pouch")
+    product = Product.find_by(name: 'Fresho Frozen Green Peas, 2 kg Slider Zip Standy Pouch')
     expect(product).not_to be(nil)
   end
 

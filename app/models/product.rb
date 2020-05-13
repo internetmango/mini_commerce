@@ -41,7 +41,7 @@ class Product < ApplicationRecord
       product = row.to_hash
       category_name = product['category']
       category = Category.find_by(name: category_name)
-      category = Category.create!(name: category_name) unless category
+      category ||= Category.create!(name: category_name)
       category_id = category.id
 
       product['category_id'] = category_id
