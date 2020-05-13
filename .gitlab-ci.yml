@@ -12,7 +12,8 @@ services:
 variables:
   POSTGRES_DB: mini_shop_test
   POSTGRES_USER: runner
-  POSTGRES_PASSWORD: Rnner_pass32#
+  POSTGRES_PASSWORD: ""
+  POSTGRES_HOST_AUTH_METHOD: trust
 
 before_script:
   - apt-get update -qq && apt-get install -y -qq nodejs

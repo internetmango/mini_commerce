@@ -1,11 +1,10 @@
-default: &default
+test:
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-test:
-  <<: *default
+  pool: 5
+  timeout: 5000
+  host: postgres
   database: mini_shop_test
   username: runner
-  password: Rnner_pass32#
+  password: ""
   timeout: 5000
