@@ -3,6 +3,9 @@
 class Order < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_term, against: [:order_number, :status, :total_amount],
+                                   associated_against: {
+                                     user: [:name]
+                                   },
                                    using: {
                                      tsearch: { prefix: true }
                                    }

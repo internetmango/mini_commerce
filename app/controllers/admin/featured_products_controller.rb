@@ -61,6 +61,16 @@ module Admin
       redirect_to admin_featured_products_path
     end
 
+    def search
+      if params[:q].present?
+        value = params[:q]
+        @pagy, @featured_products = pagy(FeaturedProduct.search_by_term(value))
+      else
+        @featured_products = FeaturedProduct.all
+      end
+      render :index
+    end
+
     private
 
     def featured_product_params
