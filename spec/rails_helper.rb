@@ -7,8 +7,10 @@ require 'spec_helper'
 require 'simplecov'
 SimpleCov.start
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+if ENV['CI_ENV']
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
