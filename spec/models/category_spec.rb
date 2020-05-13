@@ -13,7 +13,7 @@ RSpec.describe Category, type: :model do
   end
 
   it 'name should not be too long' do
-    @category.name = 'a' * 20
+    @category.name = 'a' * 26
     expect(@category).to_not be_valid
   end
 

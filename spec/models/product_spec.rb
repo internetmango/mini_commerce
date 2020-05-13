@@ -29,12 +29,12 @@ RSpec.describe Product, type: :model do
 
   it 'should import csv file and create products' do
     Product.import(csv_file)
-    expect(Product.all).not_to be_empty
+    product = Product.find_by(name: "Fresho Frozen Green Peas, 2 kg Slider Zip Standy Pouch")
+    expect(product).not_to be(nil)
   end
 
   it 'should generate CSV' do
-    csv = Product.generate_csv
-    expect(csv).to include 'brand,model'
+    expect(Product.generate_csv).to include 'name'
   end
 
   it 'should create a product stock' do

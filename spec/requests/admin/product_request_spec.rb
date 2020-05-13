@@ -71,6 +71,7 @@ RSpec.describe 'Products', type: :request do
 
   describe 'GET /search' do
     it 'render to index page' do
+      create(:product, name: 'redmi 5')
       get '/admin/products/search', params: { q: 'redmi 5' }
       expect(response.body).to include('redmi 5')
     end
