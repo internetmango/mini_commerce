@@ -12,7 +12,7 @@ module Api::V1
       render_404 && return unless user
       render_403 && return unless valid_params?
 
-      password = login_with_password?
+      password = login_params[:password]
 
       if !password
         if !login_params[:otp]
@@ -45,7 +45,7 @@ module Api::V1
     private
 
     def login_params
-      params.require(:session).permit(:mobile, :email, :otp, :valid_till)
+      params.require(:session).permit(:mobile, :email, :password, :otp, :valid_till)
     end
 
     def logout_params
