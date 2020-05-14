@@ -2,7 +2,12 @@
 
 class FeaturedProduct < ApplicationRecord
   include PgSearch::Model
-  pg_search_scope :search_by_term, against: [:name, :short_description, :description],
+  belongs_to :product
+  pg_search_scope :search_by_term, against: [:listing_type],
+                                   associated_against: {
+                                     product: [:name, :description, :price]
+                                   },
+
                                    using: {
                                      tsearch: { prefix: true }
                                    }
