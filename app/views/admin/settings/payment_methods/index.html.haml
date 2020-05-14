@@ -4,7 +4,7 @@
 .row
   .col-12
     .action-bar
-      = link_to new_admin_settings_payment_method_path, class: 'btn btn-danger btn-sm' do
+      = link_to new_admin_settings_payment_method_path, class: 'btn btn-primary btn-sm' do
         %span{'data-feather' => 'plus'}
 .row
   .col-12
@@ -15,8 +15,8 @@
           %b No Payment methods found
         %p Add a Payment method by clicking the above button.
       - else
-        %table.table.table-striped.table-sm.table-bordesred.table-responsive-sm
-          %thead
+        %table.table.table-striped.table-sm.table-bordered.table-responsive-sm
+          %thead.bg-secondary.text-light
             %tr
               %th Name
               %th Description

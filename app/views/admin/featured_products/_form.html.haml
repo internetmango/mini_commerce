@@ -12,7 +12,7 @@
           = f.label :listing_type
           = f.select :listing_type, ['top_selling','featured'],{}, class: 'form-control'
         .actions
-          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = f.submit 'Submit', class: 'btn btn-primary btn-block'
 :javascript
   $('.select2').select2({
     placeholder: "Choose a product",

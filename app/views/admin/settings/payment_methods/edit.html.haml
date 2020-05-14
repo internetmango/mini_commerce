@@ -1,4 +1,4 @@
-= link_to admin_settings_payment_methods_path, class: 'btn btn-danger btn-sm' do
+= link_to admin_settings_payment_methods_path, class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
 %h1.text-center Edit Payment Method
 %br/
@@ -6,7 +6,7 @@
 .row
   .col-12
     .action-bar
-      = link_to admin_settings_payment_method_path(@payment_method), method: :delete, class: 'btn btn-danger btn-sm' do
+      = link_to admin_settings_payment_method_path(@payment_method), method: :delete, class: 'btn btn-primary btn-sm' do
         %span{'data-feather' => 'trash'}
 .row
   .col-md-4.mx-auto.mt-5.col.col-sm-6.col-xs-12
@@ -32,6 +32,6 @@
           No
           %br
         .actions
-          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = f.submit 'Submit', class: 'btn btn-primary btn-block'
           = link_to admin_settings_payment_methods_path, class: 'btn btn-danger btn-block' do
             %span Cancel

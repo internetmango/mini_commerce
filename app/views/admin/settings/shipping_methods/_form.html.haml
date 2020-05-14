@@ -17,7 +17,7 @@
           = f.label :value
           = f.number_field :value, step: :any, autofocus: true, autocomplete: 'value', class: 'form-control'
         .actions
-          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = f.submit 'Submit', class: 'btn btn-primary btn-block'
           = link_to admin_settings_shipping_methods_path, class: 'btn btn-danger btn-block' do
             %span Cancel
       .py-2

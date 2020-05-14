@@ -1,7 +1,7 @@
-= link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-danger btn-sm' do
+= link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
 &nbsp;
-= link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-danger btn-sm' do
+= link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'refresh-cw'}
 .row
   .col-12
@@ -40,7 +40,7 @@
           %b No orders found for the given period.
       - else
         %table.table.table-striped.table-sm.table-bordered.table-responsive-sm
-          %thead
+          %thead.bg-secondary.text-light
             %tr
               %th Order Number
               %th User

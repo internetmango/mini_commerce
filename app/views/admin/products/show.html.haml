@@ -1,5 +1,5 @@
 
-= link_to admin_products_path(@product), class: 'btn btn-danger btn-sm' do
+= link_to admin_products_path(@product), class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
 %h1.text-center Products Info
 %br/
@@ -41,9 +41,9 @@
       .row
         .col-12
           %h3.text-center Product
-          = link_to edit_admin_product_path(@product), class: 'btn btn-danger btn-sm mr-1' do
+          = link_to edit_admin_product_path(@product), class: 'btn btn-primary btn-sm mr-1' do
             %span{'data-feather' => 'edit'}
-          = link_to admin_product_path(@product), method: :delete, class: 'btn btn-danger btn-sm mr-1' do
+          = link_to admin_product_path(@product), method: :delete, class: 'btn btn-primary btn-sm mr-1' do
             %span{'data-feather' => 'trash'}
       %hr
         %p#notice= notice
