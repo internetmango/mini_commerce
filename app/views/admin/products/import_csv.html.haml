@@ -1,4 +1,12 @@
 %h1 New Product
-= form_tag process_csv_admin_products_path, multipart: true do
-  = file_field_tag :file
-  = submit_tag "Import CSV", class: "btn-medium"
+'
+.row
+  .col-9
+    .py-3
+      = form_tag process_csv_admin_products_path, multipart: true, :class => "form-inline" do
+        .form-group
+          = file_field_tag :file, class: 'form-control'
+          &nbsp;
+        .actions
+          = submit_tag 'Import CSV',class: 'btn btn-primary'
+        

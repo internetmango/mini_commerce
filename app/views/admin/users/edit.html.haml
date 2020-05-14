@@ -1,4 +1,4 @@
-= link_to admin_users_path, class: 'btn btn-danger btn-sm' do
+= link_to admin_users_path, class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
 %h1.text-center Edit User
 %br/
@@ -6,7 +6,7 @@
 .row
   .col-12
     .action-bar
-      = link_to reset_password_admin_user_path(@user), class: 'btn btn-danger btn-sm' do
+      = link_to reset_password_admin_user_path(@user), class: 'btn btn-primary btn-sm' do
         %span{'data-feather' => 'tool'}
         Reset password
 .row
@@ -28,5 +28,5 @@
           = f.check_box :admin, class: 'form-check-input'
           = f.label :admin
         .actions
-          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = f.submit 'Submit', class: 'btn btn-primary btn-block'
       .py-2

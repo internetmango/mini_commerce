@@ -1,5 +1,5 @@
 
-= link_to admin_products_path, class: 'btn btn-danger btn-sm' do
+= link_to admin_products_path, class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
 %h1.text-center Products Info
 %br/
@@ -7,7 +7,7 @@
 .row
   .col-lg-12
     .action-bar
-      = link_to admin_product_path(@product), method: :delete,class: 'btn btn-danger btn-sm' do
+      = link_to admin_product_path(@product), method: :delete,class: 'btn btn-primary btn-sm' do
         %span{'data-feather' => 'trash'}
 .row
   .col-md-5.mx-2.mt-5.col.col-sm-6.col-xs-12
@@ -61,5 +61,5 @@
                       = i.check_box :_destroy
                       = i.label :'Remove'
         .actions
-          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = f.submit 'Submit', class: 'btn btn-primary btn-block'
       .py-2

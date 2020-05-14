@@ -4,22 +4,22 @@
 .row
   .col-12
     .action-bar
-      = link_to new_admin_user_path, class: 'btn btn-danger btn-sm' do
+      = link_to new_admin_user_path, class: 'btn btn-primary btn-sm' do
         %span{'data-feather' => 'user-plus'}
 .row
   .col-12
     .py-3
       %form.form-inline.my-2.my-lg-0{action: search_admin_users_path}
         %input.form-control.form-control-sm.m-1.mr-sm-2{'aria-label' => 'Search', name: 'q', placeholder: 'Name or Email', type: 'search'}/
-        %button.btn.btn-danger.btn-sm.mx-2.my-2.my-sm-0{type: 'submit'} Search
+        %button.btn.btn-primary.btn-sm.mx-2.my-2.my-sm-0{type: 'submit'} Search
       %br/
       - if @users.blank?
         %p
           %b No admin users found
         %p Add a user by clicking the above button.
       - else
-        %table.table.table-striped.table-sm.table-bordesred.table-responsive-sm
-          %thead
+        %table.table.table-striped.table-sm.table-bordered.table-responsive-sm
+          %thead.bg-secondary.text-light
             %tr
               %th Name
               %th Email

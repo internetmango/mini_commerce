@@ -1,4 +1,4 @@
-= link_to admin_banner_items_path, class: 'btn btn-danger btn-sm' do
+= link_to admin_banner_items_path, class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
 %h1.text-center Edit Banner Item
 %br/
@@ -22,4 +22,4 @@
           = f.label :web_params
           = f.text_area :web_params, autofocus: true, autocomplete: 'web_params', class: 'form-control'
         .actions
-          = f.submit 'Submit', class: 'btn btn-danger btn-block'
+          = f.submit 'Submit', class: 'btn btn-primary btn-block'
