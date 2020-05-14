@@ -26,7 +26,7 @@ class Product < ApplicationRecord
   end
 
   def self.generate_csv
-    attributes = %w[brand model description condition title price category image]
+    attributes = ['Name', 'Category', 'Short Description', 'Description', 'Price']
     CSV.generate do |csv|
       csv << attributes
     end
@@ -41,7 +41,7 @@ class Product < ApplicationRecord
       product = row.to_hash
       category_name = product['category']
       category = Category.find_by(name: category_name)
-      Category.create!(name: category_name) unless category
+      category ||= Category.create!(name: category_name)
       category_id = category.id
 
       product['category_id'] = category_id

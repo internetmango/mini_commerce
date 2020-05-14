@@ -2,7 +2,7 @@
 
 module Api::V1
   class SessionsController < ApiController
-    skip_before_action :authenticate_user_with_api_token
+    skip_before_action :authenticate_user_with_api_token, only: :create
     skip_before_action :check_account_status
 
     def create
@@ -12,17 +12,23 @@ module Api::V1
       render_404 && return unless user
       render_403 && return unless valid_params?
 
-      if !login_params[:otp]
-        status = user.generate_otp_and_notify
-        if status != 'failure'
-          render json: { status: 200, success: true, message: 'OTP has been sent' }
+      password = login_params[:password]
+
+      if !password
+        if !login_params[:otp]
+          status = user.generate_otp_and_notify
+          if status != 'failure'
+            render json: { status: 200, success: true, message: 'OTP has been sent' }
+          else
+            render json: { success: false, message: 'Error processing request' }
+          end
+        elsif user.verify_otp_and_save(login_params[:otp])
+          token_reset_and_user_login(user)
         else
-          render json: { success: false, message: 'Error processing request' }
+          render_403
         end
-      elsif user.verify_otp_and_save(login_params[:otp])
-        user.regenerate_authentication_token
-        login(user)
-        render_json(user)
+      elsif user.valid_password?(password)
+        token_reset_and_user_login(user)
       else
         render_403
       end
@@ -39,7 +45,11 @@ module Api::V1
     private
 
     def login_params
-      params.require(:session).permit(:mobile, :email, :otp, :valid_till)
+      params.require(:session).permit(:mobile, :email, :password, :otp, :valid_till)
+    end
+
+    def logout_params
+      params.permit(:email)
     end
 
     def render_json(user = nil)
@@ -53,6 +63,18 @@ module Api::V1
 
     def valid_params?
       login_params != nil
+    end
+
+    def login_with_password?
+      token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
+      password = options.blank? ? nil : options[:password]
+      password
+    end
+
+    def token_reset_and_user_login(user)
+      user.regenerate_authentication_token
+      login(user)
+      render_json(user)
     end
   end
 end
