@@ -6,8 +6,8 @@ module Api::V1
     skip_before_action :check_account_status
 
     def create
-      user = User.find_by(email: login_params[:email]) if login_params[:email]
-      user ||= User.find_by(mobile: login_params[:mobile]) if login_params[:mobile]
+      user = User.find_by(mobile: login_params[:mobile]) if login_params[:mobile]
+      user ||= User.find_by(email: login_params[:email]) if login_params[:email]
 
       render_404 && return unless user
       render_403 && return unless valid_params?
