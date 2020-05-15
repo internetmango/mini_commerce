@@ -5,10 +5,10 @@ var values = document.getElementById("values").value;
 var chart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: keys,
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
             label: '# of orders',
-            data: values,
+            data: [90, 80, 60, 85, 70, 60, 90],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
