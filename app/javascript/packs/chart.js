@@ -2,7 +2,7 @@ var ctx = document.getElementById("canvas").getContext('2d');
 var keys = document.getElementById("keys").value;
 var values = document.getElementById("values").value;
 
-var myChart = new Chart(ctx, {
+var chart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: keys,
@@ -38,3 +38,5 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+document.getElementById("demo").innerHTML = chart;
