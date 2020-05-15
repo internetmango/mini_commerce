@@ -1,13 +1,17 @@
-.row.row-offcanvas.row-offcanvas-left
+
+.col-12
   .col-md-15.col-lg-20.main
-    %h1.display-2.hidden-xs-down
+    %h1.display-2.hidden-xs-down.text-center
       Mini Shop Dashboard
+    %br/
+    %br/
+    %hr/
+    %br/
     .row.mb-3
       .col-xl-3.col-lg-6
         .card.card-inverse.card-success
           .card-block.bg-success
-            .rotate
-              %i.fa.fa-user.fa-5x
+            %span{'data-feather' => 'shopping-cart'}
             .text-center
               %h6.text-uppercase Orders
               %h1.display-1
@@ -15,8 +19,7 @@
       .col-xl-3.col-lg-6
         .card.card-inverse.card-danger
           .card-block.bg-info
-            .rotate
-              %i.fa.fa-list.fa-4x
+            %span{'data-feather' => 'users'}
             .text-center
               %h6.text-uppercase New Users
               %h1.display-1
@@ -24,8 +27,7 @@
       .col-xl-3.col-lg-6
         .card.card-inverse.card-info
           .card-block.bg-danger
-            .rotate
-              %i.fa.fa-twitter.fa-5x
+            %span{'data-feather' => 'trending-down'}
             .text-center
               %h6.text-uppercase Low Stock
               %h1.display-1
@@ -33,11 +35,13 @@
       .col-xl-3.col-lg-6
         .card.card-inverse.card-warning
           .card-block.bg-warning
-            .rotate
-              %i.fa.fa-share.fa-5x
+            %span{'data-feather' => 'activity'}
             .text-center
-              %h6.text-uppercase Sales
-              %h1.display-1 36
+              %h6.text-uppercase Sales Growth (%)
+              %h6.display-1
+                = @growth
+              
+    %br/
     %hr/
     %br/
     %h3.text-center Confirmed orders of last 5 days
@@ -118,21 +122,19 @@
                           %span{'data-feather' => 'edit'}
 
             = pagy_bootstrap_nav(@pagy).html_safe
+  %br/
+  %hr/
+  %br/
+  .row
+    .col-6
+      %h3.text-center New orders rate - last week
+      #center
+        %canvas#orders-graph{height: "400", width: "600"}
+    .col-6
+      %h3.text-center New users rate - last week
 
-
-    %hr/
-    %br/
-    %h3.text-center New orders rate - last week
-    #center
-      %canvas#orders-graph{height: "400", width: "600"}
-
-
-    %hr/
-    %br/
-    %h3.text-center New users rate - last week
-
-    #center
-      %canvas#users-graph{height: "400", width: "600"}
+      #center
+        %canvas#users-graph{height: "400", width: "600"}
 
 - content_for :javascript do
   = render 'orders_graph', label_array: @new_orders_chart_data.keys, data_array: @new_orders_chart_data.values

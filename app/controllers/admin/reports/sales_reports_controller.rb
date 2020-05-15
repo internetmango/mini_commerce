@@ -15,7 +15,7 @@ module Admin
       def sales_reports
         @pagy, @orders = pagy(Order
           .where(
-            'created_at >= :start_date AND created_at >= :end_date',
+            'created_at >= :start_date AND created_at <= :end_date',
             {
               start_date: report_params[:start_date],
               end_date: report_params[:end_date]
