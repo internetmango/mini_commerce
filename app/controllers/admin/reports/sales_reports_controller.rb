@@ -2,15 +2,15 @@
 
 module Admin
   module Reports
-    class ReportsController < AdminController
+    class SalesReportsController < AdminController
       include Pagy::Backend
 
       skip_before_action :verify_authenticity_token, only: [:destroy]
       rescue_from 'ActiveRecord::StatementInvalid', with: :invalid
 
-      def index; end
-
-      def get_sales_reports; end
+      def index
+        @pagy, @orders = pagy(Order.where('created_at <= ?', 1.week.ago))
+      end
 
       def sales_reports
         @pagy, @orders = pagy(Order
@@ -25,7 +25,7 @@ module Admin
           send_data order_report_csv,
                     filename: "Orders-#{report_params[:start_date]}-#{report_params[:end_date]}.csv"
         else
-          render :get_sales_reports
+          render :index
         end
       end
 
