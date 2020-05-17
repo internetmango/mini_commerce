@@ -52,205 +52,42 @@
       <div class="tab-pane fade show active" id="nav-featured" role="tabpanel" aria-labelledby="nav-featured-tab">
         <section class="container products clearfix rounded" >
           <div class="owl-carousel owl-theme">
-            <div class="item mt-2" data-product>
+<%- 6.times do %>
+<div class="item mt-2" data-product>
+  <div class="product card">
+    <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/2.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
+    <div class="card-body p-2">
+      <h3 class='mb-1 h6'>
+        <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
+      </h3>
+      <span class="description text-muted" data-product-description>
+      Short description product
+      </span>
+      <div class="price-group py-2">
+        <div class="price d-inline-block">
+          <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
+        </div>
+        <div class="old-price d-inline-block">
+          <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
+        </div>
 
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/1.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
       </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
+      <div class="btngroup">
+        <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
+          <i class="la la-shopping-cart"></i> Add
+        </a>
+        <span class='float-right'>
+          <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
+            <i class="la la-heart"></i>
+          </button>
+        </span>
+
       </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/2.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
     </div>
   </div>
 </div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2 img-fluid" src="/storefront/img/products/3.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
+<%- end %>
 
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/4.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/5.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/6.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
           </div>
           <!-- row -->
         </section>
@@ -260,204 +97,43 @@
 
         <section class="container products clearfix rounded" >
           <div class="owl-carousel owl-theme">
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/4.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
 
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
+<%- 6.times do %>
+<div class="item mt-2" data-product>
+  <div class="product card">
+    <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/4.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
+    <div class="card-body p-2">
+      <h3 class='mb-1 h6'>
+        <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
+      </h3>
+      <span class="description text-muted" data-product-description>
+      Best Price Now
+      </span>
+      <div class="price-group py-2">
+        <div class="price d-inline-block">
+          <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
+        </div>
+        <div class="old-price d-inline-block">
+          <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
+        </div>
 
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/4.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
       </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
+      <div class="btngroup">
+        <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
+          <i class="la la-shopping-cart"></i> Add
+        </a>
+        <span class='float-right'>
+          <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
+            <i class="la la-heart"></i>
+          </button>
+        </span>
+
       </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
     </div>
   </div>
+
 </div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/4.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/4.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/4.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
-            <div class="item mt-2" data-product>
-<div class="product card">
-  <a href='#'><img class="card-img-top p-2" src="/storefront/img/products/4.jpg" alt="Apple Macbook Pro" style="width: 100%; display: block; max-height: 200px;" ></a>
-  <div class="card-body p-2">
-    <h3 class='mb-1 h6'>
-      <a href="product.html" data-product-url data-name data-url>Apple Macbook Pro i5/8GB RAM/256G SSD</a>
-    </h3>
-    <span class="description text-muted" data-product-description>
-    Best Price Now
-    </span>
-    <div class="price-group py-2">
-      <div class="price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>315</span>
-      </div>
-      <div class="old-price d-inline-block">
-        <span class="currency" data-product-currency>$</span> <span data-product-price>385</span>
-      </div>
-
-    </div>
-    <div class="btngroup">
-      <a type="button" class="btn btn-sm btn-secondary" title="Add to Cart" href="" data-product-cart-url data-vvveb-action="addCart" data-product_id=40>
-      <i class="la la-shopping-cart"></i> Add to cart
-      </a>
-      <button type="button" class="btn btn-sm" title="Add to favorites" data-product-fav-url>
-      <i class="la la-heart"></i>
-      </button>
-
-    </div>
-  </div>
-</div>
-              <!-- product -->
-            </div>
-            <!-- col-md -->
+<%- end %>
           </div>
           <!-- row -->
         </section>
