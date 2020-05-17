@@ -4,6 +4,6 @@ module Storefront
   class OrdersController < StorefrontController
     def cart; end
 
-    def confirm; end
+    def checkout; end
   end
 end
