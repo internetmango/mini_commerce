@@ -34,7 +34,7 @@ RSpec.describe Product, type: :model do
   end
 
   it 'should generate CSV' do
-    expect(Product.generate_csv).to include 'name'
+    expect(Product.generate_csv).to include 'Name'
   end
 
   it 'should create a product stock' do
