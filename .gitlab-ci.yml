@@ -1,0 +1,33 @@
+image: "ruby:2.6"
+
+cache:
+  key: "${CI_COMMIT_BRANCH}-master"
+  paths:
+    - node_modules/
+    - .yarn
+    - vendor/ruby
+
+services:
+  - postgres:11
+
+variables:
+  POSTGRES_DB: mini_shop_test
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
+  POSTGRES_HOST_AUTH_METHOD: trust
+
+before_script:
+  - apt-get update -qq && apt-get install -y -qq nodejs
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+  - ruby -v
+  - which ruby
+  - gem install bundler --no-document
+  - RAILS_ENV=test bundle install --jobs $(nproc)  "${FLAGS[@]}"
+  - yarn install --check-files
+  - cp config/database.yml.gitlab config/database.yml
+  - RAILS_ENV=test bundle exec rake db:create db:schema:load
+
+rspec:
+  script:
+    - RAILS_ENV=test bundle exec rspec

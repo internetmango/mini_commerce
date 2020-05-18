@@ -1,0 +1,10 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  host: postgres
+  database: mini_shop_test
+  username: runner
+  password: ""
+  timeout: 5000
