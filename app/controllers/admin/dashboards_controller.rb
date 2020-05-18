@@ -36,7 +36,7 @@ module Admin
                                   .sum(:total_amount)
       sales_growth_of_current_week = Order.where('created_at >= ?', 1.week.ago).sum(:total_amount)
 
-      growth = Integer((((sales_growth_of_current_week - sales_growth_of_past_week) / sales_growth_of_past_week) * 100), 10)
+      growth = (((sales_growth_of_current_week - sales_growth_of_past_week) / sales_growth_of_past_week) * 100).to_i
     end
   end
 end
