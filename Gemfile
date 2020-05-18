@@ -24,6 +24,7 @@ gem 'pundit', '~> 2.1.0'
 gem 'fast_jsonapi'
 gem 'rack-cors'
 gem 'bootstrap-datepicker-rails'
+gem 'chart-js-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

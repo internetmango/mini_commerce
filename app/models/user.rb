@@ -35,9 +35,9 @@ class User < ApplicationRecord
       mail = UserMailer.with(user: self, otp: otp)
                        .login_otp.deliver_now
     end
-    if !status && !mail.to_s.include?(otp)
-      'failure'
-    end
+    return unless !status && !mail.to_s.include?(otp)
+
+    'failure'
   end
 
   def verify_otp_and_save(otp)

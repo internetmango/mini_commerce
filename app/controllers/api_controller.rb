@@ -37,20 +37,6 @@ class ApiController < ActionController::Base
     end
   end
 
-  def authenticate_user_with_password
-    token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
-    email = options.blank? ? nil : options[:email]
-    password = options.blank? ? nil : options[:password]
-
-    user = email && User.find_by(email: email)
-
-    if user.valid_password?(password)
-      @current_user = user
-    else
-      render_unauthorized
-    end
-  end
-
   def render_403
     render status: :forbidden,
            json: { success: false, message: t('api.messages.invalid_credentials') }

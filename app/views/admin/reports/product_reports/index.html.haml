@@ -1,0 +1,38 @@
+.row
+  .col-12
+    %h3.text-center Low Stock Products
+.row
+  .col-12
+    .action-bar
+.row
+  .col-12
+    .py-3
+      %form.form-inline.my-2.my-lg-0{action: product_stocks_reports_admin_reports_product_reports_path}
+        %input.form-control.form-control-sm.m-1.mr-sm-2{'aria-label' => 'Search', name: 'stock', placeholder: 'Stock limit', type: 'search'}/
+        %button.btn.btn-primary.btn-sm.mx-2.my-2.my-sm-0{type: 'submit'} Filter
+      %p.small *5 is the minimum stock limit by default.
+
+      %br/
+      - if @product_stocks.blank?
+        %p
+          %b No products found
+        %p Add a product by clicking the above button or upload a file of product.
+      - else
+        %table.table.table-striped.table-sm.table-bordered.table-responsive-sm
+          %thead.bg-secondary.text-light
+            %tr
+              %th Name
+              %th Category
+              %th Price
+              %th Current Stock
+
+          %tbody
+            - @product_stocks.each do |product_stock|
+              - product = Product.find(product_stock.product_id)
+              %tr
+                %td
+                  = link_to product.name, admin_product_path(product)
+                %td= product.category.name
+                %td= product.price
+                %td= product_stock.current_stock
+        = pagy_bootstrap_nav(@pagy).html_safe

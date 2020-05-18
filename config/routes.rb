@@ -86,13 +86,12 @@ Rails.application.routes.draw do
 
     # Reports
     namespace :reports do
-      resources :reports, only: :index do
+      resources :sales_reports, only: :index do
         collection do
-          get :get_sales_reports
           post :sales_reports
         end
       end
-
+      
       resources :product_reports, only: :index do
         collection do
           get :product_stocks_reports

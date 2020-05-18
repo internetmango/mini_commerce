@@ -65,12 +65,6 @@ module Api::V1
       login_params != nil
     end
 
-    def login_with_password?
-      token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
-      password = options.blank? ? nil : options[:password]
-      password
-    end
-
     def token_reset_and_user_login(user)
       user.regenerate_authentication_token
       login(user)
