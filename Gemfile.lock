@@ -368,6 +368,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chart-js-rails
+  codecov
   database_cleaner
   devise
   factory_bot_rails
