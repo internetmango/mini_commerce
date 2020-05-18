@@ -1,0 +1,223 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <title>Mini Shop Storefront</title>
+      <%= stylesheet_link_tag 'storefront/main', media: 'all', 'data-turbolinks-track': 'reload' %>
+   </head>
+   <body>
+      <div class="page-container">
+         <div id="top-nav" class="d-none d-sm-block bg-light smaller-font-size text-muted">
+            <nav class="navbar-expand-md container px-3">
+               <div class="navbar py-0" id="navbarsExampleDefault">
+                  <ul class="navbar-nav mr-auto">
+                    <span class="navbar-text">
+                      <a href='#'>COVID-19 Message</a> <span>&bullet; Home delivery has been resumed</span>
+                    </span>
+                  </ul>
+
+                  <ul class="navbar-nav ml-auto">
+                    <span class="navbar-text">
+                      <a class="text-muted" href="#" aria-haspopup="true" aria-expanded="false">EN</a> &nbsp; <a class="text-muted" href="#" aria-haspopup="true" aria-expanded="false">عربى</a>
+                    </span>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+         <header class="container mt-2">
+            <div class="row align-items-top">
+               <div class="col-lg-3 col-6 py-2">
+                  <a href="/" class="logo">
+                     <%= image_tag 'logo.png', class: 'img-fluid', style: 'max-height: 50px' %>
+                  </a>
+               </div>
+               <div class="col-lg-6 col-12 py-2">
+                  <form class="">
+                     <div class="input-group input-group-lg mb-3" id="search-box" data-component-category>
+                        <select class="custom-select input-group-prepend form-control-lg border-1 bg-light default-font-size">
+                          <option value='0' selected="">All</option>
+                          <option value='2'>Mobiles</option>
+                          <option value='3'>Mobile Accessories</option>
+                          <option value='4'>Headphones</option>
+                          <option value='5'>Smart Watches</option>
+                          <option value='6'>Laptops</option>
+                          <option value='7'>Desktops & PCs</option>
+                          <option value='8'>Computer Accessories</option>
+                          <option value='9'>Speakers</option>
+                          <option value='10'>Smart Home</option>
+                          <option value='11'>Camera & Accessories</option>
+                        </select>
+                        <input type="text" class="form-control default-font-size" placeholder="Search product" aria-label="Search product">
+                        <div class="input-group-append">
+                           <button class="btn btn-primary" type="button"><i class="la la-search"></i></button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               <div class="col-lg-3 d-none d-lg-block py-2">
+                  <div class="float-right" id="mini-cart" data-component-cart>
+                     <a class="btn bg-faded p-0 chevron-big" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="la la-shopping-cart d-inline-block" style="font-size:32px"><span class="cart-items" data-total_items>3</span></i>
+                     </a>
+                  </div>
+                  <div class="dropdown float-right" id="mini-user" data-component-user>
+                     <a class="btn btn-link dropdown-toggle bg-faded p-0 chevron-big" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="la la-user d-inline-block" style="font-size:32px"></i>&ensp;
+                        <div class="d-inline-block text-dark" data-if="login">
+                           <span class="small d-block text-left">My account</span>
+                           <span class="font-weight-bold">Login/Register</span>
+                        </div>
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Register</a>
+                        <a class="dropdown-item" href="#">Login</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <nav class="navbar navbar-light bg-white row navbar-expand-md mt-2 p-0">
+                  <div class="col-lg-4 col-7 pb-2 d-block">
+
+                      <div class="dropdown categories-dropdown">
+                          <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='la la-bars'></i>&nbsp; Categories &nbsp;<i class='la la-chevron-down' style='float:right;'></i></a>
+                          <div class="dropdown-menu bg-theme" aria-labelledby="dropdown04">
+                             <a class="dropdown-item" href="#1">Mobiles</a>
+                             <a class="dropdown-item" href="#2">Mobile Accessories</a>
+                             <a class="dropdown-item" href="#3">Headphones</a>
+                             <a class="dropdown-item" href="#4">Smart Watches</a>
+                             <a class="dropdown-item" href="#5">Laptops</a>
+                             <a class="dropdown-item" href="#6">Desktops & PCs</a>
+                             <a class="dropdown-item" href="#7">Computer Accessories</a>
+                             <a class="dropdown-item" href="#8">Speakers</a>
+                             <a class="dropdown-item" href="#9">Smart Home</a>
+                             <a class="dropdown-item" href="#9">Camera & Accessories</a>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <div class="col-5 d-block d-lg-none pb-2">
+                    <div class="float-right" id="mini-cart" data-component-cart>
+                       <a class="btn bg-faded p-0 chevron-big" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="la la-shopping-cart d-inline-block" style="font-size:32px"><span class="cart-items" data-total_items>3</span></i>
+                       </a>
+                    </div>
+                    <div class="dropdown float-right" id="mini-user" data-component-user>
+                       <a class="btn btn-link dropdown-toggle bg-faded p-0" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="la la-user d-inline-block" style="font-size:32px"></i><div class="text-dark d-none d-md-inline-block d-lg-inline-block" data-if="login">
+                             <span class="small d-block text-left">My account</span>
+                             <span class="font-weight-bold">Login/Register</span>
+                          </div>
+                       </a>
+                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="#">Register</a>
+                          <a class="dropdown-item" href="#">Login</a>
+                       </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8 d-none d-lg-block">
+                    <ul class='navbar-nav float-right'>
+                       <li class="nav-item">
+                          <a class="nav-link" href="#">Delivery</a>
+                       </li>
+                       <li class="nav-item">
+                          <a class="nav-link" href="#">Support</a>
+                       </li>
+                       <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle pr-0" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Offers</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdown04">
+                             <a class="dropdown-item" href="#">FAQ</a>
+                             <a class="dropdown-item" href="#">Our Story</a>
+                          </div>
+                       </li>
+                    </ul>
+                 </div>
+
+            </nav>
+         </header>
+         <%= yield %>
+         <footer class="bg-faded text-muted py-5 mt-5">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-3">
+                    <a href="/" class="logo bg-white">
+                      <%= image_tag 'logo.png', class: 'img-fluid', style: 'max-height: 50px' %>
+                    </a>
+                    <p class="small text-light py-1">Copyright &copy; MiniShop 2019</p>
+                    <div class='mt-4'>
+                      <div class='f-link small py-1 text-light'>
+                        <i class='la la-envelope'></i> &nbsp; <a href='mailto:support@hash32.com'>info@mshop.com</a>
+                      </div>
+                      <div class='f-link small py-1 text-light'>
+                        <i class='la la-phone'></i> &nbsp; +971 908-0987-998
+                      </div>
+                      <div class='f-link my-3'>
+                        <a class='mr-1' href='#'><i class='la la-facebook'></i></a>
+                        <a class='mr-1' href='#'><i class='la la-instagram'></i></a>
+                        <a class='mr-1' href='#'><i class='la la-twitter'></i></a>
+                        <a class='mr-1' href='#'><i class='la la-github'></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                     <h5>Information</h5>
+                     <ul class="list-unstyled">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-sm-3">
+                     <h5>Customer Service</h5>
+                     <ul class="list-unstyled">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Site Map</a></li>
+                     </ul>
+                  </div>
+
+                  <div class="col-sm-3">
+                     <h5>My Account</h5>
+                     <ul class="list-unstyled">
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Order History</a></li>
+                        <li><a href="#">Wish List</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <p class="float-right mb-0">
+                  <a href="#"><span style='font-size: 32px;'><i class="la la-chevron-circle-up"></i></span></a>
+               </p>
+            </div>
+         </footer>
+      </div>
+      <div class="alert alert-info alert-dismissible d-none alert-top" role="alert">
+         <div class="container">
+            <div class="message">
+               Product was added to cart.
+            </div>
+            <button type="button" class="close"  aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+      </div>
+      <!-- Bootstrap core JavaScript
+         ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script -->
+      <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="/storefront/js/main.js"></script>
+      <script src="/storefront/js/owl.carousel.min.js"></script>
+      <%= yield :scripts %>
+   </body>
+</html>
+

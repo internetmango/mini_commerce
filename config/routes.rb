@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # Admin
   namespace :admin do
     resource :dashboard, only: :show
+
     resources :users do
       collection do
         get :search
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
         get :search
       end
     end
+
     resources :products do
       collection do
         get :search
@@ -42,32 +44,39 @@ Rails.application.routes.draw do
         get :reset_password
       end
     end
+
     resources :address, only: [:show]
+
     resources :categories do
       collection do
         get :search
       end
     end
+
     resources :featured_products do
       collection do
         get :search
       end
     end
+
     resources :banner_items
 
     # Settings
     namespace :settings do
       resources :admin_users, only: :index
+
       resources :tax_rates do
         collection do
           get :search
         end
       end
+
       resources :shipping_methods do
         collection do
           get :search
         end
       end
+
       resources :payment_methods do
         collection do
           get :search
@@ -82,6 +91,7 @@ Rails.application.routes.draw do
           post :sales_reports
         end
       end
+      
       resources :product_reports, only: :index do
         collection do
           get :product_stocks_reports
@@ -90,39 +100,54 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :storefront, path: :a do
+    resources :products, only: [:index, :show]
+    resource :home, only: :show
+    resources :orders, only: [] do
+      collection do
+        get :cart
+        get :confirm
+      end
+    end
+    resources :categories, only: :show
+  end
+
   # Api
   namespace :api do
-      namespace :v1 do
-        resources :products,except: [:new] do
-          collection do
-            get :search
-          end
+    namespace :v1 do
+      resources :products,except: [:new] do
+        collection do
+          get :search
         end
-        resources :users, except: [:new, :edit] do
-          member do
-            get :reset_password
-          end
-          resources :addresses
-        end
-        resources :orders, only: [:index, :show, :update]
-        resource :cart do
-          member do
-            post :add_item
-            post :finalize
-          end
-        end
-        resource :account
-        resources :categories, except: [:new, :edit]
-        resources :product_stocks, only: [:index, :show, :update]
-        resources :product_images, except: [:new, :edit]
-        resources :featured_products, only: [:index]
-        resources :wishlist_items
-        resource :register
-        resources :banner_items, only: [:index]
-        post :login, to: 'sessions#create'
-        delete :logout, to: 'sessions#destroy'
-
-        
       end
+
+      resources :users, except: [:new, :edit] do
+        member do
+          get :reset_password
+        end
+        resources :addresses
+      end
+
+      resources :orders, only: [:index, :show, :update]
+
+      resource :cart do
+        member do
+          post :add_item
+          post :finalize
+        end
+      end
+
+      resource :account
+      resources :categories, except: [:new, :edit]
+      resources :product_stocks, only: [:index, :show, :update]
+      resources :product_images, except: [:new, :edit]
+      resources :featured_products, only: [:index]
+      resources :wishlist_items
+      resource :register
+      resources :banner_items, only: [:index]
+
+      post :login, to: 'sessions#create'
+      delete :logout, to: 'sessions#destroy'
+    end
   end
 end
