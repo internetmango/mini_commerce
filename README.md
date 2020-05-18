@@ -1,3 +1,7 @@
+[![pipeline status](https://gitlab.com/internetmango/mini_shop/badges/master/pipeline.svg)](https://gitlab.com/internetmango/mini_shop/-/commits/master)
+[![coverage report](https://gitlab.com/internetmango/mini_shop/badges/master/coverage.svg)](https://gitlab.com/internetmango/mini_shop/-/commits/master)
+
+
 # Mini Shop
 
 Mini Shop is a basic e-commerce solution built with Ruby on Rails 6.0
