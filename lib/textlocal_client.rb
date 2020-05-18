@@ -7,7 +7,7 @@ require 'json'
 
 class TextlocalClient
   ENDPOINT = 'https://api.textlocal.in/send/?'
-  TL_APIKEY = Rails.application.credentials.dig(:textlocal, :TL_APIKEY) # Get the key from TextLocal.in
+  TL_APIKEY = Rails.application.credentials.dig(:textlocal, :TL_APIKEY)
 
   def self.send_sms(mobile_number, message)
     uri = URI.parse(ENDPOINT)

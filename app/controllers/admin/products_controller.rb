@@ -55,7 +55,7 @@ module Admin
         value = params[:q]
         @pagy, @products = pagy(Product.search_by_term(value))
       else
-        @products = Product.all
+        @pagy, @products = pagy(Product.order(updated_at: :desc))
       end
       render :index
     end

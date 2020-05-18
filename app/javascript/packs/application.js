@@ -23,9 +23,10 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+//= require Chart.min
 
-$(document).ready(function(){
-  $('.datepicker').datepicker({
-    format: 'dd/mm/yyyy'
-  });
-});
+// $(document).ready(function(){
+//   $('.datepicker').datepicker({
+//     format: 'dd/mm/yyyy'
+//   });
+// });

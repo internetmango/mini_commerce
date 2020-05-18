@@ -1,7 +1,7 @@
-= link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-primary btn-sm' do
+= link_to admin_reports_sales_reports_path, class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'arrow-left-circle'}
 &nbsp;
-= link_to get_sales_reports_admin_reports_reports_path, class: 'btn btn-primary btn-sm' do
+= link_to admin_reports_sales_reports_path, class: 'btn btn-primary btn-sm' do
   %span{'data-feather' => 'refresh-cw'}
 .row
   .col-12
@@ -9,7 +9,7 @@
 .row
   .col-12
     .py-3
-      = form_for :report, url: sales_reports_admin_reports_reports_path, :html => {class: "form-inline"} do |f|
+      = form_for :report, url: sales_reports_admin_reports_sales_reports_path, :html => {class: "form-inline"} do |f|
         .form-group
           = f.label :start_date
           &nbsp;

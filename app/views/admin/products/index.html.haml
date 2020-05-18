@@ -12,8 +12,13 @@
         Upload CSV
       &nbsp;
       = link_to export_csv_admin_products_path(format: "csv"), class: "btn btn-primary btn-sm" do
-        %span{'data-feather' => 'Download'}
+        %span{'data-feather' => 'download'}
         Sample CSV
+      &nbsp;
+      = link_to admin_reports_product_reports_path, class: "btn btn-danger btn-sm" do
+        %span{'data-feather' => 'trending-down'}
+        Low Stock
+
 .row
   .col-12
     .py-3
